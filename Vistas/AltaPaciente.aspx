@@ -318,7 +318,7 @@
                         <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationGroup="0">Completar</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style8">
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="0">Ingrese un numero sin el  0 / 15</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="0" ValidationExpression="^(\d{10})$">Ingrese un numero sin el  0 / 15</asp:RegularExpressionValidator>
                     </td>
                     <td class="auto-style4">&nbsp;</td>
                     <td>&nbsp;</td>
