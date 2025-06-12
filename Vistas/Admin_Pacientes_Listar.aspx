@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListarPaciente.aspx.cs" Inherits="Vistas.ListarPaciente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Pacientes_Listar.aspx.cs" Inherits="Vistas.ListarPaciente" %>
 
 <!DOCTYPE html>
 

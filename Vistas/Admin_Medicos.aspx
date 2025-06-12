@@ -86,7 +86,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:Button ID="btnModificarMedicos" runat="server" OnClick="btnModificarP_Click" Text="Modificar" Width="100px" />
+                    </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -95,7 +97,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style4"></td>
-                    <td class="auto-style8"></td>
+                    <td class="auto-style8">
+                        <asp:Button ID="btnBajaMedicos" runat="server" OnClick="btnModificarP_Click" Text="Modificar" Width="100px" />
+                    </td>
                     <td class="auto-style2"></td>
                     <td class="auto-style2"></td>
                     <td class="auto-style2"></td>
@@ -103,7 +107,18 @@
                     <td class="auto-style6"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style8">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
+                    </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>

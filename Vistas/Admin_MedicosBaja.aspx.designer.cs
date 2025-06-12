@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class Admin_Medicos
+    public partial class BajaMedicos
     {
 
         /// <summary>
@@ -24,66 +24,57 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control labelTipoUsuario.
+        /// Control labelMedico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelTipoUsuario;
+        protected global::System.Web.UI.WebControls.Label labelMedico;
 
         /// <summary>
-        /// Control labelNombreUsuario.
+        /// Control labelLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelNombreUsuario;
+        protected global::System.Web.UI.WebControls.Label labelLegajo;
 
         /// <summary>
-        /// Control buttonAltaMedicos.
+        /// Control textboxLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonAltaMedicos;
+        protected global::System.Web.UI.WebControls.TextBox textboxLegajo;
 
         /// <summary>
-        /// Control buttonBajaMedicos.
+        /// Control rfvLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonBajaMedicos;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLegajo;
 
         /// <summary>
-        /// Control btnModificarMedicos.
+        /// Control buttonBajaMedico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarMedicos;
+        protected global::System.Web.UI.WebControls.Button buttonBajaMedico;
 
         /// <summary>
-        /// Control btnBajaMedicos.
+        /// Control buttonVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBajaMedicos;
-
-        /// <summary>
-        /// Control btnVolver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVolver;
+        protected global::System.Web.UI.WebControls.Button buttonVolver;
     }
 }

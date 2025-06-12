@@ -7,16 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace Vistas
 {
-    public partial class Admin_Medicos : System.Web.UI.Page
+    public partial class Admin_Modificar_Medico : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnAltaP_Click(object sender, EventArgs e)
+        protected void btnVolver_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

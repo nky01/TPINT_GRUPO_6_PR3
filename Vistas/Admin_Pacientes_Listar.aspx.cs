@@ -7,16 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace Vistas
 {
-    public partial class Admin_Medicos : System.Web.UI.Page
+    public partial class ListarPaciente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnAltaP_Click(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Pacientes.aspx");
         }
     }
 }
