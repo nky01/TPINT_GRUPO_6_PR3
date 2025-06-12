@@ -67,17 +67,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminVista.aspx" />
+    <Content Include="Admin_Medicos.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MiraeLogo.png" />
+    <Content Include="Admin_Pacientes.aspx" />
     <Content Include="RegistrarCuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminVista.aspx.cs">
+      <DependentUpon>AdminVista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminVista.aspx.designer.cs">
+      <DependentUpon>AdminVista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Medicos.aspx.cs">
+      <DependentUpon>Admin_Medicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Medicos.aspx.designer.cs">
+      <DependentUpon>Admin_Medicos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Pacientes.aspx.cs">
+      <DependentUpon>Admin_Pacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Pacientes.aspx.designer.cs">
+      <DependentUpon>Admin_Pacientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarCuenta.aspx.cs">
