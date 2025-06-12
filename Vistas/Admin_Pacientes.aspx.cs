@@ -33,5 +33,10 @@ namespace Vistas
         {
             Response.Redirect("ListarPaciente.aspx");
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminVista.aspx");
+        }
     }
 }
