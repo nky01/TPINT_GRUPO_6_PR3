@@ -1,7 +1,40 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\bajamedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\bajamedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\bajapaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\bajapaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\altamedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\altamedicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\altapaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\altapaciente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_medicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_pacientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +42,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BajaPaciente.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\BajaPaciente.aspx",
+              "RelativeDocumentMoniker": "Vistas\\BajaPaciente.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\BajaPaciente.aspx",
+              "RelativeToolTip": "Vistas\\BajaPaciente.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T16:14:44.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BajaMedicos.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\BajaMedicos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\BajaMedicos.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\BajaMedicos.aspx",
+              "RelativeToolTip": "Vistas\\BajaMedicos.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T16:14:12.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AltaMedicos.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AltaMedicos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\AltaMedicos.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AltaMedicos.aspx",
+              "RelativeToolTip": "Vistas\\AltaMedicos.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T15:34:39.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AltaPaciente.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AltaPaciente.aspx",
+              "RelativeDocumentMoniker": "Vistas\\AltaPaciente.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AltaPaciente.aspx",
+              "RelativeToolTip": "Vistas\\AltaPaciente.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T15:34:49.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Admin_Pacientes.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes.aspx.cs",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes.aspx.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T15:33:36.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin_Pacientes.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T15:28:47.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Admin_Medicos.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Medicos.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Medicos.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-12T15:28:33.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Login.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
+              "RelativeToolTip": "Vistas\\Login.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-04T19:09:38.597Z",
+              "EditorCaption": ""
             }
           ]
         }

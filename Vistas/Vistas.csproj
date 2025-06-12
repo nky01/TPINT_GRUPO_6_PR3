@@ -69,7 +69,9 @@
   <ItemGroup>
     <Content Include="AdminVista.aspx" />
     <Content Include="Admin_Medicos.aspx" />
+    <Content Include="AltaMedicos.aspx" />
     <Content Include="AltaPaciente.aspx" />
+    <Content Include="BajaMedicos.aspx" />
     <Content Include="BajaPaciente.aspx" />
     <Content Include="ListarPaciente.aspx" />
     <Content Include="Login.aspx" />
@@ -94,12 +96,26 @@
     <Compile Include="Admin_Medicos.aspx.designer.cs">
       <DependentUpon>Admin_Medicos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AltaMedicos.aspx.cs">
+      <DependentUpon>AltaMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaMedicos.aspx.designer.cs">
+      <DependentUpon>AltaMedicos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AltaPaciente.aspx.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BajaMedicos.aspx.cs">
+      <DependentUpon>BajaMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BajaMedicos.aspx.designer.cs">
+      <DependentUpon>BajaMedicos.aspx</DependentUpon>
     </Compile>
     <Compile Include="BajaPaciente.aspx.cs">
       <DependentUpon>BajaPaciente.aspx</DependentUpon>

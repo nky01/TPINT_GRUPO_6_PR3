@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class Admin_Medicos
+    public partial class BajaMedicos
     {
 
         /// <summary>
@@ -24,39 +24,57 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// labelTipoUsuario control.
+        /// labelMedico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelTipoUsuario;
+        protected global::System.Web.UI.WebControls.Label labelMedico;
 
         /// <summary>
-        /// labelNombreUsuario control.
+        /// labelLegajo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelNombreUsuario;
+        protected global::System.Web.UI.WebControls.Label labelLegajo;
 
         /// <summary>
-        /// buttonAltaMedicos control.
+        /// textboxLegajo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonAltaMedicos;
+        protected global::System.Web.UI.WebControls.TextBox textboxLegajo;
 
         /// <summary>
-        /// buttonBajaMedicos control.
+        /// rfvLegajo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonBajaMedicos;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLegajo;
+
+        /// <summary>
+        /// buttonBajaMedico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttonBajaMedico;
+
+        /// <summary>
+        /// buttonVolver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button buttonVolver;
     }
 }
