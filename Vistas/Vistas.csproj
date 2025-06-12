@@ -76,6 +76,10 @@
     <Content Include="Admin_MedicosBaja.aspx" />
     <Content Include="Admin_Pacientes_Baja.aspx" />
     <Content Include="Admin_Pacientes_Listar.aspx" />
+    <Content Include="Admin_Turnos.aspx" />
+    <Content Include="Admin_Turnos_Alta.aspx" />
+    <Content Include="Admin_Turnos_Baja.aspx" />
+    <Content Include="Admin_Turnos_Listado.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiraeLogo.png" />
     <Content Include="Admin_Pacientes.aspx" />
@@ -146,6 +150,34 @@
     </Compile>
     <Compile Include="Admin_Pacientes_Listar.aspx.designer.cs">
       <DependentUpon>Admin_Pacientes_Listar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Turnos.aspx.cs">
+      <DependentUpon>Admin_Turnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Turnos.aspx.designer.cs">
+      <DependentUpon>Admin_Turnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Turnos_Alta.aspx.cs">
+      <DependentUpon>Admin_Turnos_Alta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Turnos_Alta.aspx.designer.cs">
+      <DependentUpon>Admin_Turnos_Alta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Turnos_Baja.aspx.cs">
+      <DependentUpon>Admin_Turnos_Baja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Turnos_Baja.aspx.designer.cs">
+      <DependentUpon>Admin_Turnos_Baja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Turnos_Listado.aspx.cs">
+      <DependentUpon>Admin_Turnos_Listado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Turnos_Listado.aspx.designer.cs">
+      <DependentUpon>Admin_Turnos_Listado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
