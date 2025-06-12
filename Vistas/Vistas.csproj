@@ -69,9 +69,13 @@
   <ItemGroup>
     <Content Include="AdminVista.aspx" />
     <Content Include="Admin_Medicos.aspx" />
+    <Content Include="AltaPaciente.aspx" />
+    <Content Include="BajaPaciente.aspx" />
+    <Content Include="ListarPaciente.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiraeLogo.png" />
     <Content Include="Admin_Pacientes.aspx" />
+    <Content Include="ModificarPaciente.aspx" />
     <Content Include="RegistrarCuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -90,6 +94,27 @@
     <Compile Include="Admin_Medicos.aspx.designer.cs">
       <DependentUpon>Admin_Medicos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AltaPaciente.aspx.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaPaciente.aspx.designer.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BajaPaciente.aspx.cs">
+      <DependentUpon>BajaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BajaPaciente.aspx.designer.cs">
+      <DependentUpon>BajaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPaciente.aspx.cs">
+      <DependentUpon>ListarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarPaciente.aspx.designer.cs">
+      <DependentUpon>ListarPaciente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +128,13 @@
     </Compile>
     <Compile Include="Admin_Pacientes.aspx.designer.cs">
       <DependentUpon>Admin_Pacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.designer.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarCuenta.aspx.cs">

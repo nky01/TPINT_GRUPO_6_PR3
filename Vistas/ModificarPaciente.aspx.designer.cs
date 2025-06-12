@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class Pacientes
+    public partial class ModificarPaciente
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// Control Label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// Control Label3.
         /// </summary>
         /// <remarks>
@@ -42,39 +51,21 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control btnAltaP.
+        /// Control Label4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAltaP;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control btnBajaP.
+        /// Control TextBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBajaP;
-
-        /// <summary>
-        /// Control btnModificarP.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarP;
-
-        /// <summary>
-        /// Control btnListarP.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnListarP;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
     }
 }

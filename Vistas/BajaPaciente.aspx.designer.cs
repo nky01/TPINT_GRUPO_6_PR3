@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class Pacientes
+    public partial class BajaPaciente
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// Control Label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// Control Label3.
         /// </summary>
         /// <remarks>
@@ -42,39 +51,48 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control btnAltaP.
+        /// Control txtDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAltaP;
+        protected global::System.Web.UI.WebControls.TextBox txtDni;
 
         /// <summary>
-        /// Control btnBajaP.
+        /// Control rfvDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBajaP;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDni;
 
         /// <summary>
-        /// Control btnModificarP.
+        /// Control revDni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarP;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDni;
 
         /// <summary>
-        /// Control btnListarP.
+        /// Control btnBaja.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnListarP;
+        protected global::System.Web.UI.WebControls.Button btnBaja;
+
+        /// <summary>
+        /// Control btnVolver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
     }
 }
