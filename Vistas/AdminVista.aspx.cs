@@ -23,5 +23,10 @@ namespace Vistas
         {
             Response.Redirect("Admin_Medicos.aspx");
         }
+
+        protected void CerrarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
