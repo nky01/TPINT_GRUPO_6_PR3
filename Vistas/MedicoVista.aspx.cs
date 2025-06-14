@@ -14,12 +14,12 @@ namespace Vistas
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnTurno_Click(object sender, EventArgs e)
         {
             Response.Redirect("MedicoTurnos.aspx");
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void btnCargarObservaciones_Click(object sender, EventArgs e)
         {
             Response.Redirect("MedicoCargar.aspx");
         }

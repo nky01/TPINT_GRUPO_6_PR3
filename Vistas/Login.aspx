@@ -1,83 +1,104 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Vistas.Login" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
+    <meta charset="utf-8" />
+    <title>Login - Grupo Médico</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fdfefe;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-container {
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .login-container img.logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-txt {
             width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
         }
-        .auto-style3 {
-            height: 100px;
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
         }
-        .auto-style4 {
-            height: 30px;
+
+        .login-btn:hover {
+            background-color: #0056b3;
         }
-        .auto-style5 {
-            width: 83px;
+
+        .link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
         }
-        .auto-style6 {
-            height: 30px;
-            width: 83px;
+
+        .link:hover {
+            text-decoration: underline;
         }
-        .auto-style7 {
-            height: 23px;
+
+        .error {
+            color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style3" colspan="3">
-                        <asp:Label ID="lblBienvenido" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="16pt" Text="Bienvenido a NombrePag"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td rowspan="6">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style6">
-                        <asp:Label ID="lblUser" runat="server" Text="Usuario:"></asp:Label>
-                    </td>
-                    <td class="auto-style4">
-                        <asp:TextBox ID="txtboxUser" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtboxUser" ErrorMessage="Ingrese su usuario!" ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
-                        <asp:Label ID="lblPassword" runat="server" Text="Contraseña:"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtboxPassword" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtboxPassword" ErrorMessage="Ingrese su contraseña!" ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td>
-                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style5" rowspan="2">&nbsp;</td>
-                    <td>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RegistrarCuenta.aspx">¿No tienes cuenta? Regristrate</asp:HyperLink>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style7">
-                        <asp:Label ID="lblErrorLogin" runat="server" ForeColor="Red" Text="Usuario o contraseña incorrectos!" Visible="False"></asp:Label>
-                    </td>
-                </tr>
-            </table>
+        <div class="login-container">
+            <img class="logo" src="MiraeLogo.png" alt="Logo Mirae" />
+            <h2>Mirae Clinica Integral</h2>
+
+            <asp:TextBox ID="txtboxUser" runat="server" CssClass="input-txt" placeholder="DNI"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtboxUser" ErrorMessage="Ingrese su usuario!" ForeColor="Red" Display="Dynamic" />
+
+            <asp:TextBox ID="txtboxPassword" runat="server" TextMode="Password" CssClass="input-txt" placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtboxPassword" ErrorMessage="Ingrese su contraseña!" ForeColor="Red" Display="Dynamic" />
+
+            <asp:Button ID="btnIngresar" runat="server" Text="Iniciar sesión" CssClass="login-btn" />
+
+            <asp:Label ID="lblErrorLogin" runat="server" ForeColor="Red" CssClass="error" Text="Usuario o contraseña incorrectos!" Visible="False"></asp:Label>
+
+            <a class="link" href="#">¿Ha olvidado su contraseña?</a>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RegistrarCuenta.aspx" CssClass="link">Crear nuevo usuario</asp:HyperLink>
         </div>
     </form>
 </body>
