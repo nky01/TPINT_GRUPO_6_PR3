@@ -213,27 +213,29 @@
                     <td class="auto-style16">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="Localidad" runat="server" Text="Localidad:"></asp:Label>
+                    <td class="auto-style4">
+                        <asp:Label ID="labelProvincia" runat="server" Text="Provincia:"></asp:Label>
                     </td>
-                    <td class="auto-style3">
-                        <asp:TextBox ID="textboxLocalidad" runat="server" Width="100px"></asp:TextBox>
+                    <td class="auto-style5">
+                        <asp:DropDownList ID="ddlProvincia" runat="server">
+                        </asp:DropDownList>
                     </td>
-                    <td class="auto-style9">
-                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="textboxLocalidad" ForeColor="#CC0000" ValidationGroup="0">Completar Localidad</asp:RequiredFieldValidator>
+                    <td class="auto-style10">
+                        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione Provincia</asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style16">&nbsp;</td>
+                    <td class="auto-style8"></td>
+                    <td class="auto-style6"></td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="labelProvincia" runat="server" Text="Provincia:"></asp:Label>
+                        <asp:Label ID="labelLocalidad" runat="server" Text="Localidad:"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="textboxProvincia" runat="server" Width="100px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlLocalidad" runat="server">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style9">
-                        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="textboxProvincia" ForeColor="#CC0000" ValidationGroup="0">Completar Provincia</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione Localidad</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style16">&nbsp;</td>
@@ -273,10 +275,11 @@
                         <asp:Label ID="labelEspecialidad" runat="server" Text="Especialidad:"></asp:Label>
                     </td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="textboxEspecialidad" runat="server" Width="100px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlEspecialidad" runat="server">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style9">
-                        <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="textboxEspecialidad" ForeColor="#CC0000" ValidationGroup="0">Completar Especialidad</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione Especialidad</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td class="auto-style16">&nbsp;</td>
@@ -354,7 +357,7 @@
                         <asp:Button ID="buttonVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
                     </td>
                     <td class="auto-style3">
-                        <asp:Button ID="buttonAgregar" runat="server" OnClick="Button1_Click" Text="Agregar" ValidationGroup="0" Width="100px" />
+                        <asp:Button ID="buttonAgregar" runat="server" OnClick="Button1_Click" Text="Agregar" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que quieres añadirlo?');" />
                         </td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>

@@ -51,7 +51,7 @@
             <asp:RequiredFieldValidator ID="rfvHora" runat="server" ControlToValidate="ddlHora" ErrorMessage="Por favor seleccione una hora." ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
-            <asp:Button ID="AltaTurnoBtn" runat="server" Text="Generar Turno" />
+            <asp:Button ID="AltaTurnoBtn" runat="server" Text="Generar Turno" OnClientClick="return confirm('¿Estás seguro que quieres generar este turno?');" />
             <br />
             <br />
             <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" />

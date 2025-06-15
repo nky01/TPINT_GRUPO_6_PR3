@@ -17,8 +17,8 @@
             <br />
             <br />
             <br />
-            Escriba el DNI del paciente:<asp:TextBox ID="txtPaciente" runat="server"></asp:TextBox>
-            <asp:Button ID="cancelarTurnoBtn" runat="server" Text="Cancelar Turno" />
+            Escriba el ID del turno:<asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+            <asp:Button ID="cancelarTurnoBtn" runat="server" Text="Cancelar Turno" OnClientClick="return confirm('¿Estás seguro quieres cancelar este turno?');"  />
             <br />
             <br />
             <br />

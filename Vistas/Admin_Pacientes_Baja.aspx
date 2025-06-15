@@ -89,7 +89,7 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style5">
-                        <asp:Button ID="btnBaja" runat="server" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" />
+                        <asp:Button ID="btnBaja" runat="server" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que lo quieres dar de baja?');" />
                     </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td>&nbsp;</td>

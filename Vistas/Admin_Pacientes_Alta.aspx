@@ -82,6 +82,25 @@
             width: 117px;
             height: 26px;
         }
+        .auto-style27 {
+            width: 135px;
+            height: 42px;
+        }
+        .auto-style28 {
+            width: 194px;
+            height: 42px;
+        }
+        .auto-style29 {
+            width: 117px;
+            height: 42px;
+        }
+        .auto-style30 {
+            height: 42px;
+        }
+        .auto-style31 {
+            width: 737px;
+            height: 42px;
+        }
     </style>
 </head>
 <body>
@@ -231,18 +250,18 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style9">
+                    <td class="auto-style27"></td>
+                    <td class="auto-style28">
                         <asp:Label ID="Label11" runat="server" Text="Fecha de nacimiento"></asp:Label>
                     </td>
-                    <td class="auto-style24">
+                    <td class="auto-style29">
                         <asp:TextBox ID="txtFechaNacimiento" TextMode="Date" runat="server" Width="100px"></asp:TextBox>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" class="auto-style30">
                         <asp:RequiredFieldValidator ID="rfvFechaNacimiento" runat="server" ControlToValidate="txtFechaNacimiento" ForeColor="#CC0000" ValidationGroup="0">Poner una fecha valida</asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style31"></td>
+                    <td class="auto-style30"></td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
@@ -262,32 +281,34 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style9">
-                        <asp:Label ID="Label13" runat="server" Text="Localidad"></asp:Label>
+                        <asp:Label ID="Label13" runat="server" Text="Provincia"></asp:Label>
                     </td>
                     <td class="auto-style24">
-                        <asp:TextBox ID="txtLocalidad" runat="server" Width="100px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlProvincia" runat="server">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="txtLocalidad" ForeColor="#CC0000" ValidationGroup="0">Completar</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione una provincia</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style8">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2"></td>
                     <td class="auto-style9">
-                        <asp:Label ID="Label14" runat="server" Text="Provincia"></asp:Label>
+                        <asp:Label ID="Localidad" runat="server" Text="Localidad"></asp:Label>
                     </td>
                     <td class="auto-style24">
-                        <asp:TextBox ID="txtProvincia" runat="server" Width="100px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlLocalidad" runat="server">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style7">
-                        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="txtProvincia" ForeColor="#CC0000" ValidationGroup="0">Completar</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ForeColor="#CC0000" ValidationGroup="0">Seleccione una localidad</asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style8"></td>
+                    <td class="auto-style4"></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="auto-style17"></td>
@@ -340,7 +361,7 @@
                     <td class="auto-style9">
                         &nbsp;</td>
                     <td class="auto-style24">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar" ValidationGroup="0" Width="100px" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que quieres añadirlo?');" />
                         <asp:Label ID="lblExito" runat="server" ForeColor="#33CC33" Text="Agregado correctamente" Visible="False"></asp:Label>
                     </td>
                     <td class="auto-style7">
