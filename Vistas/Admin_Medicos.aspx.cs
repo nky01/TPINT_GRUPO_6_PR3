@@ -13,10 +13,5 @@ namespace Vistas
         {
 
         }
-
-        protected void btnAltaP_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

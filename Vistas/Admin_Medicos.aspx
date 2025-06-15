@@ -7,126 +7,95 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
+         * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .auto-style2 {
-            height: 26px;
+
+         body {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .auto-style3 {
-            width: 167px;
+
+         .container-1,
+        .container-3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
         }
-        .auto-style4 {
-            height: 26px;
-            width: 167px;
+
+         
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
         }
-        .auto-style5 {
-            width: 179px;
+
+         .container-3 {
+            background-color: #e9ecef;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+         gap: 10px;
         }
-        .auto-style6 {
-            height: 26px;
-            width: 179px;
+         .medic-container{
+
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+         }
+         .medic-btn {
+            width: 30%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
         }
-        .auto-style7 {
-            width: 160px;
+
+        .container-3-btn {
+            padding: 10px 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+
         }
-        .auto-style8 {
-            height: 26px;
-            width: 160px;
-        }
+
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Label ID="labelTipoUsuario" runat="server"></asp:Label>
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">
-                        <asp:Label ID="labelNombreUsuario" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="buttonAltaMedicos" runat="server" OnClick="btnAltaP_Click" Text="Alta" Width="100px" />
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="buttonBajaMedicos" runat="server" OnClick="btnBajaP_Click" Text="Baja" Width="100px" />
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="btnModificarMedicos" runat="server" OnClick="btnModificarP_Click" Text="Modificar" Width="100px" />
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4"></td>
-                    <td class="auto-style8">
-                        <asp:Button ID="btnBajaMedicos" runat="server" OnClick="btnModificarP_Click" Text="Modificar" Width="100px" />
-                    </td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style6"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-            </table>
+         <div class="container-1">
+                        <asp:Label ID="labelTipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
+                         <asp:Label ID="labelNombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
+             </div>
+        <div class ="medic-container">
+                         <asp:Button ID="buttonAltaMedicos" runat="server" Text="Alta" CssClass="medic-btn" />
+                         <asp:Button ID="buttonBajaMedicos" runat="server" Text="Baja" CssClass="medic-btn" />
+                         <asp:Button ID="btnModificarMedicos" runat="server" Text="Modificar" CssClass="medic-btn" />
+                         <asp:Button ID="btnListadoMedicos" runat="server" Text="Listado" CssClass="medic-btn" />
+        </div>
+        <div class ="container-3">
+            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn"/>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
         </div>
     </form>
 </body>

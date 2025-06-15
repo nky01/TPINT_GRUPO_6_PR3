@@ -11,10 +11,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #F6F6F6;
         }
 
         body {
-            background-color: #fdfefe;
+            background-color: #F6F6F6;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -27,6 +28,7 @@
             width: 400px;
             text-align: center;
             margin-top: 60px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
         }
 
         .login-container img.logo {
