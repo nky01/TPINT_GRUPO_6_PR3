@@ -96,9 +96,9 @@
 <body>
     <form id="form1" runat="server">
         <div class ="header">
-            <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
+            <asp:Label ID="lblTipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
             <br />
-            <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
+            <asp:Label ID="lblNombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
         </div>
        <div class="container">
     <div class="filter-section">
