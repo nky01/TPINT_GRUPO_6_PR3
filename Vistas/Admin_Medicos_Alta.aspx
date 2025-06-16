@@ -1,190 +1,208 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Medicos_Alta.aspx.cs" Inherits="Vistas.AltaMedicos" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-               * {
+    <title>Alta de Médicos</title>
+    <style>
+        * {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-          body {
-            background-color: #F6F6F6;
-            width: 100vw;
-            height: 100vh;
+
+        body {
+            background-color: #f6f6f6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-          .container-1,
-        .container-3 {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
-
 
         .container-1 {
             background-color: #8aaeea;
             color: white;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
             font-weight: bold;
+            font-size: 16px;
         }
 
-        .alta-container{
-
-           background-color: #F6F6F6;
-           width: 100vw;
-           min-height: 30vh;
-           display: flex;
-           justify-content: center;
-           padding: 10px 20px;
-           gap: 10px;
-
-         }
+        .alta-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            padding: 30px 20px;
+            gap: 40px;
+            background-color: white;
+        }
 
         .columna {
-         width: 45%;
-        display: flex;
-         flex-direction: column;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
         }
 
-.columna > * {
-    margin-bottom: 10px;
-}
-         .alta-btn {
-            width: 30%;
-            padding: 12px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 16px;
-            margin-top: 15px;
-            cursor: pointer;
+        .columna > * {
+            margin-bottom: 10px;
         }
 
+        input[type="text"], select {
+            padding: 8px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .alta-btn,
         .container-3-btn {
-            padding: 10px 16px;
-            background-color: #007bff;
+            padding: 12px;
+            background-color: #8aaeea;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
             font-size: 14px;
             cursor: pointer;
-
         }
 
+        .alta-btn:hover,
+        .container-3-btn:hover {
+            background-color: #274ede;
+        }
 
+        .container-3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        .validator {
+            color: red;
+            font-size: 13px;
+        }
+
+        .radio-list,
+        .check-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-list label,
+        .check-list label {
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-         <div class="container-1">
-                        <asp:Label ID="labelTipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
-                         <asp:Label ID="labelNombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
-             </div>
-         <div class="alta-container">
-    <div class="columna">
-        <asp:Label ID="labelHeader" runat="server" Font-Bold="True" Font-Size="15pt" Text="Datos del médico:"></asp:Label>
-        <asp:Label ID="labelLegajo" runat="server" Text="Legajo:"></asp:Label>
-        <asp:TextBox ID="textboxLegajo" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ForeColor="#CC0000" ValidationGroup="0">Completar el legajo</asp:RequiredFieldValidator>
+        <div class="container-1">
+            <asp:Label ID="labelTipoUsuario" runat="server" Text="TipoUsuario"></asp:Label>
+            <asp:Label ID="labelNombreUsuario" runat="server" Text="NombreUsuario"></asp:Label>
+        </div>
 
-        <asp:Label ID="labelDNI" runat="server" Text="DNI:"></asp:Label>
-        <asp:TextBox ID="textboxDNI" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="textboxDNI" ForeColor="#CC0000" ValidationGroup="0">Completar DNI</asp:RequiredFieldValidator>
+        <div class="alta-container">
+            <div class="columna">
+                <asp:Label runat="server" Font-Bold="True" Font-Size="15pt" Text="Datos del médico:" />
+                <asp:Label runat="server" Text="Legajo:" />
+                <asp:TextBox ID="textboxLegajo" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ValidationGroup="0" Text="* Completar el legajo" />
 
-        <asp:Label ID="labelNombre" runat="server" Text="Nombre:"></asp:Label>
-        <asp:TextBox ID="textboxNombre" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="textboxNombre" ForeColor="#CC0000" ValidationGroup="0">Completar Nombre</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="DNI:" />
+                <asp:TextBox ID="textboxDNI" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvDni" runat="server" ControlToValidate="textboxDNI" ValidationGroup="0" Text="* Completar DNI" />
 
-        <asp:Label ID="labelApellido" runat="server" Text="Apellido:"></asp:Label>
-        <asp:TextBox ID="textboxApellido" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="textboxApellido" ForeColor="#CC0000" ValidationGroup="0">Completar Apellido</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="Nombre:" />
+                <asp:TextBox ID="textboxNombre" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvNombre" runat="server" ControlToValidate="textboxNombre" ValidationGroup="0" Text="* Completar Nombre" />
 
-        <asp:Label ID="labelSexo" runat="server" Text="Sexo:"></asp:Label>
-        <asp:RadioButtonList ID="radioButtonSexo" runat="server">
-            <asp:ListItem>Masculino</asp:ListItem>
-            <asp:ListItem>Femenino</asp:ListItem>
-            <asp:ListItem>No Especificado</asp:ListItem>
-        </asp:RadioButtonList>
-        <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ControlToValidate="radioButtonSexo" ForeColor="#CC0000" ValidationGroup="0">Ingresar un sexo</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="Apellido:" />
+                <asp:TextBox ID="textboxApellido" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvApellido" runat="server" ControlToValidate="textboxApellido" ValidationGroup="0" Text="* Completar Apellido" />
 
-        <asp:Label ID="labelNacionalidad" runat="server" Text="Nacionalidad:"></asp:Label>
-        <asp:TextBox ID="textboxNacionalidad" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="textboxNacionalidad" ForeColor="#CC0000" ValidationGroup="0">Completar Nacionalidad</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="Sexo:" />
+                <asp:RadioButtonList ID="radioButtonSexo" runat="server" CssClass="radio-list">
+                    <asp:ListItem>Masculino</asp:ListItem>
+                    <asp:ListItem>Femenino</asp:ListItem>
+                    <asp:ListItem>No Especificado</asp:ListItem>
+                </asp:RadioButtonList>
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvSexo" runat="server" ControlToValidate="radioButtonSexo" ValidationGroup="0" Text="* Seleccione un sexo" />
 
-        <asp:Label ID="labelNacimiento" runat="server" Text="Fecha de Nacimiento:"></asp:Label>
-        <asp:TextBox ID="textboxFecha" runat="server" Width="100px"></asp:TextBox>
+                <asp:Label runat="server" Text="Nacionalidad:" />
+                <asp:TextBox ID="textboxNacionalidad" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvNacionalidad" runat="server" ControlToValidate="textboxNacionalidad" ValidationGroup="0" Text="* Completar Nacionalidad" />
 
-        <asp:Label ID="labelDireccion" runat="server" Text="Direccion:"></asp:Label>
-        <asp:TextBox ID="textboxDireccion" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="textboxDireccion" ForeColor="#CC0000" ValidationGroup="0">Completar Direccion</asp:RequiredFieldValidator>
-    </div>
+                <asp:Label runat="server" Text="Fecha de Nacimiento:" />
+                <asp:TextBox ID="textboxFecha" runat="server" />
 
-    <div class="columna">
-        <asp:Label ID="labelProvincia" runat="server" Text="Provincia:"></asp:Label>
-        <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
-        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione Provincia</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="Dirección:" />
+                <asp:TextBox ID="textboxDireccion" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvDireccion" runat="server" ControlToValidate="textboxDireccion" ValidationGroup="0" Text="* Completar Dirección" />
+            </div>
 
-        <asp:Label ID="labelLocalidad" runat="server" Text="Localidad:"></asp:Label>
-        <asp:DropDownList ID="ddlLocalidad" runat="server"></asp:DropDownList>
-        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ForeColor="#CC0000" ValidationGroup="0" InitialValue="0">Seleccione Localidad</asp:RequiredFieldValidator>
+            <div class="columna">
+                <asp:Label runat="server" Text="Provincia:" />
+                <asp:DropDownList ID="ddlProvincia" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" InitialValue="0" ValidationGroup="0" Text="* Seleccione Provincia" />
 
-        <asp:Label ID="labelEmail" runat="server" Text="Correo Electronico:"></asp:Label>
-        <asp:TextBox ID="textboxEmail" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="textboxEmail" ForeColor="#CC0000" ValidationGroup="0">Completar Email</asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="revCorreo" runat="server" ControlToValidate="textboxEmail" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ValidationGroup="0">Ingrese un correo valido</asp:RegularExpressionValidator>
+                <asp:Label runat="server" Text="Localidad:" />
+                <asp:DropDownList ID="ddlLocalidad" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" InitialValue="0" ValidationGroup="0" Text="* Seleccione Localidad" />
 
-        <asp:Label ID="labelTelefono" runat="server" Text="Telefono:"></asp:Label>
-        <asp:TextBox ID="textboxTelefono" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="textboxTelefono" ForeColor="#CC0000" ValidationGroup="0">Completar Telefono</asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="revTelefono" runat="server" ControlToValidate="textboxTelefono" ForeColor="Red" ValidationGroup="0" ValidationExpression="^(\d{10})$">Ingrese un numero sin el 0 / 15</asp:RegularExpressionValidator>
+                <asp:Label runat="server" Text="Correo Electrónico:" />
+                <asp:TextBox ID="textboxEmail" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvEmail" runat="server" ControlToValidate="textboxEmail" ValidationGroup="0" Text="* Completar Email" />
+                <asp:RegularExpressionValidator CssClass="validator" ID="revCorreo" runat="server" ControlToValidate="textboxEmail" ValidationGroup="0" ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" Text="* Email inválido" />
 
-        <asp:Label ID="labelEspecialidad" runat="server" Text="Especialidad:"></asp:Label>
-        <asp:DropDownList ID="ddlEspecialidad" runat="server"></asp:DropDownList>
+                <asp:Label runat="server" Text="Teléfono:" />
+                <asp:TextBox ID="textboxTelefono" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvTelefono" runat="server" ControlToValidate="textboxTelefono" ValidationGroup="0" Text="* Completar Teléfono" />
+                <asp:RegularExpressionValidator CssClass="validator" ID="revTelefono" runat="server" ControlToValidate="textboxTelefono" ValidationGroup="0" ValidationExpression="^(\d{10})$" Text="* Ingrese 10 dígitos sin 0 ni 15" />
 
-        <asp:Label ID="labelDias" runat="server" Text="Dias de atencion:"></asp:Label>
-        <asp:CheckBoxList ID="CheckBoxList1" runat="server">
-            <asp:ListItem>Lunes</asp:ListItem>
-            <asp:ListItem> Martes</asp:ListItem>
-            <asp:ListItem>Miercoles</asp:ListItem>
-            <asp:ListItem>Jueves</asp:ListItem>
-            <asp:ListItem>Viernes</asp:ListItem>
-            <asp:ListItem>Sabado</asp:ListItem>
-            <asp:ListItem>Domingo</asp:ListItem>
-        </asp:CheckBoxList>
-        <asp:CustomValidator ID="customValidatorDias" runat="server"></asp:CustomValidator>
+                <asp:Label runat="server" Text="Especialidad:" />
+                <asp:DropDownList ID="ddlEspecialidad" runat="server" />
 
-        <asp:Label ID="labelHoras" runat="server" Text="Horarios de Atencion:"></asp:Label>
-        <asp:Label ID="labelHorarioComienzo" runat="server" Text="Desde:"></asp:Label>
-        <asp:TextBox ID="textboxHorarioComienzo" runat="server" Width="100px"></asp:TextBox>
+                <asp:Label runat="server" Text="Días de Atención:" />
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server" CssClass="check-list">
+                    <asp:ListItem>Lunes</asp:ListItem>
+                    <asp:ListItem>Martes</asp:ListItem>
+                    <asp:ListItem>Miércoles</asp:ListItem>
+                    <asp:ListItem>Jueves</asp:ListItem>
+                    <asp:ListItem>Viernes</asp:ListItem>
+                    <asp:ListItem>Sábado</asp:ListItem>
+                    <asp:ListItem>Domingo</asp:ListItem>
+                </asp:CheckBoxList>
+                <asp:CustomValidator CssClass="validator" ID="customValidatorDias" runat="server" />
 
-        <asp:Label ID="labelHorarioFinal" runat="server" Text="Hasta:"></asp:Label>
-        <asp:TextBox ID="textboxHorarioFinal" runat="server" Width="100px"></asp:TextBox>
-        <asp:RangeValidator ID="rangeHorario1" runat="server" ControlToValidate="textboxHorarioComienzo" MaximumValue="23" MinimumValue="0" Type="Integer">Ingrese un comienzo de horario entre 0 y 23 horas.</asp:RangeValidator>
-        <asp:RangeValidator ID="rangeHorario2" runat="server" ControlToValidate="textboxHorarioFinal" MaximumValue="23" MinimumValue="0" Type="Integer">Ingrese un fin de horario entre 0 y 23 horas.</asp:RangeValidator>
+                <asp:Label runat="server" Text="Horarios de Atención:" />
+                <asp:Label runat="server" Text="Desde:" />
+                <asp:TextBox ID="textboxHorarioComienzo" runat="server" />
+                <asp:RangeValidator CssClass="validator" ID="rangeHorario1" runat="server" ControlToValidate="textboxHorarioComienzo" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" />
 
-        <asp:Label ID="labelUsuario" runat="server" Text="Nombre de Usuario:"></asp:Label>
-        <asp:TextBox ID="textboxUsuario" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="textboxUsuario" ForeColor="#CC0000" ValidationGroup="0">Completar Usuario</asp:RequiredFieldValidator>
+                <asp:Label runat="server" Text="Hasta:" />
+                <asp:TextBox ID="textboxHorarioFinal" runat="server" />
+                <asp:RangeValidator CssClass="validator" ID="rangeHorario2" runat="server" ControlToValidate="textboxHorarioFinal" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" />
 
-        <asp:Label ID="labelPassword" runat="server" Text="Contraseña:"></asp:Label>
-        <asp:TextBox ID="textboxPassword" runat="server" Width="100px"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="textboxPassword" ForeColor="#CC0000" ValidationGroup="0">Completar Contraseña</asp:RequiredFieldValidator>
-    </div>
-</div>
+                <asp:Label runat="server" Text="Nombre de Usuario:" />
+                <asp:TextBox ID="textboxUsuario" runat="server" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvUsuario" runat="server" ControlToValidate="textboxUsuario" ValidationGroup="0" Text="* Completar Usuario" />
+
+                <asp:Label runat="server" Text="Contraseña:" />
+                <asp:TextBox ID="textboxPassword" runat="server" TextMode="Password" />
+                <asp:RequiredFieldValidator CssClass="validator" ID="rfvPassword" runat="server" ControlToValidate="textboxPassword" ValidationGroup="0" Text="* Completar Contraseña" />
+            </div>
+        </div>
 
         <div class="container-3">
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
-                 
-                        <asp:Button ID="buttonAgregar" runat="server" OnClick="Button1_Click" Text="Agregar" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que quieres añadirlo?');" CssClass ="container-3-btn" />
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
+            <asp:Button ID="buttonAgregar" runat="server" Text="Agregar" CssClass="container-3-btn" ValidationGroup="0"  />
         </div>
-      
     </form>
 </body>
 </html>

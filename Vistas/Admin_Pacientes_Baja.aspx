@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Pacientes_Baja.aspx.cs" Inherits="Vistas.BajaPaciente" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta charset="utf-8" />
+    <title>Baja de Pacientes</title>
     <style type="text/css">
-   body {
+        body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -36,7 +35,6 @@
             width: 100%;
             height: 85vh;
         }
-
 
         .form-box {
             background-color: white;
@@ -88,28 +86,33 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-1">
-             <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
-             <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
         </div>
+
         <div class="container-2">
-            <div class ="form-box">
-                <div class ="form-row">
-                     <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un Paciente"></asp:Label>
+            <div class="form-box">
+                <div class="form-row">
+                    <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un paciente"></asp:Label>
                 </div>
-                <div class ="form-row">
-                     <asp:TextBox ID="txtDni" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="#CC0000" ValidationGroup="0">ingrese un dni</asp:RequiredFieldValidator>
-                        <br />
-                        <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un dni valido" ForeColor="#CC0000" ValidationExpression="^\d{7,8}$" ValidationGroup="0"></asp:RegularExpressionValidator>
+
+                <div class="form-row">
+                    <asp:Label ID="LabelDni" runat="server" Text="DNI a dar de baja:"></asp:Label>
+                    <asp:TextBox ID="txtDni" runat="server" />
+                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" CssClass="validation-message" ErrorMessage="Ingrese un DNI!" ValidationGroup="0" ForeColor="Red" />
+                    <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtDni" CssClass="validation-message" ErrorMessage="Ingrese un DNI valido!" ValidationExpression="^\d{7,8}$" ValidationGroup="0" ForeColor="Red" />
                 </div>
-                 <div style="text-align: center;">
-                      <asp:Button ID="btnBaja" runat="server" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que lo quieres dar de baja?');" />
-                     </div>
+
+                <div style="text-align: center;">
+                    <asp:Button ID="btnBaja" runat="server" CssClass="btn" Text="Dar de baja" OnClick="btnBaja_Click" ValidationGroup="0" OnClientClick="return confirm('¿Estás seguro que lo quieres dar de baja?');" />
+                </div>
             </div>
-            </div>
-             <div class="container-3">
+        </div>
+
+        <div class="container-3">
             <asp:HyperLink ID="HyperLinkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="link-volver">Volver</asp:HyperLink>
-             </div>         
+            <span></span>
+        </div>
     </form>
 </body>
 </html>

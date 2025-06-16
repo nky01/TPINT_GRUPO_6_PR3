@@ -36,17 +36,34 @@
         }
 
         .modif-container{
-
            background-color: #F6F6F6;
            width: 100vw;
-           height: 20vh;
+           height: 85vh;
            min-height: 30vh;
            display: flex;
            justify-content: center;
            padding: 10px 20px;
            gap: 10px;
-
+           flex-direction: column;
          }
+
+        #Button1 {            
+            padding: 12px;
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100px;
+        }
+        #Button1:hover {
+            background-color: #274ede;
+        }
+
+        #txtBuscar{
+            width: 500px;
+            height: 30px;}
     </style>
 </head>
 <body>
@@ -60,11 +77,11 @@
             <asp:Label ID="Label19" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar Médico"></asp:Label>
             <asp:Label ID="Label20" runat="server" Text="Ingrese el legajo del medico a modificar:"></asp:Label>
             <asp:TextBox ID="txtBuscar" runat="server" Width="203px"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Buscar" />
-            <asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" CssClass="error-message"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Solo se permiten valores numericos" CssClass="error-message" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+            &nbsp;<asp:Button ID="Button1" runat="server" Text="Buscar" />
+            &nbsp;<asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" CssClass="error-message" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Solo se permiten valores numericos" CssClass="error-message" ValidationExpression="^\d+$" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:Label ID="lblMensajeError" runat="server" CssClass="error-message"></asp:Label>
-            <asp:GridView ID="gvMedico" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True">
+            <asp:GridView ID="gvMedico" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" Height="248px" Width="1216px">
                 <Columns>
                     <asp:TemplateField HeaderText="Numero de legajo">
                         <ItemTemplate><asp:Label ID="lblLegajo" runat="server" Text="Legajo"></asp:Label></ItemTemplate>

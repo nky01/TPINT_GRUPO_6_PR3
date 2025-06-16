@@ -34,7 +34,6 @@
         background-color: #e9ecef;
     }
 
-    .container-3 a,
     .container-3 input[type="submit"],
     .btn {
         text-decoration: none;
@@ -47,14 +46,13 @@
         cursor: pointer;
     }
 
-    .container-3 a:hover,
     .container-3 input[type="submit"]:hover,
     .btn:hover {
         background-color: #3f4db7;
     }
 
     .container-2 {
-        height: 80vh;
+        height: 85vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -95,7 +93,7 @@
 
 <div class="container-3">
     <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" CssClass="btn" />
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="btn">Volver</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AdminVista.aspx">Volver</asp:HyperLink>
 </div>
     </form>
 </body>

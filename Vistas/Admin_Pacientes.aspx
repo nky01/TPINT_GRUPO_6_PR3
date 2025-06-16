@@ -39,7 +39,7 @@
         .pacientes-container {
             background-color: #F6F6F6;
             width: 100vw;
-            height: 70vh;
+            height: 85vh;
             display: flex;
             justify-content: center;
             align-items: center;

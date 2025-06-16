@@ -47,19 +47,18 @@
          gap: 10px;
         }
          .medic-container{
-
-            background-color: #F6F6F6;
-            width: 100vw;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+             width: 100vw;
+             height: 85vh;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
 
          }
          .medic-btn {
             width: 30%;
             padding: 12px;
-            background-color: #007bff;
+            background-color:  #8aaeea;
             border: none;
             border-radius: 5px;
             color: white;
@@ -70,13 +69,12 @@
 
         .container-3-btn {
             padding: 10px 16px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-
+            background-color:  #8aaeea;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
         }
 
     </style>

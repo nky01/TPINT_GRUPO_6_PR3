@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>Login - Grupo Médico</title>
+    <title>Login - Mirae Clinica Integral</title>
     <style>
         * {
             font-family: Arial, sans-serif;

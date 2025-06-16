@@ -1,38 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\",
+  "WorkspaceRootPath": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_turnos_listado.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos_listado.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\medicocargar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\medicocargar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_medicos_listar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicos_listar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_turnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\medicoturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\medicoturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_turnos_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\medicovista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\medicovista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\admin_turnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\adminvista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\adminvista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_medicos_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicos_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_medicos_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicos_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\vistas\\admin_medicosbaja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicosbaja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\vistas\\admin_pacientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\admin_pacientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_medicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\admin_medicosbaja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_medicosbaja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_listar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_listar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_alta.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_baja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_baja.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\adminvista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\adminvista.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\elvis\\onedrive - frgp.utn.edu.ar\\desktop\\escritorio\\tpint_grupo_6_pr3\\vistas\\admin_turnos_listado.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos_listado.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\admin_turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_turnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,23 +99,179 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Admin_Turnos_Listado.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Listado.aspx",
-              "RelativeDocumentMoniker": "Vistas\\Admin_Turnos_Listado.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Listado.aspx",
-              "RelativeToolTip": "Vistas\\Admin_Turnos_Listado.aspx",
+              "Title": "MedicoCargar.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoCargar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\MedicoCargar.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoCargar.aspx",
+              "RelativeToolTip": "Vistas\\MedicoCargar.aspx",
               "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T21:24:40.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MedicoTurnos.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoTurnos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\MedicoTurnos.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoTurnos.aspx",
+              "RelativeToolTip": "Vistas\\MedicoTurnos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T21:16:38.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Admin_Medicos_Listar.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Listar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Medicos_Listar.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Listar.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Medicos_Listar.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T21:09:07.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin_Turnos_Alta.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Alta.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Turnos_Alta.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Alta.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Turnos_Alta.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T20:35:04.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Admin_Medicos_Modificar.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Modificar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Medicos_Modificar.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Modificar.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Medicos_Modificar.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T20:17:44.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Admin_Medicos_Alta.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Alta.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Medicos_Alta.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos_Alta.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Medicos_Alta.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T20:07:38.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Admin_Medicos.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Medicos.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Medicos.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Medicos.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T20:00:49.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Admin_Pacientes_Listar.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Listar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Listar.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Listar.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Listar.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T19:27:29.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Admin_Pacientes_Alta.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Alta.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Alta.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Alta.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Alta.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T18:59:41.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Admin_Pacientes_Modificar.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Modificar.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Modificar.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T18:48:33.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Admin_Pacientes_Baja.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Baja.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Baja.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Baja.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Baja.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T18:42:37.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MedicoVista.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoVista.aspx",
+              "RelativeDocumentMoniker": "Vistas\\MedicoVista.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\MedicoVista.aspx",
+              "RelativeToolTip": "Vistas\\MedicoVista.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-16T18:35:18.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Admin_Turnos_Listado.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Listado.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Turnos_Listado.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos_Listado.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Turnos_Listado.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-06-16T14:19:39.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 18,
               "Title": "Admin_Turnos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx.cs",
               "RelativeDocumentMoniker": "Vistas\\Admin_Turnos.aspx.cs",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx.cs",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx.cs",
               "RelativeToolTip": "Vistas\\Admin_Turnos.aspx.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAqwBwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -76,24 +280,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Admin_Turnos.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx",
               "RelativeDocumentMoniker": "Vistas\\Admin_Turnos.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Turnos.aspx",
               "RelativeToolTip": "Vistas\\Admin_Turnos.aspx",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2025-06-16T14:14:42.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "AdminVista.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AdminVista.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\AdminVista.aspx",
               "RelativeDocumentMoniker": "Vistas\\AdminVista.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\AdminVista.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\AdminVista.aspx",
               "RelativeToolTip": "Vistas\\AdminVista.aspx",
               "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -102,11 +306,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 19,
               "Title": "Admin_Pacientes.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
               "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes.aspx.cs",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx.cs",
               "RelativeToolTip": "Vistas\\Admin_Pacientes.aspx.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwCEAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -115,11 +319,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Admin_Pacientes.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
               "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes.aspx",
               "RelativeToolTip": "Vistas\\Admin_Pacientes.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -128,11 +332,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Admin_MedicosBaja.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_MedicosBaja.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_MedicosBaja.aspx",
               "RelativeDocumentMoniker": "Vistas\\Admin_MedicosBaja.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_MedicosBaja.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_MedicosBaja.aspx",
               "RelativeToolTip": "Vistas\\Admin_MedicosBaja.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -141,11 +345,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "Login.aspx",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
+              "DocumentMoniker": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
               "RelativeDocumentMoniker": "Vistas\\Login.aspx",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
+              "ToolTip": "C:\\Users\\Elvis\\OneDrive - frgp.utn.edu.ar\\Desktop\\Escritorio\\TPINT_GRUPO_6_PR3\\Vistas\\Login.aspx",
               "RelativeToolTip": "Vistas\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",

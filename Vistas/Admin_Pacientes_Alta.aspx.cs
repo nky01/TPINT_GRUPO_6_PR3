@@ -25,5 +25,6 @@ namespace Vistas
         {
             Response.Redirect("Admin_Pacientes.aspx");
         }
+
     }
 }
