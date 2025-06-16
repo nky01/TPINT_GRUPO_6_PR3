@@ -7,118 +7,109 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style1 {
+   body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-1, .container-3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .container-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 85vh;
         }
-        .auto-style2 {
-            height: 23px;
+
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         }
-        .auto-style3 {
-            width: 129px;
+
+        .form-row {
+            margin-bottom: 7px;
+            display: flex;
+            flex-direction: column;
         }
-        .auto-style4 {
-            height: 23px;
-            width: 129px;
+
+        .form-row label {
+            margin-bottom: 6px;
+            font-weight: bold;
         }
-        .auto-style5 {
-            width: 363px;
+
+        .form-row input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
         }
-        .auto-style6 {
-            height: 23px;
-            width: 363px;
+
+        .btn {
+            padding: 10px 18px;
+            background-color: #8aaeea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 140px;
         }
-        .auto-style7 {
-            width: 63px;
+
+        .btn:hover {
+            background-color: #3f4db7;
         }
-        .auto-style8 {
-            height: 23px;
-            width: 63px;
+
+        .validation-message {
+            color: #cc0000;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
-                    </td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style4"></td>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td colspan="2">
-                        <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un Paciente"></asp:Label>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4"></td>
-                    <td class="auto-style6">DNI&nbsp;
-                        <asp:TextBox ID="txtDni" runat="server"></asp:TextBox>
+        <div class="container-1">
+             <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
+             <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
+        </div>
+        <div class="container-2">
+            <div class ="form-box">
+                <div class ="form-row">
+                     <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un Paciente"></asp:Label>
+                </div>
+                <div class ="form-row">
+                     <asp:TextBox ID="txtDni" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="#CC0000" ValidationGroup="0">ingrese un dni</asp:RequiredFieldValidator>
                         <br />
                         <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un dni valido" ForeColor="#CC0000" ValidationExpression="^\d{7,8}$" ValidationGroup="0"></asp:RegularExpressionValidator>
-                    </td>
-                    <td class="auto-style8">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                    <td class="auto-style2"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style5">
-                        <asp:Button ID="btnBaja" runat="server" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que lo quieres dar de baja?');" />
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
-                    </td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
-        </div>
+                </div>
+                 <div style="text-align: center;">
+                      <asp:Button ID="btnBaja" runat="server" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" OnClientClick="return confirm('¿Estás seguro que lo quieres dar de baja?');" />
+                     </div>
+            </div>
+            </div>
+             <div class="container-3">
+            <asp:HyperLink ID="HyperLinkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="link-volver">Volver</asp:HyperLink>
+             </div>         
     </form>
 </body>
 </html>

@@ -42,6 +42,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// Control Label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
         /// Control txtID.
         /// </summary>
         /// <remarks>
@@ -51,15 +60,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
-        /// Control cancelarTurnoBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelarTurnoBtn;
-
-        /// <summary>
         /// Control lblmensaje.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmensaje;
+
+        /// <summary>
+        /// Control cancelarTurnoBtn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelarTurnoBtn;
 
         /// <summary>
         /// Control CerrarBtn.
