@@ -7,86 +7,60 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
+            * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .auto-style2 {
-            width: 100px;
+          body {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .auto-style3 {
-            width: 748px;
+          .container-1,
+        .container-3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
         }
-        .auto-style4 {
-            width: 98px;
+
+
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
         }
-        .auto-style7 {
-            width: 135px;
-        }
-        .auto-style10 {
-            margin-left: 39px;
-        }
-        .auto-style11 {
-            width: 409px;
-        }
-        .auto-style12 {
-            width: 190px;
-        }
+
+        .modif-container{
+
+           background-color: #F6F6F6;
+           width: 100vw;
+           height: 20vh;
+           min-height: 30vh;
+           display: flex;
+           justify-content: center;
+           padding: 10px 20px;
+           gap: 10px;
+
+         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style2">
+        <div class ="container-1">
                         <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
-                    </td>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style11">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>
                         <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td colspan="4">
+            </div>
+        <div class="modif-container">
                         <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Modificar Paciente"></asp:Label>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style12">
                         <asp:Label ID="Label4" runat="server" Text="Buscar por dni"></asp:Label>
-                    </td>
-                    <td class="auto-style11">
                         <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationGroup="0">Ingrese un dni</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationExpression="^\d{7,8}$" ValidationGroup="0">Ingrese un dni valido</asp:RegularExpressionValidator>
-                    </td>
-                    <td class="auto-style4">
-                        <asp:Button ID="btnBuscar" runat="server" CssClass="auto-style10" Text="Buscar" ValidationGroup="0" />
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style11">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td colspan="3" rowspan="7">
                         <asp:GridView ID="gvPaciente" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True">
                             <Columns>
                                 <asp:TemplateField HeaderText="DNI">
@@ -167,59 +141,10 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
-                    </td>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style11">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+            </div>
+        <div class="container-3">
+                    <asp:Button ID="CerrarSesionbtn" runat="server" Text="Cerrar Sesión" />
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Pacientes.aspx">Volver</asp:HyperLink>
         </div>
     </form>
 </body>
