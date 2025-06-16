@@ -28,5 +28,10 @@ namespace Vistas
         {
 
         }
+
+        protected void TurnosBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Turnos.aspx");
+        }
     }
 }

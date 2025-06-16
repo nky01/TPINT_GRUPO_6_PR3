@@ -88,7 +88,7 @@
             <div class="button-group">
                 <asp:Button ID="PacientesBtn" runat="server" Text="Pacientes" CssClass="btn" OnClick="PacientesBtn_Click" />
                 <asp:Button ID="MedicosBtn" runat="server" Text="Médicos" CssClass="btn" OnClick="MedicosBtn_Click" />
-                <asp:Button ID="TurnosBtn" runat="server" Text="Asignación de turnos" CssClass="btn" />
+                <asp:Button ID="TurnosBtn" runat="server" Text="Asignación de turnos" CssClass="btn" OnClick="TurnosBtn_Click" />
                 <asp:Button ID="InformesBtn" runat="server" Text="Generar Informes" CssClass="btn" />
             </div>
         </div>
