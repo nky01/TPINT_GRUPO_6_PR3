@@ -1,120 +1,120 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_MedicosBaja.aspx.cs" Inherits="Vistas.BajaMedicos" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
+    <meta charset="utf-8" />
+    <title>Baja de Médicos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-1, .container-3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .container-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 85vh;
         }
-        .auto-style2 {
-            width: 300px;
+
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         }
-        .auto-style3 {
-            width: 193px;
+
+        .form-row {
+            margin-bottom: 7px;
+            display: flex;
+            flex-direction: column;
         }
-        .auto-style4 {
-            width: 137px;
+
+        .form-row label {
+            margin-bottom: 6px;
+            font-weight: bold;
         }
-        .auto-style5 {
-            width: 193px;
-            height: 26px;
+
+        .form-row input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
         }
-        .auto-style6 {
-            width: 300px;
-            height: 26px;
+
+        .btn {
+            padding: 10px 18px;
+            background-color: #8aaeea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 140px;
         }
-        .auto-style7 {
-            width: 137px;
-            height: 26px;
+
+        .btn:hover {
+            background-color: #3f4db7;
         }
-        .auto-style8 {
-            height: 26px;
+
+        .validation-message {
+            color: #cc0000;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
+
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="labelMedico" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un médico"></asp:Label>
-                    </td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Label ID="labelLegajo" runat="server" Text="Legajo a dar de baja:"></asp:Label>
-                    </td>
-                    <td class="auto-style2">
-                        <asp:TextBox ID="textboxLegajo" runat="server"></asp:TextBox>
-                        </td>
-                    <td class="auto-style4">
-                        <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ForeColor="#CC0000" ValidationGroup="0">Ingrese un legajo</asp:RequiredFieldValidator>
-                        </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Button ID="buttonBajaMedico" runat="server" OnClientClick="return confirm('¿Estás seguro de que lo quieres dar de baja?');" OnClick="btnBaja_Click" Text="Dar de baja" ValidationGroup="0" Width="100px" />
-                    </td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">
-                        <asp:Button ID="buttonVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
-                    </td>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style7"></td>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style8"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+        <div class="container-1">
+
+            <asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
+            <asp:Label ID="lblNombreUsuario" runat="server" Text="nombreUsuario"></asp:Label>
+
+        </div>
+
+        <div class="container-2">
+            <div class="form-box">
+                <div class="form-row">
+                    <asp:Label ID="labelMedico" runat="server" Font-Bold="True" Font-Size="15pt" Text="Dar de baja a un médico"></asp:Label>
+                    <br />
+                </div>
+
+                <div class="form-row">
+                    <asp:Label ID="labelLegajo" runat="server" Text="Legajo a dar de baja:"></asp:Label>
+                    <asp:TextBox ID="textboxLegajo" runat="server" />
+                    &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ForeColor="Red" CssClass="validation-message" ValidationGroup="0" ErrorMessage="Ingrese un legajo!" />
+                </div>
+                <div style="text-align: center;">
+                    <asp:Button ID="buttonBajaMedico" runat="server" CssClass="btn" Text="Dar de baja" OnClick="btnBaja_Click" ValidationGroup="0" OnClientClick="return confirm('¿Estás seguro de que lo quieres dar de baja?');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container-3">
+            <asp:HyperLink ID="HyperLinkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="link-volver">Volver</asp:HyperLink>
+            <span></span>
         </div>
     </form>
 </body>

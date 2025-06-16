@@ -16,22 +16,22 @@ namespace Vistas
 
         protected void btnAltaP_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AltaPaciente.aspx");
+            Response.Redirect("Admin_Pacientes_Alta.aspx");
         }
 
         protected void btnBajaP_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BajaPaciente.aspx");
+            Response.Redirect("Admin_Pacientes_Baja.aspx");
         }
 
         protected void btnModificarP_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ModificarPaciente.aspx");
+            Response.Redirect("Admin_Pacientes_Modificar.aspx");
         }
 
         protected void btnListarP_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ListarPaciente.aspx");
+            Response.Redirect("Admin_Pacientes_Listar.aspx");
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)

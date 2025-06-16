@@ -1,174 +1,98 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Pacientes.aspx.cs" Inherits="Vistas.Pacientes" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
+    <meta charset="utf-8" />
+    <title>Pacientes</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container-1,
+        .container-3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
             width: 100%;
         }
-        .auto-style2 {
-            width: 97px;
+
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
         }
-        .auto-style3 {
-            width: 145px;
+
+        .pacientes-container {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .auto-style4 {
-            width: 107px;
+
+        .center-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
-        .auto-style5 {
-            width: 177px;
+
+        .btn-accion {
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            width: 200px;
+            font-size: 14px;
+            cursor: pointer;
+            color: white;
         }
-        .auto-style6 {
-            width: 136px;
+
+        .btn-accion:hover {
+            background-color: #3f4db7;
         }
-        .auto-style7 {
-            width: 268px;
-        }
-        .auto-style8 {
-            width: 97px;
-            height: 23px;
-        }
-        .auto-style9 {
-            width: 268px;
-            height: 23px;
-        }
-        .auto-style10 {
-            width: 136px;
-            height: 23px;
-        }
-        .auto-style11 {
-            width: 177px;
-            height: 23px;
-        }
-        .auto-style12 {
-            width: 107px;
-            height: 23px;
-        }
-        .auto-style13 {
-            width: 145px;
-            height: 23px;
-        }
-        .auto-style14 {
-            height: 23px;
+
+        .volver-link {
+            font-size: 14px;
+            display: inline-block;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>
-                        <asp:Label ID="Label3" runat="server" Text="lblNombreUsuario"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style8"></td>
-                    <td class="auto-style9"></td>
-                    <td class="auto-style10"></td>
-                    <td class="auto-style11"></td>
-                    <td class="auto-style12"></td>
-                    <td class="auto-style13"></td>
-                    <td class="auto-style14"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="btnAltaP" runat="server" OnClick="btnAltaP_Click" Text="Alta" Width="100px" />
-                    </td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="btnBajaP" runat="server" OnClick="btnBajaP_Click" Text="Baja" Width="100px" />
-                    </td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="btnModificarP" runat="server" OnClick="btnModificarP_Click" Text="Modificar" Width="100px" />
-                    </td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">
-                        <asp:Button ID="btnListarP" runat="server" OnClick="btnListarP_Click" Text="Listar" Width="100px" />
-                    </td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver" Width="100px" />
-                    </td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+        <div class="container-1">
+            <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="lblNombreUsuario"></asp:Label>
+        </div>
+
+        <div class="pacientes-container">
+            <div class="center-box">
+                <asp:Button ID="btnAltaP" runat="server" CssClass="btn-accion" OnClick="btnAltaP_Click" Text="Alta" />
+                <asp:Button ID="btnBajaP" runat="server" CssClass="btn-accion" OnClick="btnBajaP_Click" Text="Baja" />
+                <asp:Button ID="btnModificarP" runat="server" CssClass="btn-accion" OnClick="btnModificarP_Click" Text="Modificar" />
+                <asp:Button ID="btnListarP" runat="server" CssClass="btn-accion" OnClick="btnListarP_Click" Text="Listar" />
+            </div>
+        </div>
+
+        <div class="container-3">
+            <asp:HyperLink ID="lnkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="volver-link">Volver</asp:HyperLink>
         </div>
     </form>
-    <p>
-        &nbsp;</p>
 </body>
 </html>
