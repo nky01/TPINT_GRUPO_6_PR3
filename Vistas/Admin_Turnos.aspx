@@ -89,7 +89,7 @@
     <div class="button-group">
         <asp:Button ID="AltaTurnosBtn" runat="server" Text="Generar Turno" CssClass="btn" OnClick="AltaTurnosBtn_Click" />
         <asp:Button ID="BajaTurnosBtn" runat="server" Text="Cancelar Turno" CssClass="btn" OnClick="BajaTurnosBtn_Click" />
-        <asp:Button ID="ListaTurnosBtn" runat="server" Text="Lista de Turnos" CssClass="btn" />
+        <asp:Button ID="ListaTurnosBtn" runat="server" Text="Lista de Turnos" CssClass="btn" OnClick="ListaTurnosBtn_Click" />
     </div>
 </div>
 

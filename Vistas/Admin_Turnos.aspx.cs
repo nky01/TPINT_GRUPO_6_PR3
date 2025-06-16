@@ -23,5 +23,10 @@ namespace Vistas
         {
             Response.Redirect("Admin_Turnos_Baja.aspx");
         }
+
+        protected void ListaTurnosBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Turnos_Listado.aspx");
+        }
     }
 }
