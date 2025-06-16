@@ -82,6 +82,7 @@
                 <label><asp:Label ID="Label3" runat="server" Text="Ingrese un código de turno:"></asp:Label></label>
                 <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
                 &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
+                <asp:RequiredFieldValidator ID="rfvTurnos" runat="server" ControlToValidate="txtBusqueda" ErrorMessage="Por favor, escriba un código" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
             <div class="grid-container">

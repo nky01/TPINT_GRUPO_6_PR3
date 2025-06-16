@@ -74,12 +74,14 @@
                     <label>Ingrese DNI del paciente:</label>
                     <asp:TextBox ID="txtDni" runat="server" />
                     <asp:Button ID="btnBuscarPanel1" runat="server" Text="Buscar" />
+                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un DNI para buscar." ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:Panel>
 
                 <asp:Panel ID="panelCodigoTurno" runat="server" Visible="false">
                     <label>Ingrese el Código de Turno:</label>
                     <asp:TextBox ID="txtCodigoTurno" runat="server" />
                     <asp:Button ID="btnBuscarPanel2" runat="server" Text="Buscar" />
+                    <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtCodigoTurno" ErrorMessage="Ingrese un código para buscar." ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:Panel>
 
                 <asp:Panel ID="panelEstado" runat="server" Visible="false">

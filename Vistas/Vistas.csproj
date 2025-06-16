@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminVista.aspx" />
+    <Content Include="Admin_Informes.aspx" />
     <Content Include="Admin_Medicos.aspx" />
     <Content Include="Admin_Medicos_Listar.aspx" />
     <Content Include="Admin_Medicos_Modificar.aspx" />
@@ -97,6 +99,13 @@
     </Compile>
     <Compile Include="AdminVista.aspx.designer.cs">
       <DependentUpon>AdminVista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Informes.aspx.cs">
+      <DependentUpon>Admin_Informes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Informes.aspx.designer.cs">
+      <DependentUpon>Admin_Informes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Medicos.aspx.cs">
       <DependentUpon>Admin_Medicos.aspx</DependentUpon>

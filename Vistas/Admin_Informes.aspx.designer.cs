@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class MedicoCargarObservacion
+    public partial class Admin_Informes
     {
 
         /// <summary>
@@ -42,40 +42,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control Label3.
+        /// Control lblInforme.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblInforme;
 
         /// <summary>
-        /// Control txtBusqueda.
+        /// Control DropDownList1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control ChartAusencias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
-
-        /// <summary>
-        /// Control rfvTurnos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTurnos;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartAusencias;
 
         /// <summary>
         /// Control GridView1.
