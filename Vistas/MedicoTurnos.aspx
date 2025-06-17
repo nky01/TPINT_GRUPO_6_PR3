@@ -72,7 +72,7 @@
             <div class="panel-inputs">
                 <asp:Panel ID="panelDni" runat="server" Visible="false">
                     <label>Ingrese DNI del paciente:</label>
-                    <asp:TextBox ID="txtDni" runat="server" />
+                    <asp:TextBox ID="txtDni" runat="server" MaxLength="8"/>
                     <asp:Button ID="btnBuscarPanel1" runat="server" Text="Buscar" />
                     <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un DNI para buscar." ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:Panel>
