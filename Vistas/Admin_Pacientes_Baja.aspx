@@ -101,6 +101,7 @@
                     <asp:TextBox ID="txtDni" runat="server" />
                     <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" CssClass="validation-message" ErrorMessage="Ingrese un DNI!" ValidationGroup="0" ForeColor="Red" />
                     <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtDni" CssClass="validation-message" ErrorMessage="Ingrese un DNI valido!" ValidationExpression="^\d{7,8}$" ValidationGroup="0" ForeColor="Red" />
+                    <asp:Label ID="lblExito" runat="server" ForeColor="Green" Text="Se a dado de baja exitosamente!" Visible="False"></asp:Label>
                 </div>
 
                 <div style="text-align: center;">

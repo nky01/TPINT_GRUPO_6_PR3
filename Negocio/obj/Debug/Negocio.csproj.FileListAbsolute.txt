@@ -20,3 +20,14 @@ C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.c
 C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.dll
 C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.pdb
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Negocio.dll
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Negocio.pdb
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Datos.dll
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Entidades.dll
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Datos.pdb
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\bin\Debug\Entidades.pdb
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.dll
+C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Negocio\obj\Debug\Negocio.pdb

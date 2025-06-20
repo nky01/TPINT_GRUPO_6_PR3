@@ -89,6 +89,16 @@ namespace Datos
             return table;
         }
 
+        public bool BajaLogicaPorDni(string dni)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Parameters.Add(new SqlParameter("@DNI", dni));
+
+            int filasAfectadas = ds.EjecutarProcedimientoAlmacenado(cmd, "SP_BajaLogicaPaciente");
+
+            return filasAfectadas > 0;
+        }
+
     }
 }
 

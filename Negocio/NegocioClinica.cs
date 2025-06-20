@@ -36,5 +36,12 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.GetTableLocalidades();
         }
+
+        public bool BajaPacienteDNI(string dni)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.BajaLogicaPorDni(dni);
+        }
+
     }        
 }
