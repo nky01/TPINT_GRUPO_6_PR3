@@ -10,7 +10,7 @@ namespace Datos
 {
     class AccesoDatos
     {
-        string rutaBDMirae = @"Data Source=localhost\sqlexpress;Initial Catalog=MiraeClinica;Integrated Security=True";
+        string rutaBDMirae = @"Data Source=DESKTOP-HP1QFPI\SQLEXPRESS;Initial Catalog=MiraeClinica;Integrated Security=True";
     
         public AccesoDatos() { }
 
@@ -40,6 +40,23 @@ namespace Datos
             {
                 return null;
             }
+        }
+
+        public SqlDataReader EjecutarConsulta(string consulta)
+        {
+            SqlConnection cn = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consulta, cn);
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        }
+
+        public DataTable ObtenerTabla(String NombreTabla, String Sql)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection cn = ObtenerConexion();
+            SqlDataAdapter adp = ObtenerAdaptador(Sql, cn);
+            adp.Fill(ds, NombreTabla);
+            cn.Close();
+            return ds.Tables[NombreTabla];
         }
 
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)

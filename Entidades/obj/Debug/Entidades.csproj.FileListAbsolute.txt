@@ -1,0 +1,6 @@
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\bin\Debug\Entidades.dll
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\obj\Debug\Entidades.dll
+C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Entidades\obj\Debug\Entidades.pdb

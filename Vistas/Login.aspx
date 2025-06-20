@@ -89,15 +89,15 @@
             <img class="logo" src="MiraeLogo.png" alt="Logo Mirae" />
             <h2>Mirae Clinica Integral</h2>
 
-            <asp:TextBox ID="txtboxUser" runat="server" CssClass="input-txt" placeholder="DNI"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtboxUser" ErrorMessage="Ingrese su usuario!" ForeColor="Red" Display="Dynamic" />
+            <asp:TextBox ID="txtUsuario" runat="server" CssClass="input-txt" placeholder="DNI"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese su usuario!" ForeColor="Red" Display="Dynamic" />
 
-            <asp:TextBox ID="txtboxPassword" runat="server" TextMode="Password" CssClass="input-txt" placeholder="CONTRASEÑA"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtboxPassword" ErrorMessage="Ingrese su contraseña!" ForeColor="Red" Display="Dynamic" />
+            <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" CssClass="input-txt" placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="Ingrese su contraseña!" ForeColor="Red" Display="Dynamic" />
 
-            <asp:Button ID="btnIngresar" runat="server" Text="Iniciar sesión" CssClass="login-btn" />
+            <asp:Button ID="btnIngresar" runat="server" Text="Iniciar sesión" CssClass="login-btn" OnClick="btnIngresar_Click" />
 
-            <asp:Label ID="lblErrorLogin" runat="server" ForeColor="Red" CssClass="error" Text="Usuario o contraseña incorrectos!" Visible="False"></asp:Label>
+            <asp:Label ID="lblErrorLogin" runat="server" ForeColor="Red" CssClass="error" Visible="False"></asp:Label>
 
             <a class="link" href="#">¿Ha olvidado su contraseña?</a>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RegistrarCuenta.aspx" CssClass="link">Crear nuevo usuario</asp:HyperLink>
