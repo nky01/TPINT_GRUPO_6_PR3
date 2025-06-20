@@ -10,7 +10,7 @@ namespace Datos
 {
     class AccesoDatos
     {
-        string rutaBDMirae = @"Data Source=DESKTOP-HP1QFPI\SQLEXPRESS;Initial Catalog=MiraeClinica;Integrated Security=True";
+        string rutaBDMirae = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=MiraeClinica;Integrated Security=True";
     
         public AccesoDatos() { }
 
@@ -53,7 +53,13 @@ namespace Datos
         {
             DataSet ds = new DataSet();
             SqlConnection cn = ObtenerConexion();
+            if (cn == null)
+                throw new Exception("No se pudo establecer la conexión.");
+
             SqlDataAdapter adp = ObtenerAdaptador(Sql, cn);
+            if (adp == null)
+                throw new Exception("No se pudo obtener el adaptador de datos.");
+
             adp.Fill(ds, NombreTabla);
             cn.Close();
             return ds.Tables[NombreTabla];

@@ -27,8 +27,8 @@ namespace Vistas
             ddlProvincia.DataSource = negocio.ObtenerProvincias();
             ddlProvincia.DataTextField = "Descripcion_Provincia";
             ddlProvincia.DataValueField = "Id_Provincia";
-            ddlProvincia.Items.Insert(0, new ListItem("--Seleccione una provincia--", "0"));
             ddlProvincia.DataBind();
+            ddlProvincia.Items.Insert(0, new ListItem("--Seleccione una provincia--", "0"));
         }
 
         private void CargarLocalidades()
@@ -36,8 +36,8 @@ namespace Vistas
             ddlLocalidad.DataSource = negocio.ObtenerLocalidades();
             ddlLocalidad.DataTextField = "Descripcion_Localidad";
             ddlLocalidad.DataValueField = "Id_Localidad";
-            ddlLocalidad.Items.Insert(0, new ListItem("--Seleccione una localdiad--", "0"));
             ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("--Seleccione una localidad--", "0"));
         }
 
 

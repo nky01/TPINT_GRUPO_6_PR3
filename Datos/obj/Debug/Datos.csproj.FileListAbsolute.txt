@@ -13,3 +13,12 @@ C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\D
 C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.Up2Date
 C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.dll
 C:\Users\Elvis\OneDrive - frgp.utn.edu.ar\Desktop\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.dll
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.pdb
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.dll
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.pdb
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.dll
+C:\Users\lunad\OneDrive\Escritorio\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb
