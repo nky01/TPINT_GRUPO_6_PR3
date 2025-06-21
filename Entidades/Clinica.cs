@@ -266,4 +266,119 @@ namespace Entidades
         public string getDescripcion() { return Descripcion_Loc; }
     }
 
+    public class Medico
+    {
+        private string Legajo_Medico;
+        private int Id_Localidad_Medico;
+        private int Id_Provincia_Medico;
+        private string Nombre_Medico;
+        private string Apellido_Medico;
+        private char Sexo_Medico;
+        private string Nacionalidad_Medico;
+        private DateTime FechaNac_Medico;
+        private string Direccion_Medico;
+        private string CorreoElectronico_Medico;
+        private string Telefono_Medico;
+
+        public Medico() { }
+
+        public string getLegajo()
+        {
+            return Legajo_Medico;
+        }
+        public void setDNI(string legajo)
+        {
+            Legajo_Medico=legajo;
+        }
+
+        public int getIdLocalidad()
+        {
+            return Id_Localidad_Medico;
+        }
+        public void setIdLocalidad(int idLocalidad)
+        {
+            Id_Localidad_Medico = idLocalidad;
+        }
+
+        public int getIdProvincia()
+        {
+            return Id_Provincia_Medico;
+        }
+        public void setIdProvincia(int idProvincia)
+        {
+            Id_Provincia_Medico = idProvincia;
+        }
+
+        public string getNombre()
+        {
+            return Nombre_Medico;
+        }
+        public void setNombre(string nombre)
+        {
+            Nombre_Medico = nombre;
+        }
+
+        public string getApellido()
+        {
+            return Apellido_Medico;
+        }
+        public void setApellido(string apellido)
+        {
+            Apellido_Medico = apellido;
+        }
+
+        public char getSexo()
+        {
+            return Sexo_Medico;
+        }
+        public void setSexo(char sexo)
+        {
+            Sexo_Medico = sexo;
+        }
+
+        public string getNacionalidad()
+        {
+            return Nacionalidad_Medico;
+        }
+        public void setNacionalidad(string nacionalidad)
+        {
+            Nacionalidad_Medico = nacionalidad;
+        }
+
+        public DateTime getFechaNacimiento()
+        {
+            return FechaNac_Medico;
+        }
+        public void setFechaNacimiento(DateTime fechaNac)
+        {
+            FechaNac_Medico = fechaNac;
+        }
+
+        public string getDireccion()
+        {
+            return Direccion_Medico;
+        }
+        public void setDireccion(string direccion)
+        {
+            Direccion_Medico = direccion;
+        }
+
+        public string getCorreoElectronico()
+        {
+            return CorreoElectronico_Medico;
+        }
+        public void setCorreoElectronico(string correo)
+        {
+            CorreoElectronico_Medico = correo;
+        }
+
+        public string getTelefono()
+        {
+            return Telefono_Medico;
+        }
+        public void setTelefono(string telefono)
+        {
+            Telefono_Medico = telefono;
+        }
+    }
 }

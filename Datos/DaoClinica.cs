@@ -167,9 +167,47 @@ namespace Datos
             DataTable table = ds.ObtenerTabla("Paciente", consultaPaciente);
             return table;
         }
+        public int AgregarMedico(Medico medico)
+        {
+            string consulta = @"INSERT INTO Medico
+                        (Legajo_Medico, Id_Localidad, Id_Provincia, Nombre_Medico, Apellido_Medico, Sexo_Medico, Nacionalidad_Medico, FechaNac_Medico, 
+                        Direccion_Medico, CorreoElectronico_Medico, Telefono_Medico)
 
+                        VALUES (@Legajo, @IdLocalidad, @IdProvincia, @Nombre, @Apellido, @Sexo, @Nacionalidad, @FechaNac, @Direccion, @Correo, @Telefono)";
+
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@Legajo", medico.getLegajo()),
+                new SqlParameter("@IdLocalidad", medico.getIdLocalidad()),
+                new SqlParameter("@IdProvincia", medico.getIdProvincia()),
+                new SqlParameter("@Nombre", medico.getNombre()),
+                new SqlParameter("@Apellido", medico.getApellido()),
+                new SqlParameter("@Sexo", medico.getSexo()),
+                new SqlParameter("@Nacionalidad", medico.getNacionalidad()),
+                new SqlParameter("@FechaNac", medico.getFechaNacimiento()),
+                new SqlParameter("@Direccion", medico.getDireccion()),
+                new SqlParameter("@Correo", medico.getCorreoElectronico()),
+                new SqlParameter("@Telefono", medico.getTelefono())
+            };
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Parameters.AddRange(parametros);
+
+                return ds.EjecutarProcedimientoAlmacenado(cmd, "SP_InsertarMedico");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
+
+   
 }
+
+
 
 //CREATE PROCEDURE SP_InsertarPaciente
 //    @DNI VARCHAR(20),
@@ -199,6 +237,46 @@ namespace Datos
 //        Telefono_Paciente)
 //    VALUES (
 //        @DNI,
+//        @IdLocalidad,
+//        @IdProvincia,
+//        @Nombre,
+//        @Apellido,
+//        @Sexo,
+//        @Nacionalidad,
+//        @FechaNac,
+//        @Direccion,
+//        @Correo,
+//        @Telefono)
+//END
+
+//CREATE PROCEDURE SP_InsertarMedico
+//    @Legajo char(5),
+//    @IdLocalidad INT,
+//    @IdProvincia INT,
+//    @Nombre VARCHAR(50),
+//    @Apellido VARCHAR(50),
+//    @Sexo CHAR(1),
+//    @Nacionalidad VARCHAR(50),
+//    @FechaNac DATE,
+//    @Direccion VARCHAR(100),
+//    @Correo VARCHAR(100),
+//    @Telefono VARCHAR(20)
+//AS
+//BEGIN
+//    INSERT INTO Medico (
+//        Legajo_Medico,
+//        Id_Localidad_Medico,
+//        Id_Provincia_Medico,
+//        Nombre_Medico,
+//        Apellido_Medico,
+//        Sexo_Medico,
+//        Nacionalidad_Medico,
+//        FechaNac_Medico,
+//        Direccion_Medico,
+//        CorreoElectronico_Medico,
+//        Telefono_Medico)
+//    VALUES (
+//        @Legajo,
 //        @IdLocalidad,
 //        @IdProvincia,
 //        @Nombre,

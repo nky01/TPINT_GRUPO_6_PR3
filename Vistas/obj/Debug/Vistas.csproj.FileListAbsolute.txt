@@ -382,3 +382,9 @@ C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Vistas\bin\Dato
 C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Vistas\bin\Entidades.pdb
 C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Vistas\bin\Negocio.pdb
 C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Vistas\bin\Datos.pdb
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Entidades.dll
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Negocio.dll
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Datos.dll
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Entidades.pdb
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Negocio.pdb
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Vistas\bin\Datos.pdb

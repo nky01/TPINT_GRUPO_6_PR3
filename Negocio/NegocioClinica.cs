@@ -28,6 +28,10 @@ namespace Negocio
             return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono);
         }
 
+        public int AgregarMedico(Medico medico)
+        {
+            return dao.AgregarMedico(medico);
+        }
         public DataTable ObtenerProvincias()
         {
             DaoClinica dao = new DaoClinica();
