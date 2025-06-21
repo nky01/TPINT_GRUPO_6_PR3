@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocio;
 
 namespace Vistas
 {
@@ -11,17 +12,35 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                CargarPacientes();
+            }
+        }
+        private void CargarPacientes()
+        {
+            NegocioClinica negocioClinica = new NegocioClinica();
+            gridviewPacientes.DataSource = negocioClinica.GetPacientes();
+            gridviewPacientes.DataBind();
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            NegocioClinica negocioClinica = new NegocioClinica();
+            if(txtBusqueda.Text == string.Empty)
+            {
+                CargarPacientes();
+                return;
+            }
+            gridviewPacientes.DataSource = negocioClinica.GetPaciente(txtBusqueda.Text);
+            gridviewPacientes.DataBind();
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Admin_Pacientes.aspx");
         }
+
+        
     }
 }

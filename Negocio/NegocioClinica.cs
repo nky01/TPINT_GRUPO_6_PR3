@@ -63,6 +63,18 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.getTablaPaciente(dni);
         }
+        public DataTable GetPacientes()
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetPacientes();
+        }
+
+        public DataTable GetPaciente(string DNIbuscado)
+        {
+            DaoClinica dao = new DaoClinica();
+            DataTable table = dao.getTablaPaciente(DNIbuscado);
+            return table;
+        }
 
     }        
 }

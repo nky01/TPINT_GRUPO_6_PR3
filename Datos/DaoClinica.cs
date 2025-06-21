@@ -8,7 +8,24 @@ namespace Datos
     public  class DaoClinica
     {
         AccesoDatos ds = new AccesoDatos();
-
+        string consultaPaciente = @"
+                        SELECT p.DNI_Paciente AS DNI,
+                               p.Nombre_Paciente AS Nombre,
+                               p.Apellido_Paciente AS Apellido,
+                               p.Sexo_Paciente AS Sexo,
+                               p.FechaNac_Paciente AS FechaNacimiento,
+                               p.Nacionalidad_Paciente AS Nacionalidad,
+                               p.Direccion_Paciente AS Direccion,
+                               l.Descripcion_Localidad AS Localidad,
+                               pr.Descripcion_Provincia AS Provincia,
+                               p.CorreoElectronico_Paciente AS Correo,
+                               p.Telefono_Paciente AS Telefono,
+                               p.Id_Localidad_Paciente AS idLocalidad,
+                               p.Id_Provincia_Paciente AS idProvincia
+                        FROM Paciente p
+                        INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
+                        INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia"
+                        ;
         public Usuarios LoginUsuario(string nombre, string contrasenia)
         {
             string consulta = "SELECT * FROM Usuario WHERE Nombre_Usuario = @usuario AND Contrasena_Usuario = @contrasenia";
@@ -76,27 +93,7 @@ namespace Datos
 
        public DataTable getTablaPaciente(string dni)
         {
-            string consulta = @"
-                        SELECT p.DNI_Paciente AS DNI,
-                               p.Nombre_Paciente AS Nombre,
-                               p.Apellido_Paciente AS Apellido,
-                               p.Sexo_Paciente AS Sexo,
-                               p.FechaNac_Paciente AS FechaNacimiento,
-                               p.Nacionalidad_Paciente AS Nacionalidad,
-                               p.Direccion_Paciente AS Direccion,
-                               l.Descripcion_Localidad AS Localidad,
-                               pr.Descripcion_Provincia AS Provincia,
-                               p.CorreoElectronico_Paciente AS Correo,
-                               p.Telefono_Paciente AS Telefono,
-                               p.Id_Localidad_Paciente AS idLocalidad,
-                               p.Id_Provincia_Paciente AS idProvincia
-                        FROM Paciente p
-                        INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
-                        INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia
-                        WHERE p.DNI_Paciente = @dni;";
-
-
-            SqlCommand comando = new SqlCommand(consulta);
+            SqlCommand comando = new SqlCommand(consultaPaciente + "WHERE p.DNI_Paciente = @dni; ");
             comando.Parameters.AddWithValue("@dni", dni);
 
             return ds.obtenerTablaConComando(comando, "Paciente");
@@ -163,6 +160,12 @@ namespace Datos
             int filasAfectadas = ds.EjecutarProcedimientoAlmacenado(cmd, "SP_BajaLogicaPaciente");
 
             return filasAfectadas > 0;
+        }
+
+        public DataTable GetPacientes()
+        {
+            DataTable table = ds.ObtenerTabla("Paciente", consultaPaciente);
+            return table;
         }
 
     }

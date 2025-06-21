@@ -100,64 +100,9 @@
            &nbsp;<asp:RegularExpressionValidator ID="rexvDni" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationExpression="^\d{7,8}$" ValidationGroup="0">Ingrese un dni valido</asp:RegularExpressionValidator>
            <br />
            <br />
-           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Height="231px" Width="954px">
+           <asp:GridView ID="gridviewPacientes" runat="server" AutoGenerateColumns="True" CssClass="auto-style1" Height="231px" Width="954px">
                <Columns>
-                   <asp:TemplateField HeaderText="DNI">
-                       <ItemTemplate>
-                           <asp:Label ID="Label5" runat="server" Text="DNI"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Nombre">
-                       <ItemTemplate>
-                           <asp:Label ID="Label6" runat="server" Text="Nombre"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Apellido">
-                       <ItemTemplate>
-                           <asp:Label ID="Label7" runat="server" Text="Apellido"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Sexo">
-                       <ItemTemplate>
-                           <asp:Label ID="Label8" runat="server" Text="Sexo"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Nacionalidad">
-                       <ItemTemplate>
-                           <asp:Label ID="Label9" runat="server" Text="Nacionalidad"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Fecha de nacimiento">
-                       <ItemTemplate>
-                           <asp:Label ID="Label10" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Direccion">
-                       <ItemTemplate>
-                           <asp:Label ID="Label11" runat="server" Text="Direccion"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Localidad">
-                       <ItemTemplate>
-                           <asp:Label ID="Label12" runat="server" Text="Localidad"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Provincia">
-                       <ItemTemplate>
-                           <asp:Label ID="Label13" runat="server" Text="Provincia"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Correo Electronico">
-                       <ItemTemplate>
-                           <asp:Label ID="Label14" runat="server" Text="Correo Electronico"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Telefono">
-                       <ItemTemplate>
-                           <asp:Label ID="Label15" runat="server" Text="Telefono"></asp:Label>
-                       </ItemTemplate>
-                   </asp:TemplateField>
-               </Columns>
+                </Columns>
            </asp:GridView>
      </div>
       
