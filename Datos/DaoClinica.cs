@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Entidades;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using Entidades;
 
 namespace Datos
 {
@@ -77,16 +72,87 @@ namespace Datos
             }
         }
 
+
+
+       public DataTable getTablaPaciente(string dni)
+        {
+            string consulta = @"
+                        SELECT p.DNI_Paciente AS DNI,
+                               p.Nombre_Paciente AS Nombre,
+                               p.Apellido_Paciente AS Apellido,
+                               p.Sexo_Paciente AS Sexo,
+                               p.FechaNac_Paciente AS FechaNacimiento,
+                               p.Nacionalidad_Paciente AS Nacionalidad,
+                               p.Direccion_Paciente AS Direccion,
+                               l.Descripcion_Localidad AS Localidad,
+                               pr.Descripcion_Provincia AS Provincia,
+                               p.CorreoElectronico_Paciente AS Correo,
+                               p.Telefono_Paciente AS Telefono,
+                               p.Id_Localidad_Paciente AS idLocalidad,
+                               p.Id_Provincia_Paciente AS idProvincia
+                        FROM Paciente p
+                        INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
+                        INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia
+                        WHERE p.DNI_Paciente = @dni;";
+
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@dni", dni);
+
+            return ds.obtenerTablaConComando(comando, "Paciente");
+        }
+
+        public int actualizarCliente(string dni, string nombre, string apellido, string direccion, int idLocalidad, int idProvincia, string correo, string telefono)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@DNI", dni);
+            comando.Parameters.AddWithValue("@Nombre", nombre);
+            comando.Parameters.AddWithValue("@Apellido", apellido);
+            comando.Parameters.AddWithValue("@Direccion", direccion);
+            comando.Parameters.AddWithValue("@Correo", correo);
+            comando.Parameters.AddWithValue("@Telefono", telefono);
+            comando.Parameters.AddWithValue("@IdLocalidad", idLocalidad);
+            comando.Parameters.AddWithValue("@IdProvincia", idProvincia);
+
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarPaciente");
+        }
+
+
         public DataTable GetTableProvincias()
         {
             DataTable table = ds.ObtenerTabla("Provincia", "SELECT * FROM Provincia");
             return table;
         }
 
+        public DataTable GetTableProvinciasPorLocalidad(int idlocalidad)
+        {
+            string consulta = @"
+                SELECT p.Id_Provincia, p.Descripcion_Provincia
+                FROM Provincia p
+                INNER JOIN Localidad l
+                ON l.Id_Provincia_Localidad = p.Id_Provincia
+                WHERE l.Id_Localidad = @IdLocalidad";
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@IdLocalidad", idlocalidad);
+            return ds.obtenerTablaConComando(comando, "Provincia");
+        }
+
         public DataTable GetTableLocalidades()
         {
             DataTable table = ds.ObtenerTabla("Localidad", "SELECT * FROM Localidad");
             return table;
+        }
+
+        public DataTable GetTableLocalidadesPorProvincia(int idprovincia)
+        {
+            string consulta = @"
+                SELECT l.Id_Localidad, l.Descripcion_Localidad
+                FROM Localidad L
+                WHERE l.Id_Provincia_Localidad = @IdProvincia";
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@IdProvincia", idprovincia);
+            return ds.obtenerTablaConComando(comando, "Localidad");
+
         }
 
         public bool BajaLogicaPorDni(string dni)

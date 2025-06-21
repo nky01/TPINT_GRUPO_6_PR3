@@ -17,8 +17,20 @@
             height: 100%;
             width: 100%;
             background-color: #f4f4f4;
+            overflow-x: hidden;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
+        .grid-container {
+            width: 100%;
+            overflow-x: auto; 
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        
         .container-1, .container-3 {
             display: flex;
             justify-content: space-between;
@@ -113,89 +125,102 @@
             <div class="search-section">
                 <asp:Label ID="Label4" runat="server" Text="Buscar por DNI:"></asp:Label>
                 <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
-                &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn" />
+                &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn" OnClick="btnBuscar_Click" />
             </div>
 
             <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda" CssClass="validation-message" ValidationGroup="0" ForeColor="Red">Ingrese un DNI!</asp:RequiredFieldValidator><br />
             <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtBusqueda" CssClass="validation-message" ValidationExpression="^\d{7,8}$" ValidationGroup="0" ForeColor="Red">Ingrese un DNI válido!</asp:RegularExpressionValidator>
 
             <div class="grid-container">
-                <asp:GridView ID="gvPaciente" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True">
+                <asp:GridView ID="gvPaciente" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvPaciente_RowCancelingEdit" OnRowEditing="gvPaciente_RowEditing" OnRowUpdating="gvPaciente_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="DNI">
                             <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text="DNI"></asp:Label>
+                                <asp:Label ID="dniTemplate" runat="server" Text='<%# Eval("DNI") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nombre">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtEditNombre" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvEditNombre" runat="server" ControlToValidate="txtEditNombre" ForeColor="Red">ingrese un nombre</asp:RequiredFieldValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label12" runat="server" Text="Nombre"></asp:Label>
+                                <asp:Label ID="Label12" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Apellido">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtEditApellido" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvEditApellido" runat="server" ControlToValidate="txtEditApellido" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Ingrese un apelldio</asp:RequiredFieldValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label13" runat="server" Text="Apellido"></asp:Label>
+                                <asp:Label ID="Label13" runat="server" Text='<%# Eval("Apellido") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Sexo">
                             <ItemTemplate>
-                                <asp:Label ID="Label8" runat="server" Text="Sexo"></asp:Label>
+                                <asp:Label ID="Label8" runat="server" Text='<%# Eval("Sexo") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fecha Nacimiento">
                             <ItemTemplate>
-                                <asp:Label ID="Label9" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                                <asp:Label ID="Label9" runat="server" Text='<%# Eval("FechaNacimiento") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nacionalidad">
                             <ItemTemplate>
-                                <asp:Label ID="Label10" runat="server" Text="Nacionalidad"></asp:Label>
+                                <asp:Label ID="Label10" runat="server" Text='<%# Eval("Nacionalidad") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Dirección">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtEditDireccion" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvEditDireccion" runat="server" ControlToValidate="txtEditDireccion" ErrorMessage="RequiredFieldValidator" ForeColor="Red">ingrese una direccion</asp:RequiredFieldValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label14" runat="server" Text="Direccion"></asp:Label>
+                                <asp:Label ID="Label14" runat="server" Text='<%# Eval("Direccion") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Localidad">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtEditLocalidad" runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="ddlEditLocalidad" runat="server"  DataTextField="Descripcion_Localidad" DataValueField="Id_Localidad" OnDataBound="ddlEditLocalidad_DataBound" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="rfvEditLocaldiad" runat="server" ControlToValidate="ddlEditLocalidad" ForeColor="Red" InitialValue="0">seleccione una localidad</asp:RequiredFieldValidator>
+                                <asp:HiddenField ID="hdnIdLocalidad" runat="server" value ='<%# Eval("idLocalidad") %>'></asp:HiddenField>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label15" runat="server" Text="Localidad"></asp:Label>
+                                <asp:Label ID="Label15" runat="server" Text='<%# Eval("Localidad") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Provincia">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtEditProvincia" runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="ddlEditProvincia" runat="server"  DataTextField="Descripcion_Provincia" DataValueField="Id_Provincia" OnDataBound="ddlEditProvincia_DataBound" AutoPostBack="True" OnSelectedIndexChanged="ddlEditProvincia_SelectedIndexChanged" >
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="rfvEditProvincia" runat="server" ControlToValidate="ddlEditProvincia" ForeColor="Red" InitialValue="0">seleccione una provincia</asp:RequiredFieldValidator>
+                                <asp:HiddenField ID="hdnProvincia" runat="server" value ='<%#Eval("idProvincia") %>'></asp:HiddenField>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label16" runat="server" Text="Provincia"></asp:Label>
+                                <asp:Label ID="Label16" runat="server" Text='<%# Eval("Provincia") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Correo Electrónico">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtEditCorreo" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvEditCorreo" runat="server" ControlToValidate="txtEditCorreo" ForeColor="Red">Ingrese un correo</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revEditCorreo" runat="server" ControlToValidate="txtEditCorreo" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">ingrese un correo valido</asp:RegularExpressionValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label17" runat="server" Text="Correo"></asp:Label>
+                                <asp:Label ID="Label17" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Teléfono">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtEditTelefono" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvEditTelefono" runat="server" ControlToValidate="txtEditTelefono" ForeColor="Red">Ingrese un telefono</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revEditTelefono" runat="server" ControlToValidate="txtEditTelefono" ForeColor="Red" ValidationExpression="^(\d{10})$">Ingrese un telefono valido</asp:RegularExpressionValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label18" runat="server" Text="Telefono"></asp:Label>
+                                <asp:Label ID="Label18" runat="server" Text='<%# Eval("Telefono") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

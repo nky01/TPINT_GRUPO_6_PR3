@@ -31,3 +31,12 @@ C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GR
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.dll
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.dll
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.pdb
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.dll
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.pdb
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.dll
+C:\Users\tomas\Documents\GitHub\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb

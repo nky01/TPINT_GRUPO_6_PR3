@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Datos;
-using Entidades;
 using System.Data;
 
 namespace Negocio
@@ -25,22 +23,45 @@ namespace Negocio
             return dao.AgregarPaciente(paciente);
         }
 
+        public int actualizarPaciente(string dni, string nombre, string apellido, string direccion, string correo, string telefono, int idLocalidad, int idProvincia)
+        {
+            return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono);
+        }
+
         public DataTable ObtenerProvincias()
         {
             DaoClinica dao = new DaoClinica();
             return dao.GetTableProvincias();
         }
 
+        public DataTable obtenerPronviciasPorLocalidad(int idLocalidad)
+        {
+            return dao.GetTableProvinciasPorLocalidad(idLocalidad);
+        }
+
+     
         public DataTable ObtenerLocalidades()
         {
             DaoClinica dao = new DaoClinica();
             return dao.GetTableLocalidades();
         }
 
+        public DataTable obtenerLocalidadPorProvincia(int idProvincia)
+        {
+            return dao.GetTableLocalidadesPorProvincia(idProvincia);
+
+        }
+
         public bool BajaPacienteDNI(string dni)
         {
             DaoClinica dao = new DaoClinica();
             return dao.BajaLogicaPorDni(dni);
+        }
+
+        public DataTable getTablaPaciente(string dni)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.getTablaPaciente(dni);
         }
 
     }        

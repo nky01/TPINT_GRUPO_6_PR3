@@ -65,6 +65,22 @@ namespace Datos
             return ds.Tables[NombreTabla];
         }
 
+        public DataTable obtenerTablaConComando(SqlCommand comando, string nombreTabla)
+        {
+            DataSet ds = new DataSet();
+            
+            using(SqlConnection cn = ObtenerConexion())
+            {
+                if (cn == null) throw new Exception("No se pudo establecer la conexion");
+
+                comando.Connection = cn;
+                SqlDataAdapter adapter = new SqlDataAdapter(comando);
+                adapter.Fill(ds, nombreTabla);
+                cn.Close();
+            }
+            return ds.Tables[nombreTabla];
+        }
+
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
         {
             int FilasCambiadas;
