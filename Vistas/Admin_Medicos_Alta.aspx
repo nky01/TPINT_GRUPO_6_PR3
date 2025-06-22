@@ -200,8 +200,9 @@
         </div>
 
         <div class="container-3">
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
-            <asp:Button ID="buttonAgregar" runat="server" Text="Agregar" CssClass="container-3-btn" ValidationGroup="0"  />
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Medicos.aspx">Volver</asp:HyperLink>
+            <asp:Button ID="buttonAgregar" runat="server" Text="Agregar" CssClass="container-3-btn" ValidationGroup="0" OnClick="buttonAgregar_Click"  />
+            <asp:Label ID="lblExito" runat="server" ForeColor="#33CC33" Text="Agregado correctamente" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

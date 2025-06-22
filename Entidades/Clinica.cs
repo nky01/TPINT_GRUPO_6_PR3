@@ -279,6 +279,7 @@ namespace Entidades
         private string Direccion_Medico;
         private string CorreoElectronico_Medico;
         private string Telefono_Medico;
+        private string Especialidad_Medico;
 
         public Medico() { }
 
@@ -380,5 +381,6 @@ namespace Entidades
         {
             Telefono_Medico = telefono;
         }
+
     }
 }

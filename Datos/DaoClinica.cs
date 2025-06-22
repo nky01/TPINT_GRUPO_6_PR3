@@ -140,6 +140,12 @@ namespace Datos
             return table;
         }
 
+        public DataTable GetTableEspecialidades()
+        {
+            DataTable table = ds.ObtenerTabla("Especialidad", "SELECT * FROM Especialidad");
+            return table;
+        }
+
         public DataTable GetTableLocalidadesPorProvincia(int idprovincia)
         {
             string consulta = @"

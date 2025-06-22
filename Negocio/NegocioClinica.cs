@@ -56,6 +56,11 @@ namespace Negocio
 
         }
 
+        public DataTable ObtenerEspecialidades()
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetTableEspecialidades();
+        }
         public bool BajaPacienteDNI(string dni)
         {
             DaoClinica dao = new DaoClinica();
