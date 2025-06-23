@@ -105,6 +105,9 @@
                     <asp:Label ID="labelLegajo" runat="server" Text="Legajo a dar de baja:"></asp:Label>
                     <asp:TextBox ID="textboxLegajo" runat="server" />
                     &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ForeColor="Red" CssClass="validation-message" ValidationGroup="0" ErrorMessage="Ingrese un legajo!" />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblExito" runat="server"></asp:Label>
                 </div>
                 <div style="text-align: center;">
                     <asp:Button ID="buttonBajaMedico" runat="server" CssClass="btn" Text="Dar de baja" OnClick="btnBaja_Click" ValidationGroup="0" OnClientClick="return confirm('¿Estás seguro de que lo quieres dar de baja?');" />

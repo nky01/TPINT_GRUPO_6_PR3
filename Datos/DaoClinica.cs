@@ -168,6 +168,15 @@ namespace Datos
             return filasAfectadas > 0;
         }
 
+        public bool BajaLogicaMedicoPorLegajo(string legajo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Parameters.Add(new SqlParameter("@Legajo", legajo));
+
+            int filasAfectadas = ds.EjecutarProcedimientoAlmacenado(cmd, "SP_BajaLogicaMedico");
+            return filasAfectadas > 0;
+        }
+
         public DataTable GetPacientes()
         {
             DataTable table = ds.ObtenerTabla("Paciente", consultaPaciente);
@@ -213,7 +222,14 @@ namespace Datos
    
 }
 
-
+//CREATE PROCEDURE SP_BajaLogicaMedico
+//    @Legajo CHAR(5)
+//AS
+//BEGIN
+//    UPDATE Medico
+//    SET Activo = 0
+//    WHERE Legajo_Medico = @Legajo;
+//END
 
 //CREATE PROCEDURE SP_InsertarPaciente
 //    @DNI VARCHAR(20),

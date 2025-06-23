@@ -25,12 +25,21 @@ namespace Vistas
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
+            NegocioClinica negocio = new NegocioClinica();
+            bool resultado = negocio.BajaMedicoPorLegajo(textboxLegajo.Text);
+            lblExito.Visible = false;
 
+            if (resultado)
+            {
+                textboxLegajo.Text = string.Empty;
+                lblExito.Text = "Medico dado de baja correctamente.";
+                lblExito.Visible = true;
+            }
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Admin_Pacientes.aspx");
         }
     }
 }

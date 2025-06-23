@@ -68,6 +68,12 @@ namespace Negocio
             return dao.BajaLogicaPorDni(dni);
         }
 
+        public bool BajaMedicoPorLegajo(string legajo)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.BajaLogicaMedicoPorLegajo(legajo);
+        }
+
         public DataTable getTablaPaciente(string dni)
         {
             DaoClinica dao = new DaoClinica();
@@ -85,6 +91,13 @@ namespace Negocio
             DataTable table = dao.getTablaPaciente(DNIbuscado);
             return table;
         }
+
+        public bool BajaMedicoPorLegajo(string legajo)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.BajaLogicaMedicoPorLegajo(legajo);
+        }
+
         public bool CheckLogin(Usuarios user, string rol)
         {
             if(user == null)
