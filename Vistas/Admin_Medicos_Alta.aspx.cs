@@ -14,13 +14,13 @@ namespace Vistas
 		NegocioClinica negocio = new NegocioClinica();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            Usuarios usuario = Session["usuario"] as Usuarios;
-            if (!negocio.CheckLogin(usuario, "Administrador"))
-            {
-                Response.Redirect("Login.aspx");
-            }
-            tipoUsuario.Text = usuario.getRol();
-            nombreUsuario.Text = usuario.getNombre();
+            //Usuarios usuario = Session["usuario"] as Usuarios;
+            //if (!negocio.CheckLogin(usuario, "Administrador"))
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
+            //tipoUsuario.Text = usuario.getRol();
+            //nombreUsuario.Text = usuario.getNombre();
             if (!IsPostBack)
             {
                 CargarProvincias();
@@ -63,10 +63,10 @@ namespace Vistas
 
         protected void buttonAgregar_Click(object sender, EventArgs e)
         {
-            AgregarPaciente();
+            AgregarMedico();
         }
 
-        private void AgregarPaciente()
+        private void AgregarMedico()
         {
             Medico obj = new Medico();
             obj.setDNI(textboxDNI.Text.Trim());
@@ -93,12 +93,15 @@ namespace Vistas
             obj.setDireccion(textboxDireccion.Text.Trim());
             int idProvincia;
             int idLocalidad;
-
+            int idEspecialidad = int.Parse(ddlEspecialidad.SelectedValue);
+            obj.setIdEspecialidad(idEspecialidad);
             if (int.TryParse(ddlProvincia.SelectedValue, out idProvincia) && int.TryParse(ddlLocalidad.SelectedValue, out idLocalidad))
             {
                 obj.setIdProvincia(idProvincia);
                 obj.setIdLocalidad(idLocalidad);
             }
+
+               
             obj.setCorreoElectronico(textboxEmail.Text.Trim());
             obj.setTelefono(textboxTelefono.Text.Trim());
             int filasAfectadas = negocio.AgregarMedico(obj);

@@ -279,10 +279,19 @@ namespace Entidades
         private string Direccion_Medico;
         private string CorreoElectronico_Medico;
         private string Telefono_Medico;
-        private string Especialidad_Medico;
+        private int Id_Especialidad_Medico;
 
         public Medico() { }
 
+        public int getIdEspecialidad()
+        {
+            return Id_Especialidad_Medico;
+        }
+
+        public void setIdEspecialidad(int especialidad)
+        {
+            Id_Especialidad_Medico = especialidad;
+        }
         public string getLegajo()
         {
             return Legajo_Medico;

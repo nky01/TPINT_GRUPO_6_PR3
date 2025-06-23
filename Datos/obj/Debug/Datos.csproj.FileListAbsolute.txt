@@ -42,7 +42,6 @@ C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Datos\obj\Debug
 C:\Users\alten\Documents\UTN\Programacion 3 C#\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb
 C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.dll
 C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.pdb
-C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.dll
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Datos.pdb
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\bin\Debug\Entidades.dll
@@ -52,3 +51,4 @@ C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GR
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.dll
 C:\Users\mateo\OneDrive\Escritorio\Uni\Programacion III\Trabajos\tp4git\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.pdb
+C:\Users\Usuario\Desktop\TPINT_GRUPO_6_PR3\Datos\obj\Debug\Datos.csproj.Up2Date

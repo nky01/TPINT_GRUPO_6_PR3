@@ -92,12 +92,6 @@ namespace Negocio
             return table;
         }
 
-        public bool BajaMedicoPorLegajo(string legajo)
-        {
-            DaoClinica dao = new DaoClinica();
-            return dao.BajaLogicaMedicoPorLegajo(legajo);
-        }
-
         public bool CheckLogin(Usuarios user, string rol)
         {
             if(user == null)
