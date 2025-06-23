@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
 using Negocio;
 
 namespace Vistas
@@ -12,6 +13,14 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            NegocioClinica negocio = new NegocioClinica();
+            Usuarios usuario = Session["usuario"] as Usuarios;
+            if (!negocio.CheckLogin(usuario, "Administrador"))
+            {
+                Response.Redirect("Login.aspx");
+            }
+            tipoUsuario.Text = usuario.getRol();
+            nombreUsuario.Text = usuario.getNombre();
             if (!IsPostBack)
             {
                 CargarPacientes();

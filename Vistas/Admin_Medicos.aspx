@@ -82,8 +82,8 @@
 <body>
     <form id="form1" runat="server">
          <div class="container-1">
-                        <asp:Label ID="labelTipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
-                         <asp:Label ID="labelNombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
+                        <asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
+                         <asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
              </div>
         <div class ="medic-container">
                          <asp:Button ID="buttonAltaMedicos" runat="server" Text="Alta" CssClass="medic-btn" />

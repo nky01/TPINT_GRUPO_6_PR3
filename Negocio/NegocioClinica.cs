@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Datos;
 using System.Data;
+using System.Reflection.Emit;
 
 namespace Negocio
 {
@@ -83,6 +84,18 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             DataTable table = dao.getTablaPaciente(DNIbuscado);
             return table;
+        }
+        public bool CheckLogin(Usuarios user, string rol)
+        {
+            if(user == null)
+            {
+                return false;
+            }
+            if(user.getRol() != rol)
+            {
+                return false;
+            }
+            return true;
         }
 
     }        

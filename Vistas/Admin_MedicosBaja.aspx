@@ -90,7 +90,7 @@
         <div class="container-1">
 
             <asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
-            <asp:Label ID="lblNombreUsuario" runat="server" Text="nombreUsuario"></asp:Label>
+            <asp:Label ID="nombreUsuario" runat="server" Text="nombreUsuario"></asp:Label>
 
         </div>
 

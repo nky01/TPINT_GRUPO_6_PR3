@@ -35,7 +35,7 @@ namespace Datos
                 new SqlParameter("@contrasenia", contrasenia)
             };
 
-            SqlDataReader dr = ds.EjecutarConsulta(consulta);
+            SqlDataReader dr = ds.EjecutarConsulta(consulta, parametros);
 
             if (dr.Read())
             {

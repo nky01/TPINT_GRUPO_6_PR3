@@ -15,8 +15,17 @@ namespace Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuarios usuario = Session["usuario"] as Usuarios;
+            if(!negocio.CheckLogin(usuario, "Administrador"))
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
+
             if (!IsPostBack)
             {
+                tipoUsuario.Text = usuario.getRol();
+                nombreUsuario.Text = usuario.getNombre();
                 CargarProvincias();
                 CargarLocalidades();
             }
@@ -40,6 +49,10 @@ namespace Vistas
             ddlLocalidad.Items.Insert(0, new ListItem("--Seleccione una localidad--", "0"));
         }
 
+        private void CargarNombreYRol()
+        {
+
+        }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {

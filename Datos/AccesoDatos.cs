@@ -42,10 +42,14 @@ namespace Datos
             }
         }
 
-        public SqlDataReader EjecutarConsulta(string consulta)
+        public SqlDataReader EjecutarConsulta(string consulta, SqlParameter[] parametros = null)
         {
             SqlConnection cn = ObtenerConexion();
             SqlCommand cmd = new SqlCommand(consulta, cn);
+            if(parametros != null)
+            {
+                cmd.Parameters.AddRange(parametros);
+            }
             return cmd.ExecuteReader(CommandBehavior.CloseConnection);
         }
 

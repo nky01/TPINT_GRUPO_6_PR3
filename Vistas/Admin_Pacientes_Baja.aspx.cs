@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,14 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            NegocioClinica negocio = new NegocioClinica();
+            Usuarios usuario = Session["usuario"] as Usuarios;
+            if (!negocio.CheckLogin(usuario, "Administrador"))
+            {
+                Response.Redirect("Login.aspx");
+            }
+            tipoUsuario.Text = usuario.getRol();
+            nombreUsuario.Text = usuario.getNombre();
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)

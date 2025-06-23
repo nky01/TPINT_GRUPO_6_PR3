@@ -65,8 +65,8 @@
     </style>
     <form id="form1" runat="server">
         <div class ="container-1">
-              <asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label>
-                        <asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label>
+              <asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
+                        <asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
         </div>
            <div class ="lista-container">
                         <asp:Label ID="Label19" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Médicos"></asp:Label>

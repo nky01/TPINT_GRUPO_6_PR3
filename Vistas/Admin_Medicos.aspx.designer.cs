@@ -24,22 +24,22 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control labelTipoUsuario.
+        /// Control tipoUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelTipoUsuario;
+        protected global::System.Web.UI.WebControls.Label tipoUsuario;
 
         /// <summary>
-        /// Control labelNombreUsuario.
+        /// Control nombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelNombreUsuario;
+        protected global::System.Web.UI.WebControls.Label nombreUsuario;
 
         /// <summary>
         /// Control buttonAltaMedicos.

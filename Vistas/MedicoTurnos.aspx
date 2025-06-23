@@ -53,8 +53,8 @@
 <body>
     <form id="form1" runat="server">
         <div class="header">
-            <div><asp:Label ID="Label1" runat="server" Text="tipoUsuario"></asp:Label></div>
-            <div><asp:Label ID="Label2" runat="server" Text="lblNombreUsuario"></asp:Label></div>
+            <div><asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label></div>
+            <div><asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label></div>
         </div>
 
         <div class="container">
