@@ -89,7 +89,7 @@
             <img class="logo" src="MiraeLogo.png" alt="Logo Mirae" />
             <h2>Mirae Clinica Integral</h2>
 
-            <asp:TextBox ID="txtUsuario" runat="server" CssClass="input-txt" placeholder="DNI"></asp:TextBox>
+            <asp:TextBox ID="txtUsuario" runat="server" CssClass="input-txt" placeholder="Usuario"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese su usuario!" ForeColor="Red" Display="Dynamic" />
 
             <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" CssClass="input-txt" placeholder="CONTRASEÑA"></asp:TextBox>

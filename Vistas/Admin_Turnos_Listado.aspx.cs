@@ -19,8 +19,6 @@ namespace Vistas
             {
                 Response.Redirect("Login.aspx");
             }
-            tipoUsuario.Text = usuario.getRol();
-            nombreUsuario.Text = usuario.getNombre();
         }
     }
 }

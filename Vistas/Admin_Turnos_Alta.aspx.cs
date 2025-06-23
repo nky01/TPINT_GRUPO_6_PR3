@@ -11,9 +11,9 @@ namespace Vistas
 {
     public partial class Admin_Turnos_Alta : System.Web.UI.Page
     {
+        NegocioClinica negocio = new NegocioClinica();
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioClinica negocio = new NegocioClinica();
             Usuarios usuario = Session["usuario"] as Usuarios;
             if (!negocio.CheckLogin(usuario, "Administrador"))
             {
