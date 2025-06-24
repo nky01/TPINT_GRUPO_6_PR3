@@ -86,10 +86,10 @@
                          <asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
              </div>
         <div class ="medic-container">
-                         <asp:Button ID="buttonAltaMedicos" runat="server" Text="Alta" CssClass="medic-btn" />
-                         <asp:Button ID="buttonBajaMedicos" runat="server" Text="Baja" CssClass="medic-btn" />
-                         <asp:Button ID="btnModificarMedicos" runat="server" Text="Modificar" CssClass="medic-btn" />
-                         <asp:Button ID="btnListadoMedicos" runat="server" Text="Listado" CssClass="medic-btn" />
+                         <asp:Button ID="buttonAltaMedicos" runat="server" Text="Alta" CssClass="medic-btn" OnClick="buttonAltaMedicos_Click" />
+                         <asp:Button ID="buttonBajaMedicos" runat="server" Text="Baja" CssClass="medic-btn" OnClick="buttonBajaMedicos_Click" />
+                         <asp:Button ID="btnModificarMedicos" runat="server" Text="Modificar" CssClass="medic-btn" OnClick="btnModificarMedicos_Click" />
+                         <asp:Button ID="btnListadoMedicos" runat="server" Text="Listado" CssClass="medic-btn" OnClick="btnListadoMedicos_Click" />
         </div>
         <div class ="container-3">
             <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn"/>

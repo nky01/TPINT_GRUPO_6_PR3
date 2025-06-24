@@ -22,5 +22,25 @@ namespace Vistas
             tipoUsuario.Text = usuario.getRol();
             nombreUsuario.Text = usuario.getNombre();
         }
+
+        protected void buttonAltaMedicos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Medicos_Alta.aspx");
+        }
+
+        protected void buttonBajaMedicos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_MedicosBaja.aspx");
+        }
+
+        protected void btnModificarMedicos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Medicos_Modificar.aspx");
+        }
+
+        protected void btnListadoMedicos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Medicos_Listar.aspx");
+        }
     }
 }
