@@ -303,6 +303,7 @@ namespace Entidades
         private string Legajo_Medico;
         private int Id_Localidad_Medico;
         private int Id_Provincia_Medico;
+        private string DNI_Medico;
         private string Nombre_Medico;
         private string Apellido_Medico;
         private char Sexo_Medico;
@@ -342,6 +343,15 @@ namespace Entidades
         public void setLegajo(string legajoNew)
         {
             Legajo_Medico = legajoNew;
+        }
+
+        public void SetDNI(string dni)
+        {
+           DNI_Medico = dni;
+        }
+        public string getDNI()
+        {
+            return DNI_Medico;
         }
 
         public int getIdLocalidad()
