@@ -121,7 +121,7 @@ FROM
             return ds.obtenerTablaConComando(comando, "Paciente");
         }
 
-        public int actualizarCliente(string dni, string nombre, string apellido, string direccion, int idLocalidad, int idProvincia, string correo, string telefono)
+        public int actualizarCliente(string dni, string nombre, string apellido, string direccion, int idLocalidad, int idProvincia, string correo, string telefono, string nuevaNacionalidad, char sexo, DateTime fecha)
         {
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@DNI", dni);
@@ -132,7 +132,9 @@ FROM
             comando.Parameters.AddWithValue("@Telefono", telefono);
             comando.Parameters.AddWithValue("@IdLocalidad", idLocalidad);
             comando.Parameters.AddWithValue("@IdProvincia", idProvincia);
-
+            comando.Parameters.AddWithValue("@Nacionalidad", nuevaNacionalidad);
+            comando.Parameters.AddWithValue("@Sexo", sexo);
+            comando.Parameters.AddWithValue("@Fecha", fecha);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarPaciente");
         }
 

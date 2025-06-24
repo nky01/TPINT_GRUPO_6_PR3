@@ -159,17 +159,20 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Sexo">
                             <ItemTemplate>
-                                <asp:Label ID="Label8" runat="server" Text='<%# Eval("Sexo") %>'></asp:Label>
+                                <asp:Label ID="labelSexo" runat="server" Text='<%# Eval("Sexo") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fecha Nacimiento">
                             <ItemTemplate>
-                                <asp:Label ID="Label9" runat="server" Text='<%# Eval("FechaNacimiento") %>'></asp:Label>
+                                <asp:Label ID="labelFecha" runat="server" Text='<%# Eval("FechaNacimiento") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nacionalidad">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="textboxNacionalidad" runat="server"></asp:TextBox>
+                            </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label10" runat="server" Text='<%# Eval("Nacionalidad") %>'></asp:Label>
+                                <asp:Label ID="labelNacionalidad" runat="server" Text='<%# Eval("Nacionalidad") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Dirección">

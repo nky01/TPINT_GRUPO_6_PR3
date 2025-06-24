@@ -312,7 +312,6 @@ namespace Entidades
         private string Direccion_Medico;
         private string CorreoElectronico_Medico;
         private string Telefono_Medico;
-        private string DNI_Medico;
         private int Id_Especialidad_Medico;
         private List<Horario> horarios;
 
@@ -349,19 +348,7 @@ namespace Entidades
         {
            DNI_Medico = dni;
         }
-        public string getDNI()
-        {
-            return DNI_Medico;
-        }
 
-        public void SetDNI(string dni)
-        {
-           DNI_Medico = dni;
-        }
-        public string getDNI()
-        {
-            return DNI_Medico;
-        }
 
         public int getIdLocalidad()
         {

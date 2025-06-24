@@ -24,9 +24,9 @@ namespace Negocio
             return dao.AgregarPaciente(paciente);
         }
 
-        public int actualizarPaciente(string dni, string nombre, string apellido, string direccion, string correo, string telefono, int idLocalidad, int idProvincia)
+        public int actualizarPaciente(string dni, string nombre, string apellido, string direccion, string correo, string telefono, int idLocalidad, int idProvincia, string nuevaNacionalidad, char sexo, DateTime fecha)
         {
-            return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono);
+            return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono, nuevaNacionalidad, sexo, fecha);
         }
 
         public int AgregarMedico(Medico medico, Usuarios usuario)
