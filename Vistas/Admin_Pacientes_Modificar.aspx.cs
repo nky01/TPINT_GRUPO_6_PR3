@@ -89,17 +89,20 @@ namespace Vistas
             int index = e.RowIndex;
 
             string dni = ((Label)gvPaciente.Rows[e.RowIndex].FindControl("dniTemplate")).Text;
-
             string nuevoNombre = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditNombre")).Text;
             string nuevoApellido = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditApellido")).Text;
             string nuevaDireccion = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditDireccion")).Text;
             string nuevoCorreo = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditCorreo")).Text;
             string nuevoTelefono = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditTelefono")).Text;
+            string nuevaNacionalidad = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("textboxNacionalidad")).Text;
             int nuevaIdLocalidad = int.Parse(((DropDownList)gvPaciente.Rows[index].FindControl("ddlEditLocalidad")).SelectedValue);
             int NuevaIdProvincia = int.Parse(((DropDownList)gvPaciente.Rows[index].FindControl("ddlEditProvincia")).SelectedValue);
+            char sexo = Char.Parse(((Label)gvPaciente.Rows[e.RowIndex].FindControl("labelSexo")).Text);
+            DateTime fecha = DateTime.Parse(((Label)gvPaciente.Rows[e.RowIndex].FindControl("labelFecha")).Text);
+
 
             negocio = new NegocioClinica();
-            int filasAfectadas = negocio.actualizarPaciente(dni, nuevoNombre, nuevoApellido, nuevaDireccion, nuevoCorreo, nuevoTelefono, nuevaIdLocalidad, NuevaIdProvincia);
+            int filasAfectadas = negocio.actualizarPaciente(dni, nuevoNombre, nuevoApellido, nuevaDireccion, nuevoCorreo, nuevoTelefono, nuevaIdLocalidad, NuevaIdProvincia, nuevaNacionalidad, sexo, fecha);
 
 
             if(filasAfectadas > 0)

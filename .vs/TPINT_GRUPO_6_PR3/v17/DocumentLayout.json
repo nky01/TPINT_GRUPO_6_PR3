@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FEFFFE17-2B3E-4643-ADB1-6384094C7353}|Entidades\\Entidades.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\entidades\\clinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEFFFE17-2B3E-4643-ADB1-6384094C7353}|Entidades\\Entidades.csproj|solutionrelative:entidades\\clinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BC9BA65-2A88-4442-9929-632EF2A4DDFA}|Datos\\Datos.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\datos\\daoclinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BC9BA65-2A88-4442-9929-632EF2A4DDFA}|Datos\\Datos.csproj|solutionrelative:datos\\daoclinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E854B6-6B7B-4FF4-866A-263D3CCFFF95}|Negocio\\Negocio.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\negocio\\negocioclinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E854B6-6B7B-4FF4-866A-263D3CCFFF95}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioclinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_modificar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_modificar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\vistas\\admin_pacientes_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{0EFA9851-4A2B-45DA-A792-9BE4E59E69B7}|Vistas\\Vistas.csproj|solutionrelative:vistas\\admin_pacientes_modificar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DaoClinica.cs",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Datos\\DaoClinica.cs",
+              "RelativeDocumentMoniker": "Datos\\DaoClinica.cs",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Datos\\DaoClinica.cs",
+              "RelativeToolTip": "Datos\\DaoClinica.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAgwHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T02:33:11.912Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Clinica.cs",
-              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Entidades\\Clinica.cs",
-              "RelativeDocumentMoniker": "Entidades\\Clinica.cs",
-              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Entidades\\Clinica.cs*",
-              "RelativeToolTip": "Entidades\\Clinica.cs*",
-              "ViewState": "AgIAADIBAAAAAAAAAAAjwDgBAAAjAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "NegocioClinica.cs",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Negocio\\NegocioClinica.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioClinica.cs",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Negocio\\NegocioClinica.cs",
+              "RelativeToolTip": "Negocio\\NegocioClinica.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwBsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T02:19:41.138Z",
+              "WhenOpened": "2025-06-24T02:32:26.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Admin_Pacientes_Modificar.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Modificar.aspx.cs",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx.cs",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Modificar.aspx.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAiwGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T02:26:48.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin_Pacientes_Modificar.aspx",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Admin_Pacientes_Modificar.aspx",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Vistas\\Admin_Pacientes_Modificar.aspx",
+              "RelativeToolTip": "Vistas\\Admin_Pacientes_Modificar.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-24T02:26:39.967Z",
               "EditorCaption": ""
             }
           ]
