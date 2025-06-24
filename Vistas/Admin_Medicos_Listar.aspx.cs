@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,42 +14,52 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioClinica negocio = new NegocioClinica();
-            //Usuarios usuario = Session["usuario"] as Usuarios;
-            //if (!negocio.CheckLogin(usuario, "Administrador"))
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
-            //tipoUsuario.Text = usuario.getRol();
-            //nombreUsuario.Text = usuario.getNombre();
-
             if (!IsPostBack)
             {
                 CargarMedicos();
             }
         }
 
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-        }
-
         private void CargarMedicos()
         {
             NegocioClinica negocioClinica = new NegocioClinica();
-           gvMedico.DataSource = negocioClinica.GetMedicos();
+            DataTable dt = negocioClinica.GetMedicos();
+
+            gvMedico.DataSource = dt;
             gvMedico.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             NegocioClinica negocioClinica = new NegocioClinica();
-            if (txtBuscar.Text == string.Empty)
+            string legajo = txtBuscar.Text.Trim();
+
+            DataTable dt = negocioClinica.GetMedicosPorLegajo(legajo);
+
+            if (dt.Rows.Count > 0)
             {
-                CargarMedicos();
-                return;
+                gvMedico.DataSource = dt;
+                gvMedico.DataBind();
+                lblMensajeError.Text = "";
             }
-            gvMedico.DataSource = negocioClinica.GetPaciente(txtBuscar.Text);
-            gvMedico.DataBind();
+            else
+            {
+                gvMedico.DataSource = null;
+                gvMedico.DataBind();
+                lblMensajeError.Text = "No se encontró ningun medico con ese legajo";
+            }
+        }
+
+        protected void gvMedico_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvMedico.PageIndex = e.NewPageIndex;
+            CargarMedicos();
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = string.Empty;
+            CargarMedicos();
         }
     }
 }

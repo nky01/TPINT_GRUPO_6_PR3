@@ -101,6 +101,13 @@ namespace Negocio
             return dao.GetMedicos();
         }
 
+        public DataTable GetMedicosPorLegajo(string legajo)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetMedicosPorLegajo(legajo);
+        }
+
+
         public DataTable GetPaciente(string DNIbuscado)
         {
             DaoClinica dao = new DaoClinica();
