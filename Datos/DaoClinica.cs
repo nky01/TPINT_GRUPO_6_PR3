@@ -27,6 +27,27 @@ namespace Datos
                         INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
                         INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia"
                         ;
+
+        string consultaMedico = @"
+                               SELECT 
+    M.Legajo_Medico,
+    M.Nombre_Medico,
+    M.Apellido_Medico,
+    M.Sexo_Medico,
+    M.DNI_Medico,
+    M.Nacionalidad_Medico,
+    M.FechaNac_Medico,
+    M.Direccion_Medico,
+    M.CorreoElectronico_Medico,
+    M.Telefono_Medico,
+    E.Descripcion_Especialidad AS Especialidad,
+    L.Descripcion_Localidad AS Localidad,
+    P.Descripcion_Provincia AS Provincia
+FROM 
+    Medico M
+    INNER JOIN Especialidad E ON M.Id_Especialidad_Medico = E.Id_Especialidad
+    INNER JOIN Localidad L ON M.Id_Localidad_Medico = L.Id_Localidad
+    INNER JOIN Provincia P ON M.Id_Provincia_Medico = P.Id_Provincia;";
         public Usuarios LoginUsuario(string nombre, string contrasenia)
         {
             string consulta = "SELECT * FROM Usuario WHERE Nombre_Usuario = @usuario AND Contrasena_Usuario = @contrasenia";
@@ -183,7 +204,11 @@ namespace Datos
             DataTable table = ds.ObtenerTabla("Paciente", consultaPaciente);
             return table;
         }
-
+        public DataTable GetMedicos()
+        {
+            DataTable table = ds.ObtenerTabla("Medicos", consultaMedico);
+            return table;
+        }
         public int AgregarHorario(Horario horario, string legajoMedico)
         {
             string consulta = @"INSERT INTO Horario
@@ -230,7 +255,7 @@ namespace Datos
                 new SqlParameter("@Correo", medico.getCorreoElectronico()),
                 new SqlParameter("@Telefono", medico.getTelefono()),
                 new SqlParameter("@Especialidad", medico.getIdEspecialidad()),
-                new SqlParameter("@DNI", medico.getDNI())
+                ///new SqlParameter("@DNI", medico.getDNI())
             };
 
             try

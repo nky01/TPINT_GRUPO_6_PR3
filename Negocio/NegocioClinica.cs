@@ -95,6 +95,11 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.GetPacientes();
         }
+        public DataTable GetMedicos()
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetMedicos();
+        }
 
         public DataTable GetPaciente(string DNIbuscado)
         {
