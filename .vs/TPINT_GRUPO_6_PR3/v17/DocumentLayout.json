@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FEFFFE17-2B3E-4643-ADB1-6384094C7353}|Entidades\\Entidades.csproj|c:\\users\\alten\\documents\\utn\\programacion 3 c#\\tpint_grupo_6_pr3\\entidades\\clinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEFFFE17-2B3E-4643-ADB1-6384094C7353}|Entidades\\Entidades.csproj|solutionrelative:entidades\\clinica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Clinica.cs",
+              "DocumentMoniker": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Entidades\\Clinica.cs",
+              "RelativeDocumentMoniker": "Entidades\\Clinica.cs",
+              "ToolTip": "C:\\Users\\alten\\Documents\\UTN\\Programacion 3 C#\\TPINT_GRUPO_6_PR3\\Entidades\\Clinica.cs*",
+              "RelativeToolTip": "Entidades\\Clinica.cs*",
+              "ViewState": "AgIAADIBAAAAAAAAAAAjwDgBAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T02:19:41.138Z",
+              "EditorCaption": ""
             }
           ]
         }
