@@ -266,6 +266,38 @@ namespace Entidades
         public string getDescripcion() { return Descripcion_Loc; }
     }
 
+
+    public class Horario
+    {
+        private int horarioIngreso;
+        private int horarioSalida;
+        private char dia;
+
+        public void setHorario(int ingreso, int salida)
+        {
+            horarioSalida = salida;
+            horarioIngreso = ingreso;
+        }
+        public void setDia(char diaRecibido)
+        {
+            dia = diaRecibido;
+        }
+
+        public char getDia()
+        {
+            return dia;
+        }
+        public int getHorarioIngreso()
+        {
+            return horarioIngreso;
+        }
+        public int getHorarioSalida()
+        {
+            return horarioSalida;
+        }
+
+    }
+
     public class Medico
     {
         private string Legajo_Medico;
@@ -279,10 +311,20 @@ namespace Entidades
         private string Direccion_Medico;
         private string CorreoElectronico_Medico;
         private string Telefono_Medico;
+        private string DNI_Medico;
         private int Id_Especialidad_Medico;
+        private List<Horario> horarios;
 
         public Medico() { }
 
+        public string getDNI()
+        {
+            return DNI_Medico;
+        }
+        public void setDNI(string dni)
+        {
+            DNI_Medico = dni;
+        }
         public int getIdEspecialidad()
         {
             return Id_Especialidad_Medico;
@@ -296,9 +338,10 @@ namespace Entidades
         {
             return Legajo_Medico;
         }
-        public void setDNI(string legajo)
+
+        public void setLegajo(string legajoNew)
         {
-            Legajo_Medico=legajo;
+            Legajo_Medico = legajoNew;
         }
 
         public int getIdLocalidad()
@@ -389,6 +432,15 @@ namespace Entidades
         public void setTelefono(string telefono)
         {
             Telefono_Medico = telefono;
+        }
+
+        public void setHorarios(List<Horario> horariosRecibidos)
+        {
+            horarios = horariosRecibidos;
+        }
+        public List<Horario> getHorarios()
+        {
+            return horarios;
         }
 
     }

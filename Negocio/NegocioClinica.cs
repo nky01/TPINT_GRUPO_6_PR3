@@ -29,10 +29,21 @@ namespace Negocio
             return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono);
         }
 
-        public int AgregarMedico(Medico medico)
+        public int AgregarMedico(Medico medico, Usuarios usuario)
         {
-            return dao.AgregarMedico(medico);
+            return dao.AgregarMedico(medico, usuario);
         }
+
+        public int AgregarHorario(List<Horario> horarios, string legajoMedico)
+        {
+            int horariosAgregados = 0;
+            foreach(Horario horario in horarios)
+            {
+                horariosAgregados += dao.AgregarHorario(horario, legajoMedico);
+            }
+            return horariosAgregados;
+        }
+
         public DataTable ObtenerProvincias()
         {
             DaoClinica dao = new DaoClinica();

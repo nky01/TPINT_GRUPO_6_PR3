@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -182,20 +183,44 @@ namespace Datos
             DataTable table = ds.ObtenerTabla("Paciente", consultaPaciente);
             return table;
         }
-        public int AgregarMedico(Medico medico)
-        {
-            string consulta = @"INSERT INTO Medico
-                        (Legajo_Medico, Id_Localidad, Id_Provincia, Nombre_Medico, Apellido_Medico, Sexo_Medico, Nacionalidad_Medico, FechaNac_Medico, 
-                        Direccion_Medico, CorreoElectronico_Medico, Telefono_Medico, Id_Especialidad_Medico)
 
-                        VALUES (@Legajo, @IdLocalidad, @IdProvincia, @Nombre, @Apellido, @Sexo, @Nacionalidad, @FechaNac, @Direccion, @Correo, @Telefono, @Especialidad)";
+        public int AgregarHorario(Horario horario, string legajoMedico)
+        {
+            string consulta = @"INSERT INTO Horario
+                                (Legajo_Medico_Horario, Id_Dia_Horario, Hora_Inicio_Horario, Hora_Salida_Horario)
+                                VALUES (@Legajo, @IdDia, @HoraInicio, @HoraSalida)";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
+                new SqlParameter("@Legajo", legajoMedico),
+                new SqlParameter("@IdDia", horario.getDia()),
+                new SqlParameter("@HoraInicio", horario.getHorarioIngreso()),
+                new SqlParameter("@HoraSalida", horario.getHorarioSalida())
+            };
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Parameters.AddRange(parametros);
+
+                return ds.EjecutarProcedimientoAlmacenado(cmd, "SP_InsertarHorario");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int AgregarMedico(Medico medico, Usuarios user)
+        {
+
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("User_Name", user.getNombre()),
+                new SqlParameter("User_Pass", user.getContrasenia()),
+                new SqlParameter("User_Rol", user.getRol()),
                 new SqlParameter("@Legajo", medico.getLegajo()),
                 new SqlParameter("@IdLocalidad", medico.getIdLocalidad()),
                 new SqlParameter("@IdProvincia", medico.getIdProvincia()),
-                new SqlParameter("@IdEspecialidad",medico.getIdEspecialidad()),
                 new SqlParameter("@Nombre", medico.getNombre()),
                 new SqlParameter("@Apellido", medico.getApellido()),
                 new SqlParameter("@Sexo", medico.getSexo()),
@@ -203,7 +228,9 @@ namespace Datos
                 new SqlParameter("@FechaNac", medico.getFechaNacimiento()),
                 new SqlParameter("@Direccion", medico.getDireccion()),
                 new SqlParameter("@Correo", medico.getCorreoElectronico()),
-                new SqlParameter("@Telefono", medico.getTelefono())
+                new SqlParameter("@Telefono", medico.getTelefono()),
+                new SqlParameter("@Especialidad", medico.getIdEspecialidad()),
+                new SqlParameter("@DNI", medico.getDNI())
             };
 
             try
@@ -211,7 +238,7 @@ namespace Datos
                 SqlCommand cmd = new SqlCommand();
                 cmd.Parameters.AddRange(parametros);
 
-                return ds.EjecutarProcedimientoAlmacenado(cmd, "SP_InsertarMedico");
+                return ds.EjecutarProcedimientoAlmacenado(cmd, "SP_InsertarMedic");
             }
             catch (Exception ex)
             {
@@ -316,4 +343,37 @@ namespace Datos
 //        @Correo,
 //        @Telefono,
 //        @IdEspecialidad)
+//END
+//CREATE PROCEDURE SP_InsertarHorario
+
+//@Legajo CHAR(5), @IdDia CHAR(1), @HoraInicio INT, @HoraSalida INT
+
+//AS
+
+//BEGIN
+
+//	INSERT INTO Horario (Legajo_Medico_Horario, Id_Dia_Horario, Hora_Inicio_Horario, Hora_Salida_Horario)
+//        VALUES(@Legajo, @IdDia, @HoraInicio, @HoraSalida)
+//END
+//CREATE PROCEDURE SP_InsertarMedico
+
+//@Legajo CHAR(5), @IdLocalidad INT, @IdProvincia INT, @Nombre NVARCHAR(50), @Apellido NVARCHAR(50), @Sexo CHAR(1), 
+//@Nacionalidad NVARCHAR(30), @FechaNac DATE, @Direccion NVARCHAR(70), @Correo NVARCHAR(50), @Telefono NVARCHAR(30), @Especialidad INT, @DNI NVARCHAR(30),
+//@User_Name NVARCHAR(50), @User_Pass NVARCHAR(255), @User_Rol NVARCHAR(20)
+
+//AS
+
+//BEGIN
+
+	 
+//    	INSERT INTO Usuario (Nombre_Usuario, Contrasena_Usuario, Rol_Usuario)
+//    	VALUES(@User_Name, @User_Pass, @User_Rol);
+
+//-- aca declaramos que la nueva id es @IdUsuario
+//    	DECLARE @IdUsuario INT = SCOPE_IDENTITY();
+
+//INSERT INTO Medico (Legajo_Medico, Id_Localidad_Medico, Id_Provincia_Medico, Nombre_Medico, Apellido_Medico, Sexo_Medico, Nacionalidad_Medico, FechaNac_Medico,
+//Direccion_Medico, CorreoElectronico_Medico, Telefono_Medico, Id_Especialidad_Medico, DNI_Medico, Id_Usuario_Medico)
+	
+//	VALUES(@Legajo, @IdLocalidad, @IdProvincia, @Nombre, @Apellido, @Sexo, @Nacionalidad, @FechaNac, @Direccion, @Correo, @Telefono, @Especialidad, @DNI, @IdUsuario);
 //END

@@ -14,13 +14,13 @@ namespace Vistas
 		NegocioClinica negocio = new NegocioClinica();
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            //Usuarios usuario = Session["usuario"] as Usuarios;
-            //if (!negocio.CheckLogin(usuario, "Administrador"))
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
-            //tipoUsuario.Text = usuario.getRol();
-            //nombreUsuario.Text = usuario.getNombre();
+            /*Usuarios usuario = Session["usuario"] as Usuarios;
+            if (!negocio.CheckLogin(usuario, "Administrador"))
+            {
+                Response.Redirect("Login.aspx");
+            }
+            tipoUsuario.Text = usuario.getRol();
+            nombreUsuario.Text = usuario.getNombre();*/
             if (!IsPostBack)
             {
                 CargarProvincias();
@@ -69,23 +69,17 @@ namespace Vistas
         private void AgregarMedico()
         {
             Medico obj = new Medico();
+            Usuarios usuario = new Usuarios();
+
+            usuario.setNombre(textboxUsuario.Text.Trim());
+            usuario.setContrasenia(textboxPassword.Text.Trim());
+            usuario.setRol("Medico");
+
             obj.setDNI(textboxDNI.Text.Trim());
             obj.setNombre(textboxNombre.Text.Trim());
             obj.setApellido(textboxApellido.Text.Trim());
-            char genero;
-            switch (radioButtonSexo.SelectedValue)
-            {
-                case "3":
-                    genero = 'M';
-                    break;
-                case "2":
-                    genero = 'F';
-                    break;
-                default:
-                    genero = 'N';
-                    break;
-            }
-            obj.setSexo(genero);
+            obj.setLegajo(textboxLegajo.Text.Trim());
+            obj.setSexo(Convert.ToChar(radioButtonSexo.SelectedValue));
             obj.setNacionalidad(textboxNacionalidad.Text.Trim());
             DateTime fecha;
             DateTime.TryParse(textboxFecha.Text.Trim(), out fecha);
@@ -100,16 +94,31 @@ namespace Vistas
                 obj.setIdProvincia(idProvincia);
                 obj.setIdLocalidad(idLocalidad);
             }
-
-               
             obj.setCorreoElectronico(textboxEmail.Text.Trim());
             obj.setTelefono(textboxTelefono.Text.Trim());
-            int filasAfectadas = negocio.AgregarMedico(obj);
+            
+
+            List<Horario> horarios = new List<Horario>();
+
+            foreach(ListItem item in CheckBoxList1.Items)
+            {
+                if(item.Selected)
+                {
+                    Horario horario = new Horario();
+                    horario.setDia(Convert.ToChar(item.Value));
+                    horario.setHorario(int.Parse(textboxHorarioComienzo.Text), int.Parse(textboxHorarioFinal.Text));
+                    horarios.Add(horario);
+                }
+            }
+
+            int filasAfectadas = negocio.AgregarMedico(obj, usuario);
             if (filasAfectadas > 0)
             {
                 lblExito.Visible = true;
                 lblExito.ForeColor = System.Drawing.Color.Green;
                 lblExito.Text = "Paciente agregado correctamente!";
+                obj.setHorarios(horarios);
+                negocio.AgregarHorario(horarios, obj.getLegajo());
                 LimpiarCampos();
             }
             else
@@ -135,6 +144,12 @@ namespace Vistas
             textboxPassword.Text = "";
             textboxTelefono.Text = "";
             textboxUsuario.Text = "";
+            txtRepetirContraseña.Text = "";
+        }
+
+        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

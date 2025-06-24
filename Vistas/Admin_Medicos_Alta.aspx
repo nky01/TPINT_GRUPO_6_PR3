@@ -53,7 +53,6 @@
 
         input[type="text"], select {
             padding: 8px;
-            width: 100%;
             font-size: 14px;
         }
 
@@ -128,9 +127,9 @@
 
                 <asp:Label runat="server" Text="Sexo:" />
                 <asp:RadioButtonList ID="radioButtonSexo" runat="server" CssClass="radio-list">
-                    <asp:ListItem>Masculino</asp:ListItem>
-                    <asp:ListItem>Femenino</asp:ListItem>
-                    <asp:ListItem>No Especificado</asp:ListItem>
+                    <asp:ListItem Value="M">Masculino</asp:ListItem>
+                    <asp:ListItem Value="F">Femenino</asp:ListItem>
+                    <asp:ListItem Value="N">No Especificado</asp:ListItem>
                 </asp:RadioButtonList>
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvSexo" runat="server" ControlToValidate="radioButtonSexo" ValidationGroup="0" Text="* Seleccione un sexo" />
 
@@ -169,14 +168,14 @@
                 <asp:DropDownList ID="ddlEspecialidad" runat="server" />
 
                 <asp:Label runat="server" Text="Días de Atención:" />
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" CssClass="check-list">
-                    <asp:ListItem>Lunes</asp:ListItem>
-                    <asp:ListItem>Martes</asp:ListItem>
-                    <asp:ListItem>Miércoles</asp:ListItem>
-                    <asp:ListItem>Jueves</asp:ListItem>
-                    <asp:ListItem>Viernes</asp:ListItem>
-                    <asp:ListItem>Sábado</asp:ListItem>
-                    <asp:ListItem>Domingo</asp:ListItem>
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server" CssClass="check-list" Height="163px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="92px">
+                    <asp:ListItem Value="L">Lunes</asp:ListItem>
+                    <asp:ListItem Value="M">Martes</asp:ListItem>
+                    <asp:ListItem Value="X">Miércoles</asp:ListItem>
+                    <asp:ListItem Value="J">Jueves</asp:ListItem>
+                    <asp:ListItem Value="V">Viernes</asp:ListItem>
+                    <asp:ListItem Value="S">Sábado</asp:ListItem>
+                    <asp:ListItem Value="D">Domingo</asp:ListItem>
                 </asp:CheckBoxList>
                 <asp:CustomValidator CssClass="validator" ID="customValidatorDias" runat="server" />
 
@@ -196,6 +195,9 @@
                 <asp:Label runat="server" Text="Contraseña:" />
                 <asp:TextBox ID="textboxPassword" runat="server" TextMode="Password" />
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvPassword" runat="server" ControlToValidate="textboxPassword" ValidationGroup="0" Text="* Completar Contraseña" />
+                <asp:Label ID="labelRepetir" runat="server" Text="Repetir Contraseña:"></asp:Label>
+                <asp:TextBox ID="txtRepetirContraseña" runat="server" TextMode="Password" Width="151px"></asp:TextBox>
+                <asp:CompareValidator CssClass="validator" ID="CompareValidatorPass" runat="server" ErrorMessage="* Las contraseñas no coinciden" ValidationGroup="0" ControlToCompare="textboxPassword" ControlToValidate="txtRepetirContraseña"></asp:CompareValidator>
             </div>
         </div>
 
