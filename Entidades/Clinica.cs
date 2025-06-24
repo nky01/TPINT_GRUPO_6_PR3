@@ -354,6 +354,15 @@ namespace Entidades
             return DNI_Medico;
         }
 
+        public void SetDNI(string dni)
+        {
+           DNI_Medico = dni;
+        }
+        public string getDNI()
+        {
+            return DNI_Medico;
+        }
+
         public int getIdLocalidad()
         {
             return Id_Localidad_Medico;
