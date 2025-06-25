@@ -48,7 +48,9 @@ namespace Datos
                             M.CorreoElectronico_Medico,
                             M.Telefono_Medico,
                             E.Descripcion_Especialidad AS Especialidad,
-                            E.Id_Especialidad AS Especialidad,
+                            M.Id_Especialidad_Medico AS idEspecialidad,
+                            M.Id_Localidad_Medico AS idLocalidad,
+                            M.Id_Provincia_Medico AS idProvincia,
                             L.Descripcion_Localidad AS Localidad,
                             P.Descripcion_Provincia AS Provincia
                         FROM 
@@ -136,7 +138,7 @@ namespace Datos
 
         public Usuarios LoginUsuario(string nombre, string contrasenia)
         {
-            string consulta = "SELECT * FROM Usuario WHERE Nombre_Usuario = @usuario AND Contrasena_Usuario = @contrasenia";
+            string consulta = "SELECT * FROM Usuario WHERE Nombre_Usuario = @usuario AND Contrasena_Usuario = @contrasenia AND Activo_Usuario = 1";
             SqlParameter[] parametros = new SqlParameter[]
             {
                 new SqlParameter("@usuario", nombre),
