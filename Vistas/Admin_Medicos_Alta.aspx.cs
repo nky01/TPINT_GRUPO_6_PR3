@@ -29,6 +29,8 @@ namespace Vistas
             }
         }
 
+        
+
         protected void Button1_Click(object sender, EventArgs e)
         {
 
@@ -45,10 +47,8 @@ namespace Vistas
 
         private void CargarLocalidades()
         {
-            ddlLocalidad.DataSource = negocio.ObtenerLocalidades();
-            ddlLocalidad.DataTextField = "Descripcion_Localidad";
-            ddlLocalidad.DataValueField = "Id_Localidad";
-            ddlLocalidad.DataBind();
+            
+            ddlLocalidad.Items.Clear();
             ddlLocalidad.Items.Insert(0, new ListItem("--Seleccione una localidad--", "0"));
         }
 
@@ -70,6 +70,14 @@ namespace Vistas
         {
             Medico obj = new Medico();
             Usuarios usuario = new Usuarios();
+
+            if (negocio.ExisteUsuario(textboxUsuario.Text.Trim()))
+            {
+                lblExito.Visible = true;
+                lblExito.ForeColor = System.Drawing.Color.Red;
+                lblExito.Text = "ERROR: El nombre de usuario ya existe, ingrese otro";
+                return;
+            }
 
             usuario.setNombre(textboxUsuario.Text.Trim());
             usuario.setContrasenia(textboxPassword.Text.Trim());
@@ -96,27 +104,36 @@ namespace Vistas
             }
             obj.setCorreoElectronico(textboxEmail.Text.Trim());
             obj.setTelefono(textboxTelefono.Text.Trim());
-            
+
 
             List<Horario> horarios = new List<Horario>();
 
-            foreach(ListItem item in CheckBoxList1.Items)
+            int selecionados = cblDias.Items.Cast<ListItem>().Count(i => i.Selected);
+
+            if (selecionados == 1)
             {
-                if(item.Selected)
+                foreach (ListItem item in cblDias.Items)
                 {
-                    Horario horario = new Horario();
-                    horario.setDia(Convert.ToChar(item.Value));
-                    horario.setHorario(int.Parse(textboxHorarioComienzo.Text), int.Parse(textboxHorarioFinal.Text));
-                    horarios.Add(horario);
+                    if (item.Selected)
+                    {
+                        Horario horario = new Horario();
+                        horario.setDia(Convert.ToChar(item.Value));
+                        horario.setHorario(int.Parse(textboxHorarioComienzo.Text), int.Parse(textboxHorarioFinal.Text));
+                        horarios.Add(horario);
+                    }
                 }
             }
+
+             /// en el else tendria que ponerse la logica para el resto de dias, es decir si hay dos dias por lo menos
+             /// o mas ahi empieza la logica de varios horarios
+
 
             int filasAfectadas = negocio.AgregarMedico(obj, usuario);
             if (filasAfectadas > 0)
             {
                 lblExito.Visible = true;
                 lblExito.ForeColor = System.Drawing.Color.Green;
-                lblExito.Text = "Paciente agregado correctamente!";
+                lblExito.Text = "Medico agregado correctamente!";
                 obj.setHorarios(horarios);
                 negocio.AgregarHorario(horarios, obj.getLegajo());
                 LimpiarCampos();
@@ -125,7 +142,7 @@ namespace Vistas
             {
                 lblExito.Visible = true;
                 lblExito.ForeColor = System.Drawing.Color.Red;
-                lblExito.Text = "Error al agregar paciente";
+                lblExito.Text = "ERROR: LEGAJO/DNI Ya existen";
             }
         }
 
@@ -149,7 +166,36 @@ namespace Vistas
 
         protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
+
+        
+
+        
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idProvincia;
+            if(int.TryParse(ddlProvincia.SelectedValue, out idProvincia) && idProvincia > 0)
+            {
+                CargarLocalidadesPorProvincia(idProvincia);
+            }
+            else
+            {
+                ddlLocalidad.Items.Clear();
+                ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccione una localidad", "0"));
+            }
+        }
+
+        private void CargarLocalidadesPorProvincia(int idProvincia)
+        {
+            ddlLocalidad.DataSource = negocio.ObtenerLocalidadesPorProvincia(idProvincia);
+            ddlLocalidad.DataTextField = "Descripcion_Localidad";
+            ddlLocalidad.DataValueField = "Id_Localidad";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccione una localidad", "0"));
+        }
+
+        
     }
 }

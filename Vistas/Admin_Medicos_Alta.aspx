@@ -111,19 +111,24 @@
                 <asp:Label runat="server" Font-Bold="True" Font-Size="15pt" Text="Datos del médico:" />
                 <asp:Label runat="server" Text="Legajo:" />
                 <asp:TextBox ID="textboxLegajo" runat="server" />
+                <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="textboxLegajo" ForeColor="Red" ValidationExpression="^[Mm]\d{4}$">Ingrese un legajo valido que empieze con una M y tenga 4 numeros</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvLegajo" runat="server" ControlToValidate="textboxLegajo" ValidationGroup="0" Text="* Completar el legajo" />
 
                 <asp:Label runat="server" Text="DNI:" />
                 <asp:TextBox ID="textboxDNI" runat="server" />
+                <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="textboxDNI" ForeColor="Red" ValidationExpression="^\d{7,8}$">ingrese un dni valido</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvDni" runat="server" ControlToValidate="textboxDNI" ValidationGroup="0" Text="* Completar DNI" />
 
                 <asp:Label runat="server" Text="Nombre:" />
                 <asp:TextBox ID="textboxNombre" runat="server" />
+                <asp:RegularExpressionValidator ID="revNombre" runat="server" ControlToValidate="textboxNombre" ForeColor="Red" ValidationExpression="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$">ingrese un nombre valido</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvNombre" runat="server" ControlToValidate="textboxNombre" ValidationGroup="0" Text="* Completar Nombre" />
 
                 <asp:Label runat="server" Text="Apellido:" />
                 <asp:TextBox ID="textboxApellido" runat="server" />
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvApellido" runat="server" ControlToValidate="textboxApellido" ValidationGroup="0" Text="* Completar Apellido" />
+
+                <asp:RegularExpressionValidator ID="revApellido" runat="server" ControlToValidate="textboxApellido" ForeColor="Red" ValidationExpression="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$">ingrese un apellido valido</asp:RegularExpressionValidator>
 
                 <asp:Label runat="server" Text="Sexo:" />
                 <asp:RadioButtonList ID="radioButtonSexo" runat="server" CssClass="radio-list">
@@ -135,10 +140,11 @@
 
                 <asp:Label runat="server" Text="Nacionalidad:" />
                 <asp:TextBox ID="textboxNacionalidad" runat="server" />
+                <asp:RegularExpressionValidator ID="revNacionalidad" runat="server" ControlToValidate="textboxNacionalidad" ForeColor="Red" ValidationExpression="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$">Ingrese una nacionalidad valida</asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvNacionalidad" runat="server" ControlToValidate="textboxNacionalidad" ValidationGroup="0" Text="* Completar Nacionalidad" />
 
                 <asp:Label runat="server" Text="Fecha de Nacimiento:" />
-                <asp:TextBox ID="textboxFecha" runat="server" />
+                <asp:TextBox ID="textboxFecha" TextMode="Date" runat="server" />
 
                 <asp:Label runat="server" Text="Dirección:" />
                 <asp:TextBox ID="textboxDireccion" runat="server" />
@@ -147,7 +153,7 @@
 
             <div class="columna">
                 <asp:Label runat="server" Text="Provincia:" />
-                <asp:DropDownList ID="ddlProvincia" runat="server" />
+                <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" />
                 <asp:RequiredFieldValidator CssClass="validator" ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" InitialValue="0" ValidationGroup="0" Text="* Seleccione Provincia" />
 
                 <asp:Label runat="server" Text="Localidad:" />
@@ -168,7 +174,7 @@
                 <asp:DropDownList ID="ddlEspecialidad" runat="server" />
 
                 <asp:Label runat="server" Text="Días de Atención:" />
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" CssClass="check-list" Height="163px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="92px">
+                <asp:CheckBoxList ID="cblDias" runat="server" CssClass="radio-list" Height="163px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="92px">
                     <asp:ListItem Value="L">Lunes</asp:ListItem>
                     <asp:ListItem Value="M">Martes</asp:ListItem>
                     <asp:ListItem Value="X">Miércoles</asp:ListItem>
@@ -179,14 +185,14 @@
                 </asp:CheckBoxList>
                 <asp:CustomValidator CssClass="validator" ID="customValidatorDias" runat="server" />
 
-                <asp:Label runat="server" Text="Horarios de Atención:" />
-                <asp:Label runat="server" Text="Desde:" />
+                <asp:Label runat="server" Text="Horarios de Atención:" ID="horariosAtencion" />
+                <asp:Label runat="server" Text="Desde:" ID="desde" />
                 <asp:TextBox ID="textboxHorarioComienzo" runat="server" />
-                <asp:RangeValidator CssClass="validator" ID="rangeHorario1" runat="server" ControlToValidate="textboxHorarioComienzo" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" />
+                <asp:RangeValidator CssClass="validator" ID="rangeHorario1" runat="server" ControlToValidate="textboxHorarioComienzo" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" ValidationGroup="0" />
 
-                <asp:Label runat="server" Text="Hasta:" />
+                <asp:Label runat="server" Text="Hasta:" ID="hasta" />
                 <asp:TextBox ID="textboxHorarioFinal" runat="server" />
-                <asp:RangeValidator CssClass="validator" ID="rangeHorario2" runat="server" ControlToValidate="textboxHorarioFinal" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" />
+                <asp:RangeValidator CssClass="validator" ID="rangeHorario2" runat="server" ControlToValidate="textboxHorarioFinal" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" ValidationGroup="0" />
 
                 <asp:Label runat="server" Text="Nombre de Usuario:" />
                 <asp:TextBox ID="textboxUsuario" runat="server" />

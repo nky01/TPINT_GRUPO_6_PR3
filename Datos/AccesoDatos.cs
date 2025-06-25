@@ -99,18 +99,33 @@ namespace Datos
             return FilasCambiadas;
         }
 
-        public bool existe(String consulta)
+        public bool existe(String consulta, SqlParameter[] parameter = null)
         {
             bool estado = false;
-            SqlConnection Conexion = ObtenerConexion();
-            SqlCommand cmd = new SqlCommand(consulta, Conexion);
-            SqlDataReader datos = cmd.ExecuteReader();
-            if (datos.Read())
+            using (SqlConnection connection = ObtenerConexion())
             {
-                estado = true;
+                SqlCommand comando = new SqlCommand(consulta, connection);
+                if(parameter != null)
+                {
+                    comando.Parameters.AddRange(parameter);
+                }
+                using (SqlDataReader datos = comando.ExecuteReader())
+                {
+                    if (datos.Read())
+                    {
+                        estado = true;
+                    }
+
+                }
             }
+
             return estado;
+     
         }
+
+        
+
+
 
     }
 }

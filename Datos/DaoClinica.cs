@@ -271,15 +271,16 @@ namespace Datos
             }
         }
 
+        
+
         public int AgregarMedico(Medico medico, Usuarios user)
         {
-
             SqlParameter[] parametros = new SqlParameter[]
             {
                 new SqlParameter("User_Name", user.getNombre()),
                 new SqlParameter("User_Pass", user.getContrasenia()),
                 new SqlParameter("User_Rol", user.getRol()),
-                new SqlParameter("@Legajo", medico.getLegajo()),
+                new SqlParameter("@Legajo",  medico.getLegajo()),
                 new SqlParameter("@IdLocalidad", medico.getIdLocalidad()),
                 new SqlParameter("@IdProvincia", medico.getIdProvincia()),
                 new SqlParameter("@Nombre", medico.getNombre()),
@@ -291,7 +292,7 @@ namespace Datos
                 new SqlParameter("@Correo", medico.getCorreoElectronico()),
                 new SqlParameter("@Telefono", medico.getTelefono()),
                 new SqlParameter("@Especialidad", medico.getIdEspecialidad()),
-                ///new SqlParameter("@DNI", medico.getDNI())
+                new SqlParameter("@DNI", medico.getDNI())
             };
 
             try
@@ -303,9 +304,33 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                throw ex;
+                return -1;
             }
         }
+
+        public DataTable getTableLocalidadesPorProvincia(int idProvincia)
+        {
+            string consulta = @"
+                    SELECT l.Id_Localidad, l.Descripcion_Localidad
+                    From Localidad l
+                    WHERE l.Id_Provincia_Localidad = @IdProvincia";
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@IdProvincia", idProvincia);
+            return ds.obtenerTablaConComando(comando, "Localidad");
+        }
+
+        public bool ExisteUsuario(string nombre)
+        {
+            string consulta = @"
+                    SELECT 1 FROM Usuario WHERE Nombre_Usuario = @NombreUsuario";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@NombreUsuario",nombre)
+            };
+
+            return ds.existe(consulta, parametros);
+        }
+
     }
 
    

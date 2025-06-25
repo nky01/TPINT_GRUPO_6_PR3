@@ -128,5 +128,18 @@ namespace Negocio
             return true;
         }
 
+        public DataTable ObtenerLocalidadesPorProvincia(int idProvincia)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetTableLocalidadesPorProvincia(idProvincia);
+        }
+
+        public bool ExisteUsuario(string nombreUsuario)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.ExisteUsuario(nombreUsuario);
+        }
+
+
     }        
 }
