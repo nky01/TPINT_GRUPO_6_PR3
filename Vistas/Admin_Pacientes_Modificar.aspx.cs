@@ -168,5 +168,11 @@ namespace Vistas
         {
 
         }
+
+        protected void CerrarSesionbtn_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -169,5 +169,11 @@ namespace Vistas
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccione una localidad --", "0"));
         }
+
+        protected void CerrarBtn_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }

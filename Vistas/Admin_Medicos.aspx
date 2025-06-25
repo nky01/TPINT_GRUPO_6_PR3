@@ -92,8 +92,8 @@
                          <asp:Button ID="btnListadoMedicos" runat="server" Text="Listado" CssClass="medic-btn" OnClick="btnListadoMedicos_Click" />
         </div>
         <div class ="container-3">
-            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn"/>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
+            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AdminVista.aspx">Volver</asp:HyperLink>
         </div>
     </form>
 </body>

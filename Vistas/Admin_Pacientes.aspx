@@ -92,6 +92,8 @@
 
         <div class="container-3">
             <asp:HyperLink ID="lnkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="volver-link">Volver</asp:HyperLink>
+        &nbsp;<span><asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            </span>
         </div>
     </form>
 </body>

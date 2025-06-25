@@ -243,7 +243,7 @@
         </div>
 
         <div class="container-3">
-            <asp:Button ID="CerrarSesionbtn" runat="server" CssClass="btn" Text="Cerrar Sesión" />
+            <asp:Button ID="CerrarSesionbtn" runat="server" CssClass="btn" Text="Cerrar Sesión" OnClick="CerrarSesionbtn_Click" />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Pacientes.aspx" CssClass="btn">Volver</asp:HyperLink>
         </div>
     </form>

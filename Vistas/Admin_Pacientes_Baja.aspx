@@ -81,7 +81,25 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
-    </style>
+            
+        .container-3-btn {
+            padding: 10px 20px;
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -111,8 +129,9 @@
         </div>
 
         <div class="container-3">
-            <asp:HyperLink ID="HyperLinkVolver" runat="server" NavigateUrl="~/AdminVista.aspx" CssClass="link-volver">Volver</asp:HyperLink>
-            <span></span>
+            <asp:HyperLink ID="HyperLinkVolver" runat="server" NavigateUrl="~/Admin_Pacientes.aspx" CssClass="link-volver">Volver</asp:HyperLink>
+            <span>&nbsp;<asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            </span>
         </div>
     </form>
 </body>

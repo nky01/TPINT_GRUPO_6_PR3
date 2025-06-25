@@ -105,7 +105,9 @@
             &nbsp;<asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
                         <br />
             
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink> 
+               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Medicos.aspx">Volver</asp:HyperLink> 
+            
+            &nbsp;<asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
             
             <asp:GridView 
                 ID="gvMedico" 

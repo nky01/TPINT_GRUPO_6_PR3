@@ -42,5 +42,11 @@ namespace Vistas
         {
             Response.Redirect("Admin_Medicos_Listar.aspx");
         }
+
+        protected void CerrarBtn_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }

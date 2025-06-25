@@ -184,7 +184,10 @@
         <div class="container-3">
             <asp:Button ID="btnAgregar" runat="server" OnClick="BtnAgregar_Click" Text="Agregar" ValidationGroup="0" CssClass="container-3-btn" />
             <asp:Label ID="lblExito" runat="server" ForeColor="#33CC33" Text="Agregado correctamente" Visible="False"></asp:Label>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx" CssClass="link-volver">Volver</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Pacientes.aspx" CssClass="link-volver">Volver</asp:HyperLink>
+            <span>
+            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            </span>
         </div>
     </form>
 </body>

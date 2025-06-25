@@ -64,6 +64,30 @@
         #txtBuscar{
             width: 500px;
             height: 30px;}
+
+         .gridview {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);            
+        }
+
+        .gridview th, .gridview td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .gridview th {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .gridview tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
     </style>
 </head>
 <body>
@@ -216,8 +240,9 @@
             </asp:GridView>
         </div>
         <div class="container-3">
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink> 
-        </div>
+            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            &nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Medicos.aspx">Volver</asp:HyperLink> 
+        &nbsp;</div>
     </form>
 </body>
 </html>
