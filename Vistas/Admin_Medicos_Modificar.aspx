@@ -106,7 +106,7 @@
             <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="txtBuscar" ErrorMessage="Formato inválido. Use M0001, M0002, etc." CssClass="error-message" ValidationExpression="^M\d{4}$" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:Label ID="lblMensajeError" runat="server" CssClass="error-message"></asp:Label>
             <asp:HiddenField ID="hiddenLegajo" runat="server" />
-            <asp:GridView ID="gvMedico" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" Height="248px" Width="1216px" OnRowCancelingEdit="gvMedico_RowCancelingEdit" OnRowEditing="gvMedico_RowEditing" OnRowUpdating="gvMedico_RowUpdating" OnSelectedIndexChanged="gvMedico_SelectedIndexChanged">
+            <asp:GridView ID="gvMedico" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" Height="248px" Width="1216px" OnRowCancelingEdit="gvMedico_RowCancelingEdit" OnRowEditing="gvMedico_RowEditing" OnRowUpdating="gvMedico_RowUpdating" OnSelectedIndexChanged="gvMedico_SelectedIndexChanged" CssClass="gridview">
                 <Columns>
                     <asp:TemplateField HeaderText="Numero de legajo">
                         <EditItemTemplate>
