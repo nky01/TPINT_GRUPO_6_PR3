@@ -108,7 +108,7 @@
       
      <div class ="container-3">
                <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Turnos.aspx">Volver</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Pacientes.aspx">Volver</asp:HyperLink>
      </div>
   
     </form>
