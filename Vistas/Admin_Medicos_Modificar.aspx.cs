@@ -13,17 +13,16 @@ namespace Vistas
 {
     public partial class Admin_Modificar_Medico : System.Web.UI.Page
     {
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioClinica negocio = new NegocioClinica();
+          /*  NegocioClinica negocio = new NegocioClinica();
             Usuarios usuario = Session["usuario"] as Usuarios;
             if (!negocio.CheckLogin(usuario, "Administrador"))
             {
                 Response.Redirect("Login.aspx");
             }
             tipoUsuario.Text = usuario.getRol();
-            nombreUsuario.Text = usuario.getNombre();
+            nombreUsuario.Text = usuario.getNombre();*/
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -78,14 +77,16 @@ namespace Vistas
                 ddlEspecialidad.DataValueField = "Id_Especialidad";
                 ddlEspecialidad.DataBind();
                 int idEspecialidad = Convert.ToInt32(((HiddenField)fila.FindControl("hdnIdEspecialidad")).Value);
-                ddlLocalidad.SelectedValue = idEspecialidad.ToString();
+                ddlEspecialidad.SelectedValue = idEspecialidad.ToString();
             }
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            hiddenLegajo.Value = txtBuscar.Text.Trim();
             CargarMedico();
+            CargarHorario();
         }
 
         protected void gvMedico_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -100,8 +101,19 @@ namespace Vistas
             {
                 return;
             }
-            gvMedico.DataSource = negocioClinica.GetMedico(txtBuscar.Text.Trim());
+            gvMedico.DataSource = negocioClinica.GetMedico(hiddenLegajo.Value);
             gvMedico.DataBind();
+        }
+
+        protected void CargarHorario()
+        {
+            NegocioClinica negocioClinica = new NegocioClinica();
+            if (txtBuscar.Text == string.Empty)
+            {
+                return;
+            }
+            gvHorario.DataSource = negocioClinica.GetHorarioLegajoMod(hiddenLegajo.Value);
+            gvHorario.DataBind();
         }
 
         protected void gvMedico_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -187,6 +199,36 @@ namespace Vistas
 
                 }
             }
+        }
+
+        protected void gvHorario_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string legajo = ((Label)gvHorario.Rows[e.RowIndex].FindControl("lblEditLegajo")).Text;
+            int entrada;
+            int.TryParse(((TextBox)gvHorario.Rows[e.RowIndex].FindControl("txtEditEntrada")).Text, out entrada);
+            int salida;
+            int.TryParse(((TextBox)gvHorario.Rows[e.RowIndex].FindControl("txtEditSalida")).Text, out salida);
+
+            NegocioClinica neg = new NegocioClinica();
+            int filasAfectadas = neg.actualizarHorario(legajo, entrada, salida);
+            if(filasAfectadas > 0)
+            {
+                gvHorario.EditIndex = -1;
+                CargarHorario();
+            }
+
+        }
+
+        protected void gvHorario_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvHorario.EditIndex = e.NewEditIndex;
+            CargarHorario();
+        }
+
+        protected void gvHorario_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvHorario.EditIndex = -1;
+            CargarHorario();
         }
     }
 }

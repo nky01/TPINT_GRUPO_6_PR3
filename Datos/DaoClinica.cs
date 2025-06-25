@@ -48,6 +48,7 @@ namespace Datos
                             M.CorreoElectronico_Medico,
                             M.Telefono_Medico,
                             E.Descripcion_Especialidad AS Especialidad,
+                            E.Id_Especialidad AS Especialidad,
                             L.Descripcion_Localidad AS Localidad,
                             P.Descripcion_Provincia AS Provincia
                         FROM 
@@ -70,6 +71,29 @@ namespace Datos
             cmd.Parameters.AddWithValue("@Legajo_Medico", legajo);
 
             return ds.obtenerTablaConComando(cmd, "Medico");
+        }
+
+        public DataTable GetHorariosPorLegajoMod(string legajo)
+        {
+            string consulta = @"
+                                SELECT 
+                                M.Legajo_Medico AS Legajo,
+                                M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                D.Descripcion_Dia AS Dia, 
+                                H.Hora_Inicio_Horario AS EntradaSolo,
+                                H.Hora_Salida_Horario AS SalidaSolo,
+                                CONCAT(H.Hora_Inicio_Horario, ':00') AS Entrada, 
+                                CONCAT(H.Hora_Salida_Horario, ':00') AS Salida
+                            FROM Horario H
+                            INNER JOIN Dia D ON H.Id_Dia_Horario = D.Id_Dia
+                            INNER JOIN Medico M ON H.Legajo_Medico_Horario = M.Legajo_Medico
+                            WHERE M.Legajo_Medico = @Legajo
+                        ";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@Legajo", legajo);
+
+            return ds.obtenerTablaConComando(comando, "Horario");
         }
 
         public DataTable GetHorariosPorLegajo(string legajo)
@@ -244,6 +268,16 @@ namespace Datos
             comando.Parameters.AddWithValue("@Telefono", telefono);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarMedico");
         }
+
+        public int actualizarHorario(string legajo, int entrada, int salida)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@Legajo", legajo);
+            comando.Parameters.AddWithValue("Entrada", entrada);
+            comando.Parameters.AddWithValue("Salida", salida);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarHorario");
+        }
+
         public DataTable GetTableProvincias()
         {
             DataTable table = ds.ObtenerTabla("Provincia", "SELECT * FROM Provincia");
@@ -535,7 +569,7 @@ namespace Datos
 
 //BEGIN
 
-	 
+
 //    	INSERT INTO Usuario (Nombre_Usuario, Contrasena_Usuario, Rol_Usuario)
 //    	VALUES(@User_Name, @User_Pass, @User_Rol);
 
@@ -544,6 +578,20 @@ namespace Datos
 
 //INSERT INTO Medico (Legajo_Medico, Id_Localidad_Medico, Id_Provincia_Medico, Nombre_Medico, Apellido_Medico, Sexo_Medico, Nacionalidad_Medico, FechaNac_Medico,
 //Direccion_Medico, CorreoElectronico_Medico, Telefono_Medico, Id_Especialidad_Medico, DNI_Medico, Id_Usuario_Medico)
-	
+
 //	VALUES(@Legajo, @IdLocalidad, @IdProvincia, @Nombre, @Apellido, @Sexo, @Nacionalidad, @FechaNac, @Direccion, @Correo, @Telefono, @Especialidad, @DNI, @IdUsuario);
 //END
+//USE MiraeClinica
+//GO
+
+//CREATE PROCEDURE SP_ActualizarHorario
+//@Legajo CHAR(5), @Entrada INT, @Salida INT
+//AS
+//BEGIN 
+//	UPDATE Horario
+//	SET Hora_Inicio_Horario = @Entrada,
+//    Hora_Salida_Horario = @Salida
+
+//	WHERE Legajo_Medico_Horario = @Legajo
+//	END
+//GO

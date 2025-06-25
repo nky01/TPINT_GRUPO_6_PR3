@@ -81,6 +81,7 @@
             &nbsp;<asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" CssClass="error-message" ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="txtBuscar" ErrorMessage="Formato inválido. Use M0001, M0002, etc." CssClass="error-message" ValidationExpression="^M\d{4}$" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:Label ID="lblMensajeError" runat="server" CssClass="error-message"></asp:Label>
+            <asp:HiddenField ID="hiddenLegajo" runat="server" />
             <asp:GridView ID="gvMedico" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" Height="248px" Width="1216px" OnRowCancelingEdit="gvMedico_RowCancelingEdit" OnRowEditing="gvMedico_RowEditing" OnRowUpdating="gvMedico_RowUpdating" OnSelectedIndexChanged="gvMedico_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField HeaderText="Numero de legajo">
@@ -164,6 +165,52 @@
                     <asp:TemplateField HeaderText="Telefono">
                         <EditItemTemplate><asp:TextBox ID="txtEditTelefono" runat="server" Text='<%# Bind("Telefono_Medico") %>'></asp:TextBox></EditItemTemplate>
                         <ItemTemplate><asp:Label ID="labelItemTelefono" runat="server" Text='<%# Bind("Telefono_Medico") %>'></asp:Label></ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:GridView ID="gvHorario" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvHorario_RowCancelingEdit" OnRowEditing="gvHorario_RowEditing" OnRowUpdating="gvHorario_RowUpdating">
+                <Columns>
+                    <asp:TemplateField HeaderText="Numero de Legajo">
+                        <EditItemTemplate>
+                            <asp:Label ID="lblEditLegajo" runat="server" Text='<%# Bind("Legajo") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblLegajoMedico" runat="server" Text='<%# Bind("Legajo") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nombre Medico">
+                        <EditItemTemplate>
+                            <asp:Label ID="lblNombreMedico" runat="server" Text='<%# Bind("Medico") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblNombreMedico" runat="server" Text='<%# Bind("Medico") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dia">
+                        <EditItemTemplate>
+                            <asp:Label ID="lblDia" runat="server" Text='<%# Bind("Dia") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblDia" runat="server" Text='<%# Bind("Dia") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Horario Entrada">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtEditEntrada" runat="server" Text='<%# Bind("EntradaSolo") %>'></asp:TextBox>
+                            <asp:RangeValidator ID="rvHorarioEntrada" runat="server" ControlToValidate="txtEditEntrada" CssClass="error-message" ErrorMessage="RangeValidator" ForeColor="Red" MaximumValue="23" MinimumValue="0" Type="Integer">Entre 0 y 23</asp:RangeValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblEntrada" runat="server" Text='<%# Bind("Entrada") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Horario Salida">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtEditSalida" runat="server" Text='<%# Bind("SalidaSolo") %>'></asp:TextBox>
+                            <asp:RangeValidator ID="rvHorarioSalida" runat="server" ControlToValidate="txtEditSalida" CssClass="error-message" ErrorMessage="RangeValidator" ForeColor="Red" MaximumValue="23" MinimumValue="0" Type="Integer">Entre 0 y 23</asp:RangeValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblSalida" runat="server" Text='<%# Bind("Salida") %>'></asp:Label>
+                        </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>

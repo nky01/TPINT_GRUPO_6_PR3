@@ -37,6 +37,11 @@ namespace Negocio
 
         }
 
+        public int actualizarHorario(string legajo, int entrada, int salida)
+        {
+            return dao.actualizarHorario(legajo, entrada, salida);
+        }
+
         public int AgregarMedico(Medico medico, Usuarios usuario)
         {
             return dao.AgregarMedico(medico, usuario);
@@ -121,6 +126,11 @@ namespace Negocio
         public DataTable GetHorariosPorMedico(string legajo)
         {
             return dao.GetHorariosPorLegajo(legajo);
+        }
+
+        public DataTable GetHorarioLegajoMod(string legajo)
+        {
+            return dao.GetHorariosPorLegajoMod(legajo);
         }
 
         public DataTable GetTodosLosHorarios()
