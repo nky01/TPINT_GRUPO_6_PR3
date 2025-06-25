@@ -162,7 +162,7 @@
 
             <div class="columna">
                 <asp:Label ID="Label13" runat="server" Text="Provincia"></asp:Label>
-                <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" CssClass="aspNetRequiredValidator" ValidationGroup="0" InitialValue="0" ForeColor="Red">Seleccione una provincia</asp:RequiredFieldValidator>
 
                 <asp:Label ID="Localidad" runat="server" Text="Localidad"></asp:Label>

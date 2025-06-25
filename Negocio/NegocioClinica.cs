@@ -145,6 +145,12 @@ namespace Negocio
             return table;
         }
 
+        public bool existePaciente(string dni)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.existePaciente(dni);
+        }
+
         public DataTable GetMedico(string legajoBuscado)
         {
             DaoClinica dao = new DaoClinica();

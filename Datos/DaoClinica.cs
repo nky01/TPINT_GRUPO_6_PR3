@@ -354,8 +354,8 @@ namespace Datos
                                pr.Descripcion_Provincia AS Provincia,
                                p.CorreoElectronico_Paciente AS Correo,
                                p.Telefono_Paciente AS Telefono,
-                               p.Id_Localidad_Paciente AS idLocalidad,
-                               p.Id_Provincia_Paciente AS idProvincia
+                               pr.Descripcion_Provincia AS nombreProvincia,
+                               l.Descripcion_Localidad AS nombreLocalidad
                         FROM Paciente p
                         INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
                         INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia";
@@ -447,6 +447,16 @@ namespace Datos
             };
 
             return ds.existe(consulta, parametros);
+        }
+
+        public bool existePaciente(string dni)
+        {
+            string consulta = "SELECT 1 FROM Paciente WHERE DNI_Paciente = @DNI";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@DNI", dni)
+            };
+            return ds.existe(consulta, parameters);
         }
 
     }

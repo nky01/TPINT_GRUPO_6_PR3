@@ -42,10 +42,8 @@ namespace Vistas
 
         private void CargarLocalidades()
         {
-            ddlLocalidad.DataSource = negocio.ObtenerLocalidades();
-            ddlLocalidad.DataTextField = "Descripcion_Localidad";
-            ddlLocalidad.DataValueField = "Id_Localidad";
-            ddlLocalidad.DataBind();
+
+            ddlLocalidad.Items.Clear();
             ddlLocalidad.Items.Insert(0, new ListItem("--Seleccione una localidad--", "0"));
         }
 
@@ -63,6 +61,14 @@ namespace Vistas
         {
             try
             {
+                if (negocio.existePaciente(txtDni.Text.Trim()))
+                {
+                    lblExito.Visible = true;
+                    lblExito.ForeColor = System.Drawing.Color.Red;
+                    lblExito.Text = "Error: ya existe un paciente con ese DNI.";
+                    return;
+                }
+
                 Paciente p = new Paciente();
 
                 p.setDNI(txtDni.Text.Trim());
@@ -139,6 +145,29 @@ namespace Vistas
             txtTelefono.Text = "";
             ddlProvincia.SelectedIndex = 0;
             ddlLocalidad.SelectedIndex = 0;
+        }
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idProvincia;
+            if (int.TryParse(ddlProvincia.SelectedValue, out idProvincia) && idProvincia > 0)
+            {
+                CargarLocalidadesPorProvincia(idProvincia);
+            }
+            else
+            {
+                ddlLocalidad.Items.Clear();
+                ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccione una localidad --", "0"));
+            }
+        }
+
+        private void CargarLocalidadesPorProvincia(int idProvincia)
+        {
+            ddlLocalidad.DataSource = negocio.ObtenerLocalidadesPorProvincia(idProvincia);
+            ddlLocalidad.DataTextField = "Descripcion_Localidad";
+            ddlLocalidad.DataValueField = "Id_Localidad";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("-- Seleccione una localidad --", "0"));
         }
     }
 }
