@@ -108,7 +108,50 @@ namespace Vistas
 
             List<Horario> horarios = new List<Horario>();
 
-            int selecionados = cblDias.Items.Cast<ListItem>().Count(i => i.Selected);
+            foreach(ListItem item in cblDias.Items)
+            {
+                if(item.Selected)
+                {
+                    Horario horario = new Horario();
+                    int desde = 0, hasta = 0;
+                    switch(item.Value)
+                    {
+                        case "L":
+                            int.TryParse(txtLunesDesde.Text, out desde);
+                            int.TryParse(txtLunesHasta.Text, out hasta);
+                            break;
+                        case "M":
+                            int.TryParse(txtMartesDesde.Text, out desde);
+                            int.TryParse(txtMartesHasta.Text, out hasta);
+                            break;
+                        case "X":
+                            int.TryParse(txtMiercolesDesde.Text, out desde);
+                            int.TryParse(txtMiercolesHasta.Text, out hasta);
+                            break;
+                        case "J":
+                            int.TryParse(txtJuevesDesde.Text, out desde);
+                            int.TryParse(txtJuevesHasta.Text, out hasta);
+                            break;
+                        case "V":
+                            int.TryParse(txtViernesDesde.Text, out desde);
+                            int.TryParse(txtViernesHasta.Text, out hasta);
+                            break;
+                        case "S":
+                            int.TryParse(txtSabadosDesde.Text, out desde);
+                            int.TryParse(txtSabadosHasta.Text, out hasta);
+                            break;
+                        case "D":
+                            int.TryParse(txtDomingosDesde.Text, out desde);
+                            int.TryParse(txtDomingoHasta.Text, out hasta);
+                            break;
+                    }
+                    horario.setDia(Convert.ToChar(item.Value));
+                    horario.setHorario(desde, hasta);
+                    horarios.Add(horario);
+                }
+            }
+
+            /*int selecionados = cblDias.Items.Cast<ListItem>().Count(i => i.Selected);
 
             if (selecionados == 1)
             {
@@ -122,7 +165,7 @@ namespace Vistas
                         horarios.Add(horario);
                     }
                 }
-            }
+            }*/
 
              /// en el else tendria que ponerse la logica para el resto de dias, es decir si hay dos dias por lo menos
              /// o mas ahi empieza la logica de varios horarios
@@ -153,8 +196,6 @@ namespace Vistas
             textboxDNI.Text = "";
             textboxEmail.Text = "";
             textboxFecha.Text = "";
-            textboxHorarioComienzo.Text = "";
-            textboxHorarioFinal.Text = "";
             textboxLegajo.Text = "";
             textboxNacionalidad.Text = "";
             textboxNombre.Text = "";
@@ -170,11 +211,27 @@ namespace Vistas
                 item.Selected = false;          
             }
             radioButtonSexo.SelectedIndex = -1;
-       }
 
-        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
+            //Dias
+            txtLunesDesde.Text = string.Empty;
+            txtLunesHasta.Text = string.Empty;
+            txtMartesDesde.Text= string.Empty;
+            txtMartesHasta.Text= string.Empty;
+            txtMiercolesDesde.Text = string.Empty;
+            txtMiercolesHasta.Text= string.Empty;
+            txtJuevesDesde.Text = string.Empty;
+            txtJuevesHasta.Text = string.Empty;
+            txtViernesDesde.Text = string.Empty;
+            txtViernesHasta.Text = string.Empty;
+
+            PanelLunes.Visible = false;
+            PanelMartes.Visible = false;
+            PanelMiercoles.Visible = false;
+            PanelJueves.Visible = false;
+            PanelViernes.Visible = false;
+            PanelSabados.Visible = false;
+            PanelDomingos.Visible = false;
+
         }
 
         
@@ -208,6 +265,51 @@ namespace Vistas
         {
             Session["usuario"] = null;
             Response.Redirect("Login.aspx");
+        }
+
+        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach(ListItem item in cblDias.Items)
+            {
+                switch(item.Value)
+                    {
+                    case "L":
+                        PanelLunes.Visible = item.Selected;
+                        rangeHorarioLunes1.Enabled = item.Selected;
+                        rangeHorarioLunes2.Enabled = item.Selected;
+                        break;
+                    case "M":
+                        PanelMartes.Visible = item.Selected;
+                        rangeHorarioMartes1.Enabled = item.Selected;
+                        rangeHorarioMartes2.Enabled = item.Selected;
+                        break;
+                    case "X":
+                        PanelMiercoles.Visible = item.Selected;
+                        rangeHorarioMiercoles1.Enabled = item.Selected;
+                        rangeHorarioMiercoles2.Enabled = item.Selected;
+                        break;
+                    case "J":
+                        PanelJueves.Visible = item.Selected;
+                        rangeHorarioJueves1.Enabled = item.Selected;
+                        rangeHorarioJueves2.Enabled = item.Selected;
+                        break;
+                    case "V":
+                        PanelViernes.Visible = item.Selected;
+                        rangeHorarioViernes1.Enabled = item.Selected;
+                        rangeHorarioViernes2.Enabled = item.Selected;
+                        break;
+                    case "S":
+                        PanelSabados.Visible = item.Selected;
+                        rangeHorarioSabados1.Enabled = item.Selected;
+                        rangeHorarioSabados2.Enabled = item.Selected;
+                        break;
+                    case "D":
+                        PanelDomingos.Visible = item.Selected;
+                        rangeHorarioDomingos1.Enabled = item.Selected;
+                        rangeHorarioDomingos2.Enabled = item.Selected;
+                        break;
+                }
+            }
         }
     }
 }

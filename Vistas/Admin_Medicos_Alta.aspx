@@ -174,7 +174,7 @@
                 <asp:DropDownList ID="ddlEspecialidad" runat="server" />
 
                 <asp:Label runat="server" Text="Días de Atención:" />
-                <asp:CheckBoxList ID="cblDias" runat="server" CssClass="radio-list" Height="163px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="92px">
+                <asp:CheckBoxList ID="cblDias" runat="server" CssClass="radio-list" Height="163px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="92px" AutoPostBack="True">
                     <asp:ListItem Value="L">Lunes</asp:ListItem>
                     <asp:ListItem Value="M">Martes</asp:ListItem>
                     <asp:ListItem Value="X">Miércoles</asp:ListItem>
@@ -185,14 +185,85 @@
                 </asp:CheckBoxList>
                 <asp:CustomValidator CssClass="validator" ID="customValidatorDias" runat="server" />
 
-                <asp:Label runat="server" Text="Horarios de Atención:" ID="horariosAtencion" />
-                <asp:Label runat="server" Text="Desde:" ID="desde" />
-                <asp:TextBox ID="textboxHorarioComienzo" runat="server" />
-                <asp:RangeValidator CssClass="validator" ID="rangeHorario1" runat="server" ControlToValidate="textboxHorarioComienzo" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" ValidationGroup="0" />
-
-                <asp:Label runat="server" Text="Hasta:" ID="hasta" />
-                <asp:TextBox ID="textboxHorarioFinal" runat="server" />
-                <asp:RangeValidator CssClass="validator" ID="rangeHorario2" runat="server" ControlToValidate="textboxHorarioFinal" MinimumValue="0" MaximumValue="23" Type="Integer" Text="* Entre 0 y 23" ValidationGroup="0" />
+                <asp:Panel ID="PanelLunes" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Lunes:" ID="horariosLunes" />
+                    <br />
+                    <asp:Label ID="desdeLunes" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtLunesDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioLunes1" runat="server" ControlToValidate="txtLunesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hastaLunes" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtLunesHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioLunes2" runat="server" ControlToValidate="txtLunesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelMartes" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Martes:" ID="horariosLunes0" />
+                    <br />
+                    <asp:Label ID="desde" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtMartesDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioMartes1" runat="server" ControlToValidate="txtMartesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtMartesHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioMartes2" runat="server" ControlToValidate="txtMartesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelMiercoles" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Miercoles:" ID="horariosLunes1" />
+                    <br />
+                    <asp:Label ID="desde0" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtMiercolesDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioMiercoles1" runat="server" ControlToValidate="txtMiercolesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta0" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtMiercolesHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioMiercoles2" runat="server" ControlToValidate="txtMiercolesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelJueves" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Jueves:" ID="horariosLunes2" />
+                    <br />
+                    <asp:Label ID="desde1" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtJuevesDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioJueves1" runat="server" ControlToValidate="txtMartesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta1" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtJuevesHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioJueves2" runat="server" ControlToValidate="txtMartesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelViernes" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Viernes:" ID="horariosLunes3" />
+                    <br />
+                    <asp:Label ID="desde2" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtViernesDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioViernes1" runat="server" ControlToValidate="txtViernesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta2" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtViernesHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioViernes2" runat="server" ControlToValidate="txtViernesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelSabados" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Sabados:" ID="horariosLunes4" />
+                    <br />
+                    <asp:Label ID="desde3" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtSabadosDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioSabados1" runat="server" ControlToValidate="txtMartesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta3" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtSabadosHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioSabados2" runat="server" ControlToValidate="txtMartesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <asp:Panel ID="PanelDomingos" runat="server" Visible="False">
+                    <asp:Label runat="server" Text="Horarios de Atención Domingos:" ID="horariosLunes5" />
+                    <br />
+                    <asp:Label ID="desde4" runat="server" Text="Desde:" />
+                    <asp:TextBox ID="txtDomingosDesde" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioDomingos1" runat="server" ControlToValidate="txtMartesDesde" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                    <br />
+                    <asp:Label ID="hasta4" runat="server" Text="Hasta:" />
+                    <asp:TextBox ID="txtDomingoHasta" runat="server" />
+                    <asp:RangeValidator ID="rangeHorarioDomingos2" runat="server" ControlToValidate="txtMartesHasta" CssClass="validator" MaximumValue="23" MinimumValue="0" Text="* Entre 0 y 23" Type="Integer" ValidationGroup="0" />
+                </asp:Panel>
+                <br />
+                <br />
 
                 <asp:Label runat="server" Text="Nombre de Usuario:" />
                 <asp:TextBox ID="textboxUsuario" runat="server" />
