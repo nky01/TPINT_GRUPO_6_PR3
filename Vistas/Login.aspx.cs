@@ -36,10 +36,12 @@ namespace Vistas
                 else if (user.getRol() == "Medico")
                     Response.Redirect("MedicoVista.aspx");
                 else
+                    lblErrorLogin.Visible = true;
                     lblErrorLogin.Text="El rol no fue reconocido";
             }
             else
             {
+                lblErrorLogin.Visible = true;
                 lblErrorLogin.Text= "Usuario o contraseña incorrectos!";
             }
         }

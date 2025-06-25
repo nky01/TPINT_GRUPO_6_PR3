@@ -162,7 +162,15 @@ namespace Vistas
             textboxTelefono.Text = "";
             textboxUsuario.Text = "";
             txtRepetirContraseña.Text = "";
-        }
+            ddlEspecialidad.SelectedIndex = 0;
+            ddlLocalidad.SelectedIndex = 0;
+            ddlProvincia.SelectedIndex = 0;
+            foreach(ListItem item in cblDias.Items)
+            {
+                item.Selected = false;          
+            }
+            radioButtonSexo.SelectedIndex = -1;
+       }
 
         protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
