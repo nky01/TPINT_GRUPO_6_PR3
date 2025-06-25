@@ -122,6 +122,7 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.GetMedicosPorLegajo(legajo);
         }
+    
 
         public DataTable GetHorariosPorMedico(string legajo)
         {
@@ -151,13 +152,7 @@ namespace Negocio
             return dao.existePaciente(dni);
         }
 
-        public DataTable GetMedico(string legajoBuscado)
-        {
-            DaoClinica dao = new DaoClinica();
-            DataTable table = dao.getTablaMedico(legajoBuscado);
-            return table;
-        }
-
+        
         public bool CheckLogin(Usuarios user, string rol)
         {
             if(user == null)

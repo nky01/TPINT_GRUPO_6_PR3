@@ -225,14 +225,6 @@ namespace Datos
             return ds.obtenerTablaConComando(comando, "Paciente");
         }
 
-        public DataTable getTablaMedico(string legajoBuscado)
-        {
-            SqlCommand comando = new SqlCommand(consultaMedico + "WHERE M.Legajo_Medico = @legajo; ");
-            comando.Parameters.AddWithValue("@legajo", legajoBuscado);
-
-            return ds.obtenerTablaConComando(comando, "Medico");
-        }
-
         public int actualizarCliente(string dni, string nombre, string apellido, string direccion, int idLocalidad, int idProvincia, string correo, string telefono, string nuevaNacionalidad, char sexo, DateTime fecha)
         {
             SqlCommand comando = new SqlCommand();

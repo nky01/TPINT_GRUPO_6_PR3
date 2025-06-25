@@ -101,7 +101,7 @@ namespace Vistas
             {
                 return;
             }
-            gvMedico.DataSource = negocioClinica.GetMedico(hiddenLegajo.Value);
+            gvMedico.DataSource = negocioClinica.GetMedicosPorLegajo(hiddenLegajo.Value);
             gvMedico.DataBind();
         }
 
