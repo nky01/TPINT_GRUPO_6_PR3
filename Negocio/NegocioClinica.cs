@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Datos;
 using System.Data;
 using System.Reflection.Emit;
+using System.Net;
 
 namespace Negocio
 {
@@ -27,6 +28,13 @@ namespace Negocio
         public int actualizarPaciente(string dni, string nombre, string apellido, string direccion, string correo, string telefono, int idLocalidad, int idProvincia, string nuevaNacionalidad, char sexo, DateTime fecha)
         {
             return dao.actualizarCliente(dni, nombre, apellido, direccion, idLocalidad, idProvincia, correo, telefono, nuevaNacionalidad, sexo, fecha);
+        }
+
+
+        public int actualizarMedico(string legajo, int especialidad, string dni, string nombre, string apellido, char sexo, DateTime fecha, string nacionalidad, string direccion, int localidad, int provincia, string email, string telefono)
+        {
+            return dao.actualizarMedico(legajo, especialidad, dni, nombre, apellido, sexo, fecha, nacionalidad, direccion, localidad, provincia, email, telefono);
+
         }
 
         public int AgregarMedico(Medico medico, Usuarios usuario)
@@ -90,6 +98,9 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.getTablaPaciente(dni);
         }
+
+
+
         public DataTable GetPacientes()
         {
             DaoClinica dao = new DaoClinica();
@@ -121,6 +132,13 @@ namespace Negocio
         {
             DaoClinica dao = new DaoClinica();
             DataTable table = dao.getTablaPaciente(DNIbuscado);
+            return table;
+        }
+
+        public DataTable GetMedico(string legajoBuscado)
+        {
+            DaoClinica dao = new DaoClinica();
+            DataTable table = dao.getTablaMedico(legajoBuscado);
             return table;
         }
 

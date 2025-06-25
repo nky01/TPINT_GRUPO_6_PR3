@@ -88,7 +88,7 @@ namespace Vistas
         {
             int index = e.RowIndex;
 
-            string dni = ((Label)gvPaciente.Rows[e.RowIndex].FindControl("dniTemplate")).Text;
+            string dni = ((Label)gvPaciente.Rows[e.RowIndex].FindControl("dniEditTemplate")).Text;
             string nuevoNombre = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditNombre")).Text;
             string nuevoApellido = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditApellido")).Text;
             string nuevaDireccion = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditDireccion")).Text;
@@ -97,8 +97,8 @@ namespace Vistas
             string nuevaNacionalidad = ((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("textboxNacionalidad")).Text;
             int nuevaIdLocalidad = int.Parse(((DropDownList)gvPaciente.Rows[index].FindControl("ddlEditLocalidad")).SelectedValue);
             int NuevaIdProvincia = int.Parse(((DropDownList)gvPaciente.Rows[index].FindControl("ddlEditProvincia")).SelectedValue);
-            char sexo = Char.Parse(((Label)gvPaciente.Rows[e.RowIndex].FindControl("labelSexo")).Text);
-            DateTime fecha = DateTime.Parse(((Label)gvPaciente.Rows[e.RowIndex].FindControl("labelFecha")).Text);
+            char sexo = Char.Parse(((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditSexo")).Text);
+            DateTime fecha = DateTime.Parse(((TextBox)gvPaciente.Rows[e.RowIndex].FindControl("txtEditFecha")).Text);
 
 
             negocio = new NegocioClinica();
@@ -162,6 +162,11 @@ namespace Vistas
 
                 }
             }
+        }
+
+        protected void gvPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
