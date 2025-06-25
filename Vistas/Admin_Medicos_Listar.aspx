@@ -59,7 +59,6 @@
 
         .gridview {
             width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
             font-size: 14px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);            
@@ -106,6 +105,8 @@
             &nbsp;<asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
                         <br />
             
+               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink> 
+            
             <asp:GridView 
                 ID="gvMedico" 
                 runat="server" 
@@ -113,8 +114,9 @@
                 AllowPaging="True" 
                 PageSize="10"
                 AutoGenerateColumns="False" 
+                DataKeyNames="Legajo_Medico"
                 OnPageIndexChanging="gvMedico_PageIndexChanging"
-                PagerStyle-CssClass="pager">
+                PagerStyle-CssClass="pager" OnSelectedIndexChanged="gvMedico_SelectedIndexChanged">
 
                 <Columns>
                     <asp:BoundField DataField="Legajo_Medico" HeaderText="Legajo" />
@@ -130,17 +132,23 @@
                     <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
                     <asp:BoundField DataField="Localidad" HeaderText="Localidad" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
-                </Columns>
-            </asp:GridView>
-
-
+                    </Columns>
+                    </asp:GridView>
                         <br />
-
-
+                    <asp:GridView 
+                        ID="GridView1" 
+                        runat="server" 
+                        CssClass="gridview"
+                        AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
+                            <asp:BoundField DataField="Medico" HeaderText="Médico" />
+                            <asp:BoundField DataField="Dia" HeaderText="Día" />
+                            <asp:BoundField DataField="HoraInicio" HeaderText="Hora de Inicio" />
+                            <asp:BoundField DataField="HoraSalida" HeaderText="Hora de Salida" />
+                        </Columns>
+                    </asp:GridView>
                </div>
-        <div class ="container-3">
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink> 
-        </div>
     </form>
 </body>
 </html>

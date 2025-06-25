@@ -86,6 +86,44 @@ namespace Datos
             return ds.obtenerTablaConComando(cmd, "Medico");
         }
 
+        public DataTable GetHorariosPorLegajo(string legajo)
+        {
+            string consulta = @"
+                                SELECT 
+                                M.Legajo_Medico AS Legajo,
+                                M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                D.Descripcion_Dia AS Dia, 
+                                CONCAT(H.Hora_Inicio_Horario, ':00') AS HoraInicio, 
+                                CONCAT(H.Hora_Salida_Horario, ':00') AS HoraSalida
+                            FROM Horario H
+                            INNER JOIN Dia D ON H.Id_Dia_Horario = D.Id_Dia
+                            INNER JOIN Medico M ON H.Legajo_Medico_Horario = M.Legajo_Medico
+                            WHERE M.Legajo_Medico = @Legajo
+                        ";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@Legajo", legajo);
+
+            return ds.obtenerTablaConComando(comando, "Horario");
+        }
+
+        public DataTable GetTodosLosHorarios()
+        {
+            string consulta = @"SELECT 
+                                M.Legajo_Medico AS Legajo,
+                                M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                D.Descripcion_Dia AS Dia,
+                                CONCAT(H.Hora_Inicio_Horario, ':00') AS HoraInicio,
+                                CONCAT(H.Hora_Salida_Horario, ':00') AS HoraSalida
+                            FROM Horario H
+                            INNER JOIN Dia D ON H.Id_Dia_Horario = D.Id_Dia
+                            INNER JOIN Medico M ON H.Legajo_Medico_Horario = M.Legajo_Medico
+                            ORDER BY M.Legajo_Medico, D.Id_Dia";
+
+            return ds.ObtenerTabla("Horario", consulta);
+        }
+
+
         public Usuarios LoginUsuario(string nombre, string contrasenia)
         {
             string consulta = "SELECT * FROM Usuario WHERE Nombre_Usuario = @usuario AND Contrasena_Usuario = @contrasenia";

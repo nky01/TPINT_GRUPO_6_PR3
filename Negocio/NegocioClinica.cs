@@ -107,6 +107,15 @@ namespace Negocio
             return dao.GetMedicosPorLegajo(legajo);
         }
 
+        public DataTable GetHorariosPorMedico(string legajo)
+        {
+            return dao.GetHorariosPorLegajo(legajo);
+        }
+
+        public DataTable GetTodosLosHorarios()
+        {
+            return dao.GetTodosLosHorarios();
+        }
 
         public DataTable GetPaciente(string DNIbuscado)
         {

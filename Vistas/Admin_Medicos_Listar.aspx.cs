@@ -17,6 +17,7 @@ namespace Vistas
             if (!IsPostBack)
             {
                 CargarMedicos();
+                CargarTodosLosHorarios();
             }
         }
 
@@ -28,38 +29,113 @@ namespace Vistas
             gvMedico.DataSource = dt;
             gvMedico.DataBind();
         }
+        private void CargarTodosLosHorarios()
+        {
+            NegocioClinica negocio = new NegocioClinica();
+            DataTable dt = negocio.GetTodosLosHorarios();
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+                lblMensajeError.Text = "No hay horarios para mostrar.";
+            }
+        }
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             NegocioClinica negocioClinica = new NegocioClinica();
             string legajo = txtBuscar.Text.Trim();
 
-            DataTable dt = negocioClinica.GetMedicosPorLegajo(legajo);
+            DataTable dtMedicos = negocioClinica.GetMedicosPorLegajo(legajo);
+            DataTable dtHorarios = negocioClinica.GetHorariosPorMedico(legajo);
 
-            if (dt.Rows.Count > 0)
+            if (dtMedicos.Rows.Count > 0)
             {
-                gvMedico.DataSource = dt;
+                gvMedico.DataSource = dtMedicos;
                 gvMedico.DataBind();
                 lblMensajeError.Text = "";
+
+                if (dtHorarios.Rows.Count > 0)
+                {
+                    GridView1.DataSource = dtHorarios;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    GridView1.DataSource = null;
+                    GridView1.DataBind();
+                    lblMensajeError.Text = "No se encontraron horarios para ese médico.";
+                }
             }
             else
             {
                 gvMedico.DataSource = null;
                 gvMedico.DataBind();
-                lblMensajeError.Text = "No se encontró ningun medico con ese legajo";
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+                lblMensajeError.Text = "No se encontró ningún médico con ese legajo";
             }
         }
+
 
         protected void gvMedico_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvMedico.PageIndex = e.NewPageIndex;
             CargarMedicos();
+
+            GridView1.DataSource = null;
+            GridView1.DataBind();
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             txtBuscar.Text = string.Empty;
+
             CargarMedicos();
+
+            NegocioClinica negocioClinica = new NegocioClinica();
+            DataTable dtHorarios = negocioClinica.GetTodosLosHorarios();
+
+            GridView1.DataSource = dtHorarios;
+            GridView1.DataBind();
+
+            lblMensajeError.Text = string.Empty;
         }
+
+        protected void gvMedico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string legajoSeleccionado = gvMedico.SelectedRow.Cells[0].Text;
+            CargarHorarios(legajoSeleccionado);
+        }
+
+        private void CargarHorarios(string legajo)
+        {
+            NegocioClinica negocioClinica = new NegocioClinica();
+            DataTable dtHorarios = negocioClinica.GetHorariosPorMedico(legajo);
+
+            if (dtHorarios.Rows.Count > 0)
+            {
+                GridView1.DataSource = dtHorarios;
+                GridView1.DataBind();
+            }
+            else
+            {
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+        }
+
+        protected void gvMedico_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
