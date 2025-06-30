@@ -449,5 +449,79 @@ namespace Entidades
             return horarios;
         }
 
+
     }
-}
+    public class Turno
+    {
+            private string DNI_Paciente;
+            private string Legajo_Medico;
+            private int Id_Especialidad;
+            private DateTime Fecha;
+            private string Dia;
+            private string Hora;
+
+            public Turno() { }
+
+            public string getDNI_Paciente()
+            {
+                return DNI_Paciente;
+            }
+
+            public void setDNI_Paciente(string dni)
+            {
+                DNI_Paciente = dni;
+            }
+
+            public string getLegajo_Medico()
+            {
+                return Legajo_Medico;
+            }
+
+            public void setLegajo_Medico(string legajo)
+            {
+                Legajo_Medico = legajo;
+            }
+
+            public int getId_Especialidad()
+            {
+                return Id_Especialidad;
+            }
+
+            public void setId_Especialidad(int id)
+            {
+                Id_Especialidad = id;
+            }
+
+            public DateTime getFecha()
+            {
+                return Fecha;
+            }
+
+            public void setFecha(DateTime fecha)
+            {
+                Fecha = fecha;
+            }
+
+            public string getDia()
+            {
+                return Dia;
+            }
+
+            public void setDia(string dia)
+            {
+                Dia = dia;
+            }
+
+            public string getHora()
+            {
+                return Hora;
+            }
+
+            public void setHora(string hora)
+            {
+                Hora = hora;
+            }
+        }
+
+    }
+
