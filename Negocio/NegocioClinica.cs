@@ -179,5 +179,23 @@ namespace Negocio
         }
 
 
+        public DataTable GetTablaTurnos()
+        {
+            DaoClinica dao =new DaoClinica();
+            return dao.GetTableTurnos();
+        }
+
+        public DataTable GetTurno(int idTurno)
+        {
+            DaoClinica dao =new DaoClinica();
+            return dao.GetTurno(idTurno);
+        }
+
+        public int AgregarTurno(Turno obj)
+        {
+            DaoClinica dao =new DaoClinica();
+            return dao.AgregarTurno(obj);
+        }
+
     }        
 }

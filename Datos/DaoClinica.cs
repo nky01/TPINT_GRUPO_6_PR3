@@ -315,6 +315,26 @@ namespace Datos
 
         }
 
+        public DataTable GetTableTurnos()
+        {
+            return ds.ObtenerTabla("Turnos", "SELECT * FROM Turno");
+
+        }
+
+        public DataTable GetTurno(int idTurno)
+        {
+            string consulta = @"
+                SELECT Id_Turno, Id_Especialidad_Turno, Id_Especialidad_Turno, DNI_Paciente_Turno, Id_Dia_Turno, Estado_Turno
+                FROM Turno
+                WHERE Id_Turno = @Id_Turno";
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@Id_Turno", idTurno);
+            return ds.obtenerTablaConComando(comando, "Turno");
+
+        }
+
+
+
         public bool BajaLogicaPorDni(string dni)
         {
             SqlCommand cmd = new SqlCommand();
@@ -419,6 +439,29 @@ namespace Datos
                 return -1;
             }
         }
+        public int AgregarTurno(Turno obj)
+        {
+ 
+
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@IdEspecialidad", obj.getId_Especialidad()),
+                new SqlParameter("@LegajoMedicoTurno", obj.getLegajo_Medico()),
+                new SqlParameter("@DNIPaciente", obj.getDNI_Paciente()),
+                new SqlParameter("@IdDia", obj.getDia())
+            };
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Parameters.AddRange(parametros);
+
+                return ds.EjecutarProcedimientoAlmacenado(cmd, "SP_InsertarTurno");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public DataTable getTableLocalidadesPorProvincia(int idProvincia)
         {
@@ -452,6 +495,8 @@ namespace Datos
             };
             return ds.existe(consulta, parameters);
         }
+
+
 
         
     }
@@ -600,3 +645,24 @@ namespace Datos
 //	WHERE Legajo_Medico_Horario = @Legajo
 //	END
 //GO
+
+/*
+ * CREATE PROCEDURE SP_InsertarTurno
+@IdEspecialidad INT, 
+@LegajoMedicoTurno CHAR(5), 
+@DNIPaciente NVARCHAR(20), 
+@IdDia CHAR(1)
+
+AS
+BEGIN 
+    	INSERT INTO Turno (Id_Especialidad_Turno, Legajo_Medico_Turno, DNI_Paciente_Turno, Id_Dia_Turno)
+    	VALUES (@IdEspecialidad, @LegajoMedicoTurno, @DNIPaciente, @IdDia);
+
+
+    	DECLARE @IdTurno INT = SCOPE_IDENTITY();
+
+	INSERT INTO Turno (Id_Turno)
+	
+	VALUES(@IdTurno);
+END
+*/
