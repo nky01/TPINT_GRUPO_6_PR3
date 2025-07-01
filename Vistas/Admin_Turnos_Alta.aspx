@@ -36,15 +36,12 @@
             background-color: #ffffff;
             width: 70%;
             height: 70vh;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
+            margin: 40px auto;
             gap: 40px;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             align-items: center;
-            margin: 40px auto;
         }
 
         .columna {
@@ -102,36 +99,46 @@
             <h2>Generar Turno</h2>
             <div class="columna">
                 <asp:Label runat="server" Text="Seleccione Especialidad:" />
-                <asp:DropDownList ID="ddlEspecialidad" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="RfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ErrorMessage="Por favor seleccione una especialidad." ForeColor="Red" />
+                <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged" Width="192px" />
 
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="RfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ErrorMessage="Seleccione una especialidad" ForeColor="Red" />
                 <asp:Label runat="server" Text="Seleccione Médico:" />
-                <asp:DropDownList ID="ddlMedicos" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvMedicos" runat="server" ControlToValidate="ddlMedicos" ErrorMessage="Por favor seleccione un médico." ForeColor="Red" />
+
+                <asp:DropDownList ID="ddlMedicos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged" />
+
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvMedicos" runat="server" ControlToValidate="ddlMedicos" ErrorMessage="Seleccione un medico" ForeColor="Red" />
 
                 <asp:Label runat="server" Text="DNI del Paciente:" />
                 <asp:TextBox ID="txtPaciente" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvPaciente" runat="server" ControlToValidate="txtPaciente" ErrorMessage="Por favor escriba el DNI del paciente." ForeColor="Red" />
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvPaciente" runat="server" ControlToValidate="txtPaciente" ErrorMessage="Escriba el DNI del paciente" ForeColor="Red" />
             </div>
 
             <div class="columna">
                 <asp:Label runat="server" Text="Seleccione Fecha:" />
                 <asp:DropDownList ID="ddlFecha" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvFecha" runat="server" ControlToValidate="ddlFecha" ErrorMessage="Por favor seleccione una fecha." ForeColor="Red" />
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvFecha" runat="server" ControlToValidate="ddlFecha" ErrorMessage="Seleccione una fecha" ForeColor="Red" />
 
                 <asp:Label runat="server" Text="Seleccione Día:" />
                 <asp:DropDownList ID="ddlDia" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvDia" runat="server" ControlToValidate="ddlDia" ErrorMessage="Por favor seleccione un día." ForeColor="Red" />
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvDia" runat="server" ControlToValidate="ddlDia" ErrorMessage="Seleccione un día" ForeColor="Red" />
 
                 <asp:Label runat="server" Text="Seleccione Hora:" />
                 <asp:DropDownList ID="ddlHora" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvHora" runat="server" ControlToValidate="ddlHora" ErrorMessage="Por favor seleccione una hora." ForeColor="Red" />
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvHora" runat="server" ControlToValidate="ddlHora" ErrorMessage="Seleccione una hora" ForeColor="Red" />
             </div>
+            <br />
+            <br />
+            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         </div>
 
         <div class="container-3">
             <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" CssClass="container-3-btn" />
-            <asp:Button ID="AltaTurnoBtn" runat="server" Text="Generar Turno" OnClientClick="return confirm('¿Estás seguro que quieres generar este turno?');" CssClass="container-3-btn" />
+            
+            <asp:Button ID="AltaTurnoBtn" runat="server" Text="Generar Turno" 
+            OnClientClick="return confirm('¿Estás seguro que quieres generar este turno?');" 
+            OnClick="AltaTurnoBtn_Click" CssClass="container-3-btn" />
+
+
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Turnos.aspx">Volver</asp:HyperLink>
         </div>
     </form>

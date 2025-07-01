@@ -94,39 +94,30 @@ namespace Negocio
 
         public bool BajaMedicoPorLegajo(string legajo)
         {
-            DaoClinica dao = new DaoClinica();
             return dao.BajaLogicaMedicoPorLegajo(legajo);
         }
-
         public DataTable getTablaPaciente(string dni)
         {
-            DaoClinica dao = new DaoClinica();
             return dao.getTablaPaciente(dni);
         }
 
-
-
         public DataTable GetPacientes()
         {
-            DaoClinica dao = new DaoClinica();
             return dao.GetPacientes();
         }
         public DataTable GetMedicos()
         {
-            DaoClinica dao = new DaoClinica();
             return dao.GetMedicos();
+        }
+
+        public DataTable GetMedicosPorEspecialidad(int idEspecialidad)
+        {
+            return dao.GetMedicosPorEspecialidad(idEspecialidad);
         }
 
         public DataTable GetMedicosPorLegajo(string legajo)
         {
-            DaoClinica dao = new DaoClinica();
             return dao.GetMedicosPorLegajo(legajo);
-        }
-    
-
-        public DataTable GetHorariosPorMedico(string legajo)
-        {
-            return dao.GetHorariosPorLegajo(legajo);
         }
 
         public DataTable GetHorarioLegajoMod(string legajo)
@@ -141,14 +132,12 @@ namespace Negocio
 
         public DataTable GetPaciente(string DNIbuscado)
         {
-            DaoClinica dao = new DaoClinica();
             DataTable table = dao.getTablaPaciente(DNIbuscado);
             return table;
         }
 
         public bool existePaciente(string dni)
         {
-            DaoClinica dao = new DaoClinica();
             return dao.existePaciente(dni);
         }
 

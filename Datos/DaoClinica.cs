@@ -303,6 +303,19 @@ namespace Datos
             return table;
         }
 
+        public DataTable GetMedicosPorEspecialidad(int idEspecialidad)
+        {
+            string consulta = @"SELECT M.Legajo_Medico, 
+                                       M.Nombre_Medico + ' ' + M.Apellido_Medico AS NombreCompleto
+                                FROM Medico M
+                                WHERE M.Id_Especialidad_Medico = @IdEspecialidad";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@IdEspecialidad", idEspecialidad);
+
+            return ds.obtenerTablaConComando(comando, "Medico");
+        }
+
         public DataTable GetTableLocalidadesPorProvincia(int idprovincia)
         {
             string consulta = @"
@@ -401,9 +414,7 @@ namespace Datos
             {
                 throw ex;
             }
-        }
-
-        
+        }        
 
         public int AgregarMedico(Medico medico, Usuarios user)
         {
@@ -495,13 +506,7 @@ namespace Datos
             };
             return ds.existe(consulta, parameters);
         }
-
-
-
-        
-    }
-
-   
+    }   
 }
 
 //CREATE PROCEDURE SP_BajaLogicaMedico
