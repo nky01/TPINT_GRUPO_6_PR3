@@ -36,6 +36,7 @@
             background-color: #ffffff;
             width: 70%;
             height: 70vh;
+            display: flex;
             margin: 40px auto;
             gap: 40px;
             padding: 20px;
@@ -104,7 +105,7 @@
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="RfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ErrorMessage="Seleccione una especialidad" ForeColor="Red" />
                 <asp:Label runat="server" Text="Seleccione Médico:" />
 
-                <asp:DropDownList ID="ddlMedicos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged" />
+                <asp:DropDownList ID="ddlMedicos" runat="server" AutoPostBack="true" />
 
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvMedicos" runat="server" ControlToValidate="ddlMedicos" ErrorMessage="Seleccione un medico" ForeColor="Red" />
 

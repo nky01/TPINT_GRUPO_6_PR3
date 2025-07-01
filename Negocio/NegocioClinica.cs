@@ -130,6 +130,11 @@ namespace Negocio
             return dao.GetTodosLosHorarios();
         }
 
+        public DataTable GetHorariosPorMedico(string legajo)
+        {
+            return dao.GetHorariosPorLegajo(legajo);         
+        }
+
         public DataTable GetPaciente(string DNIbuscado)
         {
             DataTable table = dao.getTablaPaciente(DNIbuscado);

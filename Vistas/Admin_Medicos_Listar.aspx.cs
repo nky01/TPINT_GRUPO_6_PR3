@@ -88,7 +88,7 @@ namespace Vistas
                 gvMedico.DataBind();
                 GridView1.DataSource = null;
                 GridView1.DataBind();
-                lblMensajeError.Text = "No se encontró ningún médico con ese legajo";
+                lblMensajeError.Text = "No se encontró ningun medico con ese legajo";
             }
         }
 
