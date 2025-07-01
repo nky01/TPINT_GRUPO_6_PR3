@@ -102,29 +102,26 @@
                 <asp:Label runat="server" Text="Seleccione Especialidad:" />
                 <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged" Width="192px" />
 
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="RfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ErrorMessage="Seleccione una especialidad" ForeColor="Red" />
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="RfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ForeColor="Red" InitialValue="0" >Seleccione una especialidad</asp:RequiredFieldValidator>
                 <asp:Label runat="server" Text="Seleccione Médico:" />
 
-                <asp:DropDownList ID="ddlMedicos" runat="server" AutoPostBack="true" />
+                <asp:DropDownList ID="ddlMedicos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged" />
 
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvMedicos" runat="server" ControlToValidate="ddlMedicos" ErrorMessage="Seleccione un medico" ForeColor="Red" />
 
                 <asp:Label runat="server" Text="DNI del Paciente:" />
                 <asp:TextBox ID="txtPaciente" runat="server" />
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvPaciente" runat="server" ControlToValidate="txtPaciente" ErrorMessage="Escriba el DNI del paciente" ForeColor="Red" />
+                <asp:CustomValidator ID="cvPaciente" runat="server" ControlToValidate="txtPaciente" ForeColor="Red" OnServerValidate="cvPaciente_ServerValidate">Ingrese un paciente que exista</asp:CustomValidator>
             </div>
 
             <div class="columna">
                 <asp:Label runat="server" Text="Seleccione Fecha:" />
-                <asp:DropDownList ID="ddlFecha" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvFecha" runat="server" ControlToValidate="ddlFecha" ErrorMessage="Seleccione una fecha" ForeColor="Red" />
-
-                <asp:Label runat="server" Text="Seleccione Día:" />
-                <asp:DropDownList ID="ddlDia" runat="server" />
-                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvDia" runat="server" ControlToValidate="ddlDia" ErrorMessage="Seleccione un día" ForeColor="Red" />
+                <asp:TextBox ID="txtFecha" TextMode="Date" runat="server" Width="100px" AutoPostBack="True" OnTextChanged="txtFecha_TextChanged"></asp:TextBox>
+                <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvFecha" runat="server" ControlToValidate="txtFecha" ErrorMessage="Seleccione una fecha" ForeColor="Red" />
 
                 <asp:Label runat="server" Text="Seleccione Hora:" />
-                <asp:DropDownList ID="ddlHora" runat="server" />
+                <asp:DropDownList ID="ddlHora" runat="server" AutoPostBack="True" />
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvHora" runat="server" ControlToValidate="ddlHora" ErrorMessage="Seleccione una hora" ForeColor="Red" />
             </div>
             <br />

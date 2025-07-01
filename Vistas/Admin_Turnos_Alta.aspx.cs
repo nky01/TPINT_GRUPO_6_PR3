@@ -42,26 +42,60 @@ namespace Vistas
         {
             try
             {
+                DateTime fechaIngresada;
+
+                if(DateTime.TryParse(txtFecha.Text, out fechaIngresada))
+                {
+                    if(fechaIngresada < DateTime.Today)
+                    {
+                        lblMensaje.Text = "No se pueden generar turnos en una fecha invalida";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                }
+                else
+                {
+                    lblMensaje.Text = "ocurrio un error";
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+
+
+
                 Turno turno = new Turno();
                 turno.setId_Especialidad(Convert.ToInt32(ddlEspecialidad.SelectedValue));
                 turno.setLegajo_Medico(ddlMedicos.SelectedValue);
                 turno.setDNI_Paciente(txtPaciente.Text.Trim());
-                turno.setDia(ddlDia.SelectedValue);
-                turno.setFecha(Convert.ToDateTime(ddlFecha.SelectedValue));
+                string dia = fechaIngresada.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                turno.setDia(dia);
+                turno.setFecha(Convert.ToDateTime(txtFecha.Text.Trim()));
                 turno.setHora(ddlHora.SelectedValue);
+                if(neg.DisponibilidadTurno(turno.getLegajo_Medico(), turno.getFecha(), turno.getHora()))
+                {
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    lblMensaje.Text = "El medico ya tiene un turno en esa fecha y hora o con una diferencia de una hora";
+                    return;
+                }
+
+                if (neg.pacienteTieneTurno(turno.getDNI_Paciente(), turno.getFecha(), turno.getHora()))
+                {
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    lblMensaje.Text = "El paciente ya tiene un turno en esa fecha y hora o con una diferencia de una hora";
+                    return;
+                }
 
                 int resultado = neg.AgregarTurno(turno);
 
                 if (resultado > 0)
                 {
                     lblMensaje.ForeColor = System.Drawing.Color.Green;
-                    lblMensaje.Text = "El turno ha sido generado correctamente!";
+                    lblMensaje.Text = "El turno se agrego correctamente";
                 }
                 else
                 {
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
-                    lblMensaje.Text = "Error al generar el turno";
-                }
+                    lblMensaje.Text = "Error al agregar el turno";
+                }   
             }
             catch (Exception ex)
             {
@@ -97,6 +131,69 @@ namespace Vistas
         protected void CerrarBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
+        }
+
+        protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarHorariosSiEstaListo();
+
+         
+        }
+
+        private void cargarHorarios(TimeSpan inicio, TimeSpan fin)
+        {
+            ddlHora.Items.Clear();
+            for (TimeSpan hora = inicio; hora <= fin; hora = hora.Add(TimeSpan.FromMinutes(30)))
+            {
+                ddlHora.Items.Add(hora.ToString(@"hh\:mm"));
+            }
+        }
+
+        private void cargarHorariosSiEstaListo()
+        {
+            ddlHora.Items.Clear();
+            if (string.IsNullOrWhiteSpace(txtFecha.Text) || ddlMedicos.SelectedIndex <= 0)
+            {
+                ddlHora.Items.Clear();
+                ddlHora.Items.Add("-- Seleccione fecha y medico --");
+                return;
+            }
+
+            DateTime fecha;
+            if (DateTime.TryParse(txtFecha.Text, out fecha))
+            {
+                string legajoMedico = ddlMedicos.SelectedValue;
+                string diaSemana = neg.diaSemanaLetra(fecha);
+                var horario = neg.obtenerHorarioMedico(legajoMedico, diaSemana);
+
+                if (horario.Item1 != TimeSpan.Zero && horario.Item2 != TimeSpan.Zero)
+                {
+                    cargarHorarios(horario.Item1, horario.Item2);
+                }
+                else
+                {
+                    ddlHora.Items.Clear();
+                    ddlHora.Items.Add("-- sin Horarios Disponibles --");
+                }
+            }
+            else
+            {
+                ddlHora.Items.Clear();
+                ddlHora.Items.Add("-- Fecha Invalida --");
+            }
+        }
+        protected void txtFecha_TextChanged(object sender, EventArgs e)
+        {
+            cargarHorariosSiEstaListo();
+        }
+
+        protected void cvPaciente_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string dniIngresado = args.Value.Trim();
+
+            bool existePaciente = neg.existePaciente(dniIngresado);
+
+            args.IsValid = existePaciente;
         }
     }
 }

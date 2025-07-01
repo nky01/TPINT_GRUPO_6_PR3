@@ -459,7 +459,9 @@ namespace Datos
                 new SqlParameter("@IdEspecialidad", obj.getId_Especialidad()),
                 new SqlParameter("@LegajoMedicoTurno", obj.getLegajo_Medico()),
                 new SqlParameter("@DNIPaciente", obj.getDNI_Paciente()),
-                new SqlParameter("@IdDia", obj.getDia())
+                new SqlParameter("@IdDia", obj.getDia()),
+                new SqlParameter("@Fecha", obj.getFecha()),
+                new SqlParameter("@Hora", obj.getHora())
             };
             try
             {
@@ -504,6 +506,77 @@ namespace Datos
             {
                 new SqlParameter("@DNI", dni)
             };
+            return ds.existe(consulta, parameters);
+        }
+
+        public (TimeSpan, TimeSpan) obtenerHorarioMedico(string legajoMedico, string diaLetra)
+        {
+            TimeSpan horarioInicio = TimeSpan.Zero;
+            TimeSpan horarioFinal = TimeSpan.Zero;
+
+            string consulta = @"SELECT Hora_Inicio_Horario AS horaInicio, Hora_Salida_Horario AS horaFinal FROM Horario 
+                                WHERE Legajo_Medico_Horario = @Legajo AND Id_Dia_Horario = @Dia";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Legajo", legajoMedico),
+                new SqlParameter("@Dia", diaLetra)
+            };
+
+            try
+            {
+                SqlCommand comando = new SqlCommand(consulta);
+                comando.Parameters.AddRange(parameters);
+                DataTable dataTable = ds.obtenerTablaConComando(comando, "Horario");
+
+                if(dataTable.Rows.Count > 0)
+                {
+                    horarioInicio = TimeSpan.FromHours(Convert.ToInt32(dataTable.Rows[0]["horaInicio"]));
+                    horarioFinal = TimeSpan.FromHours(Convert.ToInt32(dataTable.Rows[0]["horaFinal"]));
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw new Exception("error al intentar obtener el horario del medico"); ;
+            }
+
+            return (horarioInicio, horarioFinal);
+        
+        }
+
+        public bool existeTurnoMedico(string legajoMedico, DateTime fecha, string hora)
+        {
+            string consulta = @"
+                    SELECT 1 FROM Turno
+                    WHERE Legajo_Medico_Turno = @Legajo
+                    AND Fecha_Turno = @Fecha
+                    AND ABS(DATEDIFF(MINUTE, Hora_Turno, @Hora)) < 60";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Legajo", legajoMedico),
+                new SqlParameter("@Fecha", fecha),
+                new SqlParameter("@Hora", hora)
+            };
+
+            return ds.existe(consulta, parameters);
+        }
+
+        public bool existeTurnoPaciente(string dniPaciente, DateTime fecha, string hora)
+        {
+            string consulta = @"
+                    SELECT 1 FROM Turno
+                    WHERE DNI_Paciente_Turno = @Dni
+                    AND Fecha_Turno = @Fecha
+                    AND ABS(DATEDIFF(MINUTE, Hora_Turno, @Hora)) < 60";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Dni", dniPaciente),
+                new SqlParameter("@Fecha", fecha),
+                new SqlParameter("@Hora", hora)
+            };
+
             return ds.existe(consulta, parameters);
         }
     }   

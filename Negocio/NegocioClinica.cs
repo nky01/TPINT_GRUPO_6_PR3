@@ -191,5 +191,37 @@ namespace Negocio
             return dao.AgregarTurno(obj);
         }
 
+        public string diaSemanaLetra(DateTime fecha)
+        {
+            switch (fecha.DayOfWeek)
+            {
+                case DayOfWeek.Monday: return "L";
+                case DayOfWeek.Tuesday: return "M";
+                case DayOfWeek.Wednesday: return "X";
+                case DayOfWeek.Thursday: return "J";
+                case DayOfWeek.Friday: return "V";
+                case DayOfWeek.Saturday: return "S";
+                case DayOfWeek.Sunday: return "D";
+                default: return "";
+            }
+        }
+
+        public (TimeSpan, TimeSpan) obtenerHorarioMedico(string legajoMedico, string dia)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.obtenerHorarioMedico(legajoMedico, dia);
+        }
+
+        public bool DisponibilidadTurno(string legajoMedico, DateTime fecha, string hora)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.existeTurnoMedico(legajoMedico, fecha, hora);
+        }
+
+        public bool pacienteTieneTurno(string dniPaciente, DateTime fecha, string hora)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.existeTurnoPaciente(dniPaciente, fecha, hora);
+        }
     }        
 }
