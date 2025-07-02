@@ -678,6 +678,21 @@ namespace Datos
 
             return ds.existe(consulta, parameters);
         }
+
+        public DataTable ObtenerAusentesPresentesPorFechas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            string consulta = @"
+                SELECT Estado_Turno, COUNT(*) AS Cantidad
+                FROM Turno
+                WHERE Fecha_Turno BETWEEN @fechaInicio AND @fechaFin
+                GROUP BY Estado_Turno";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+            cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+
+            return ds.obtenerTablaConComando(cmd, "Turno");
+        }
     }   
 }
 

@@ -110,8 +110,14 @@
     </div>
 </div>
     <div class="chart-container">
-        <asp:Chart ID="ChartAusencias" runat="server" Width="400px" Height="400px" />
-        <div class="chart-placeholder">No hay datos para mostrar</div>
+       <asp:Chart ID="ChartAusencias" runat="server" Width="400px" Height="400px">
+    <Series>
+        <asp:Series Name="Serie1" ChartType="Pie"></asp:Series>
+    </Series>
+    <ChartAreas>
+        <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+    </ChartAreas>
+</asp:Chart>
     </div>
  <div class="grid-container">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay registros para mostrar." CssClass="tabla">

@@ -244,5 +244,10 @@ namespace Negocio
             DaoClinica dao = new DaoClinica();
             return dao.existeTurnoPaciente(dniPaciente, fecha, hora);
         }
+
+        public DataTable ObtenerAusentesPresentesPorFechas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return dao.ObtenerAusentesPresentesPorFechas(fechaInicio, fechaFin);
+        }
     }        
 }
