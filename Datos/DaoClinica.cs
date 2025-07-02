@@ -380,7 +380,7 @@ namespace Datos
                                     INNER JOIN Especialidad E ON T.Id_Especialidad_Turno = E.Id_Especialidad
                                     INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
                                     INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
-                                    WHERE
+                                    WHERE T.Estado_Turno <> 'Cancelado' AND
                                     ";
             SqlCommand comando = new SqlCommand();
 
@@ -546,6 +546,14 @@ namespace Datos
                 throw ex;
             }
         }
+
+        public int BajaTurno(int idTurno)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add(new SqlParameter("@Id_Turno", idTurno));
+            return ds.EjecutarProcedimientoAlmacenado(command, "SP_BajaTurno");
+        }
+
 
         public DataTable getTableLocalidadesPorProvincia(int idProvincia)
         {
@@ -834,4 +842,15 @@ BEGIN
 	
 	VALUES(@IdTurno);
 END
+*/
+
+/*CREATE PROCEDURE SP_BajaTurno
+	@Id_Turno int
+AS
+BEGIN
+UPDATE Turno
+SET Estado_Turno = 'Cancelado'
+WHERE Id_Turno = @Id_Turno
+END
+GO
 */

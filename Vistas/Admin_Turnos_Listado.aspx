@@ -114,6 +114,7 @@
                         <asp:ListItem>Pendiente</asp:ListItem>
                         <asp:ListItem>Presente</asp:ListItem>
                         <asp:ListItem>Ausente</asp:ListItem>
+                        <asp:ListItem>Cancelado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvEstado" runat="server" ControlToValidate="ddlEstado"
                     ErrorMessage="Seleccione un Estado" ForeColor="Red" ValidationGroup="5" CssClass="error" InitialValue="0" />

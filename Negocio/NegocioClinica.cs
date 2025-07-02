@@ -202,8 +202,14 @@ namespace Negocio
 
         public int AgregarTurno(Turno obj)
         {
-            DaoClinica dao =new DaoClinica();
+            DaoClinica dao = new DaoClinica();
             return dao.AgregarTurno(obj);
+        }
+
+        public int BajaTurno(int idTurno)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.BajaTurno(idTurno);
         }
 
         public string diaSemanaLetra(DateTime fecha)

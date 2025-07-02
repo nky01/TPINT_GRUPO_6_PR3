@@ -22,5 +22,20 @@ namespace Vistas
             tipoUsuario.Text = usuario.getRol();
             nombreUsuario.Text = usuario.getNombre();
         }
+
+        protected void cancelarTurnoBtn_Click(object sender, EventArgs e)
+        {
+           int filasAfectadas = negocio.BajaTurno(Convert.ToInt32(txtID.Text));
+            if (filasAfectadas > 0)
+            {
+                lblmensaje.ForeColor = System.Drawing.Color.Green;
+                lblmensaje.Text = "El turno fue dado de baja correctamente";
+            }
+            else
+            {
+                lblmensaje.ForeColor = System.Drawing.Color.Red;
+                lblmensaje.Text = "Error al dar de baja el turno";
+            }
+        }
     }
 }

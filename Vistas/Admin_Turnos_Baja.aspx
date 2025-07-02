@@ -100,9 +100,10 @@
         <div class="form-row"> 
             Escriba el ID del turno:<asp:TextBox ID="txtID" runat="server"></asp:TextBox>
             <asp:Label ID="lblmensaje" runat="server"></asp:Label>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Ingrese Numeros" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
             </div>
         <div style="text-align: center;">
-               <asp:Button ID="cancelarTurnoBtn" runat="server" Text="Cancelar Turno" OnClientClick="return confirm('¿Estás seguro quieres cancelar este turno?');"  />
+               <asp:Button ID="cancelarTurnoBtn" runat="server" Text="Cancelar Turno" OnClientClick="return confirm('¿Estás seguro quieres cancelar este turno?');" OnClick="cancelarTurnoBtn_Click"  />
             </div>
         </div>
         <div class ="container-3">
