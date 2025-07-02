@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Pacientes_Listar.aspx.cs" Inherits="Vistas.ListarPaciente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Turnos_Listado.aspx.cs" Inherits="Vistas.Admin_Turnos_Listado" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -55,53 +55,84 @@
         </div>
 
         <div class="content">
-            <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Pacientes"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Turnos"></asp:Label>
+            <br />
+            <asp:Label ID="Label21" runat="server" Text="Filtrar por:"></asp:Label>
+            <asp:DropDownList ID="ddlOpcionesFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlOpcionesFiltro_SelectedIndexChanged">
+                <asp:ListItem Value="Vacio">-- Seleccione un filtro --</asp:ListItem>
+                <asp:ListItem>ID</asp:ListItem>
+                <asp:ListItem Value="Paciente">DNI Paciente</asp:ListItem>
+                <asp:ListItem Value="Medico">Legajo Medico</asp:ListItem>
+                <asp:ListItem>Especialidad</asp:ListItem>
+                <asp:ListItem>Fecha</asp:ListItem>
+                <asp:ListItem>Estado</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnAll" runat="server" OnClick="btnAll_Click" Text="Filtrar Todos" />
+            <asp:Panel ID="panelID" runat="server" Visible="False">
+                <asp:Label ID="Label16" runat="server" Text="Buscar por ID"></asp:Label>
+                <asp:TextBox ID="txtID" runat="server" />
+                <asp:RequiredFieldValidator ID="rfvID" runat="server" ControlToValidate="txtID"
+                    ErrorMessage="Ingrese un ID" ForeColor="Red" ValidationGroup="0" CssClass="error" />
+                <asp:CustomValidator ID="cvID" runat="server" ControlToValidate="txtID" CssClass="error" ErrorMessage="Ese ID no existe." ForeColor="Red" OnServerValidate="cvID_ServerValidate" ValidationGroup="0"></asp:CustomValidator>
+                <asp:Button ID="btnID" runat="server" OnClick="btnID_Click" Text="Buscar" ValidationGroup="0" />
+            </asp:Panel>
             <div class="form-controls">
-                <asp:Label ID="Label4" runat="server" Text="Buscar por DNI"></asp:Label>
-                <asp:TextBox ID="txtBusqueda" runat="server" />
-                <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda"
-                    ErrorMessage="Ingrese un DNI" ForeColor="Red" ValidationGroup="0" CssClass="error" />
-                <asp:RegularExpressionValidator ID="rexvDni" runat="server" ControlToValidate="txtBusqueda"
-                    ValidationExpression="^\d{7,8}$" ErrorMessage="Ingrese un DNI válido" ForeColor="Red"
-                    ValidationGroup="0" CssClass="error" />
-                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="0" />
+                <asp:Panel ID="panelPaciente" runat="server" Visible="False">
+                    <asp:Label ID="Label4" runat="server" Text="Buscar por Paciente"></asp:Label>
+                    <asp:TextBox ID="txtPaciente" runat="server" />
+                    <asp:RequiredFieldValidator ID="rfvDNIPac" runat="server" ControlToValidate="txtPaciente"
+                    ErrorMessage="Ingrese un DNI" ForeColor="Red" ValidationGroup="1" CssClass="error" />
+                    <asp:CustomValidator ID="cvDniPac" runat="server" ControlToValidate="txtPaciente" CssClass="error" ErrorMessage="DNI No registrado" ForeColor="Red" OnServerValidate="cvDniPac_ServerValidate" ValidationGroup="1"></asp:CustomValidator>
+                    <asp:Button ID="btnDNIPac" runat="server" OnClick="btnDNIPac_Click" Text="Buscar" ValidationGroup="1" />
+                </asp:Panel>
+                <asp:Panel ID="panelMedico" runat="server" Visible="False">
+                    <asp:Label ID="Label17" runat="server" Text="Buscar por Medico"></asp:Label>
+                    <asp:TextBox ID="txtMedico" runat="server" />
+                    <asp:RequiredFieldValidator ID="rfvMed" runat="server" ControlToValidate="txtMedico"
+                    ErrorMessage="Ingrese un Legajo" ForeColor="Red" ValidationGroup="2" CssClass="error" />
+                    <asp:CustomValidator ID="cvMed" runat="server" CssClass="error" ErrorMessage="Ingrese un Legajo Valido" ForeColor="Red" ValidationGroup="2" ControlToValidate="txtMedico" OnServerValidate="cvMed_ServerValidate"></asp:CustomValidator>
+                    <asp:Button ID="btnMed" runat="server" OnClick="btnMed_Click" Text="Buscar" ValidationGroup="2" />
+                </asp:Panel>
+                <asp:Panel ID="panelEspecialidad" runat="server" Visible="False">
+                    <asp:Label ID="Label18" runat="server" Text="Buscar por Especialidad"></asp:Label>
+                    <asp:DropDownList ID="ddlEspecialidad" runat="server">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad"
+                    ErrorMessage="Seleccione una Especialidad" ForeColor="Red" ValidationGroup="3" CssClass="error" InitialValue="0" />
+                    <asp:Button ID="btnEspecialidad" runat="server" OnClick="btnEspecialidad_Click" Text="Buscar" ValidationGroup="3" />
+                </asp:Panel>
+                <asp:Panel ID="panelFecha" runat="server" style="width: 793px; margin-top: 0px" Visible="False">
+                    <asp:Label ID="Label19" runat="server" Text="Buscar por Fecha"></asp:Label>
+                    <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvFecha" runat="server" ControlToValidate="txtFecha" CssClass="error" Display="Dynamic" ErrorMessage="Seleccione una Fecha" ValidationGroup="4"></asp:RequiredFieldValidator>
+                    <asp:Button ID="btnFecha" runat="server" Text="Buscar" ValidationGroup="4" OnClick="btnFecha_Click" />
+                </asp:Panel>
+                <asp:Panel ID="panelEstado" runat="server" Visible="False">
+                    <asp:Label ID="Label20" runat="server" Text="Buscar por Estado"></asp:Label>
+                    <asp:DropDownList ID="ddlEstado" runat="server">
+                        <asp:ListItem Value="0">--Seleccione un Estado--</asp:ListItem>
+                        <asp:ListItem>Pendiente</asp:ListItem>
+                        <asp:ListItem>Presente</asp:ListItem>
+                        <asp:ListItem>Ausente</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvEstado" runat="server" ControlToValidate="ddlEstado"
+                    ErrorMessage="Seleccione un Estado" ForeColor="Red" ValidationGroup="5" CssClass="error" InitialValue="0" />
+                    <asp:Button ID="btnEstado" runat="server" Text="Buscar" ValidationGroup="5" OnClick="btnEstado_Click" />
+                </asp:Panel>
             </div>
 
-           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="gridview">
+           <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" CssClass="gridview">
                 <Columns>
-                    <asp:TemplateField HeaderText="DNI">
-                        <ItemTemplate><asp:Label ID="Label5" runat="server" Text="DNI"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nombre">
-                        <ItemTemplate><asp:Label ID="Label6" runat="server" Text="Nombre"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Apellido">
-                        <ItemTemplate><asp:Label ID="Label7" runat="server" Text="Apellido"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sexo">
-                        <ItemTemplate><asp:Label ID="Label8" runat="server" Text="Sexo"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nacionalidad">
-                        <ItemTemplate><asp:Label ID="Label9" runat="server" Text="Nacionalidad"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Fecha de nacimiento">
-                        <ItemTemplate><asp:Label ID="Label10" runat="server" Text="Fecha de nacimiento"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Direccion">
-                        <ItemTemplate><asp:Label ID="Label11" runat="server" Text="Direccion"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Localidad">
-                        <ItemTemplate><asp:Label ID="Label12" runat="server" Text="Localidad"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Provincia">
-                        <ItemTemplate><asp:Label ID="Label13" runat="server" Text="Provincia"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Correo Electronico">
-                        <ItemTemplate><asp:Label ID="Label14" runat="server" Text="Correo Electronico"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Telefono">
-                        <ItemTemplate><asp:Label ID="Label15" runat="server" Text="Telefono"></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:BoundField DataField="ID" HeaderText="ID" />
+                    <asp:BoundField DataField="Medico" HeaderText="Medico" />
+                    <asp:BoundField DataField="Legajo" HeaderText="Legajo Medico" />
+                    <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
+                    <asp:BoundField DataField="Paciente" HeaderText="Paciente" />
+                    <asp:BoundField DataField="DniPaciente" HeaderText="DNI Paciente" />
+                    <asp:BoundField DataField="Dia" HeaderText="Dia" />
+                    <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                    <asp:BoundField DataField="Hora" HeaderText="Hora" />
+                    <asp:BoundField DataField="Estado" HeaderText="Estado" />
                 </Columns>
             </asp:GridView>
         </div>

@@ -146,7 +146,16 @@ namespace Negocio
             return dao.existePaciente(dni);
         }
 
+        public bool existeIdTurno(string id)
+        {
+            return dao.existeTurno(id);
+        }
         
+        public bool existeMedico(string legajo)
+        {
+            return dao.existeMedico(legajo);
+        }
+
         public bool CheckLogin(Usuarios user, string rol)
         {
             if(user == null)
@@ -183,6 +192,12 @@ namespace Negocio
         {
             DaoClinica dao =new DaoClinica();
             return dao.GetTurno(idTurno);
+        }
+
+        public DataTable GetTurnosFiltro(string filtro, string valor)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetTurnosFiltro(filtro, valor);
         }
 
         public int AgregarTurno(Turno obj)

@@ -101,6 +101,7 @@ namespace Vistas
             {
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 lblMensaje.Text = "Se genero un error";
+                throw ex;
             }
         }
 

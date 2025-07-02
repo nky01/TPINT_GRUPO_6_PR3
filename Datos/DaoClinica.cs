@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net;
 
 namespace Datos
 {
@@ -330,8 +331,24 @@ namespace Datos
 
         public DataTable GetTableTurnos()
         {
-            return ds.ObtenerTabla("Turnos", "SELECT * FROM Turno");
+            string consultaTurnos = @"SELECT T.Id_Turno AS ID, 
+                                    T.Legajo_Medico_Turno AS Legajo, 
+                                    M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                    E.Descripcion_Especialidad AS Especialidad,
+                                    T.DNI_Paciente_Turno AS DniPaciente,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Hora_Turno AS Hora,
+                                    T.Estado_Turno AS Estado
+                                    FROM Turno T
+                                    INNER JOIN Medico M ON T.Legajo_Medico_Turno = M.Legajo_Medico
+                                    INNER JOIN Especialidad E ON T.Id_Especialidad_Turno = E.Id_Especialidad
+                                    INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                    INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
 
+                ";
+            return ds.ObtenerTabla("Turnos", consultaTurnos);
         }
 
         public DataTable GetTurno(int idTurno)
@@ -344,9 +361,63 @@ namespace Datos
             comando.Parameters.AddWithValue("@Id_Turno", idTurno);
             return ds.obtenerTablaConComando(comando, "Turno");
 
+        } 
+
+        public DataTable GetTurnosFiltro(string filtro, string valor)
+        {
+            string consulta = @"SELECT T.Id_Turno AS ID, 
+                                    T.Legajo_Medico_Turno AS Legajo, 
+                                    M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                    E.Descripcion_Especialidad AS Especialidad,
+                                    T.DNI_Paciente_Turno AS DniPaciente,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Hora_Turno AS Hora,
+                                    T.Estado_Turno AS Estado
+                                    FROM Turno T
+                                    INNER JOIN Medico M ON T.Legajo_Medico_Turno = M.Legajo_Medico
+                                    INNER JOIN Especialidad E ON T.Id_Especialidad_Turno = E.Id_Especialidad
+                                    INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                    INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                                    WHERE
+                                    ";
+            SqlCommand comando = new SqlCommand();
+
+            switch(filtro)
+            {
+                case "ID":
+                    consulta += "T.Id_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", int.Parse(valor));
+                    break;
+                case "Paciente":
+                    consulta += "T.DNI_Paciente_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", valor);
+                    break;
+                case "Medico":
+                    consulta += "T.Legajo_Medico_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", valor);
+                    break;
+                case "Especialidad":
+                    consulta += "T.Id_Especialidad_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", valor);
+                    break;
+                case "Fecha":
+                    DateTime fecha = DateTime.Parse(valor);
+                    consulta += "T.Fecha_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", fecha);
+                    break;
+                case "Estado":
+                    consulta += "T.Estado_Turno = @valor";
+                    comando.Parameters.AddWithValue("@valor", valor);
+                    break;
+                default:
+                    throw new Exception("Error en el filtro, es invalido");
+            }
+            comando.CommandText = consulta;
+            return ds.obtenerTablaConComando(comando, consulta);
+
         }
-
-
 
         public bool BajaLogicaPorDni(string dni)
         {
@@ -505,6 +576,26 @@ namespace Datos
             SqlParameter[] parameters =
             {
                 new SqlParameter("@DNI", dni)
+            };
+            return ds.existe(consulta, parameters);
+        }
+
+        public bool existeTurno(string id)
+        {
+            string consulta = "SELECT 1 FROM Turno WHERE Id_Turno = @ID";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@ID", id)
+            };
+            return ds.existe(consulta, parameters);
+        }
+
+        public bool existeMedico(string legajo)
+        {
+            string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@legajo", legajo)
             };
             return ds.existe(consulta, parameters);
         }
