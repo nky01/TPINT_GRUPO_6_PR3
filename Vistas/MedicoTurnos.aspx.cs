@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,18 +12,45 @@ namespace Vistas
 {
     public partial class MedicoTurnos : System.Web.UI.Page
     {
+
+        NegocioClinica negocio = new NegocioClinica();
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioClinica negocio = new NegocioClinica();
             Usuarios usuario = Session["usuario"] as Usuarios;
+
             if (!negocio.CheckLogin(usuario, "Medico"))
             {
                 Response.Redirect("Login.aspx");
+                return;
             }
+
             tipoUsuario.Text = usuario.getRol();
-            nombreUsuario.Text = usuario.getNombre();
+
+            if (!IsPostBack)
+            {
+                Medico medico = negocio.GetMedicoPorUsuarioNombre(usuario.getNombre());
+                nombreUsuario.Text = medico.getNombre();
+
+                if (medico != null)
+                {
+                    CargarTurnosDelMedico(medico.getLegajo());
+                }
+                else
+                {
+                    lblMsj.Text = "No tiene turnos";
+                }
+            }
         }
 
+        private void CargarTurnosDelMedico(string legajoMedico)
+        {
+            NegocioClinica negocio = new NegocioClinica();
+            DataTable dt = negocio.ObtenerTurnosPorMedico(legajoMedico);
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+       
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("MedicoVista.aspx");
@@ -30,9 +58,7 @@ namespace Vistas
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-            switch (ddlFiltros.SelectedValue)
+            switch (ddlEstados.SelectedValue)
             {
                 case "0":
                     panelCodigoTurno.Visible = false;
@@ -56,6 +82,11 @@ namespace Vistas
                     break;
 
             }
+
+
         }
+
+        
+
     }
 }

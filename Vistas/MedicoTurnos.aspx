@@ -6,49 +6,97 @@
     <meta charset="utf-8" />
     <title>Gestión de Turnos - Médico</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
 
-        .header {
-            background-color: #8aaeea;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-        }
+    .header {
+        background-color: #8aaeea;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
 
-        .container {
-            padding: 20px;
-            background-color: white;
-            margin: 30px auto;
-            width: 90%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    .container {
+        padding: 20px;
+        background-color: white;
+        margin: 30px auto;
+        width: 90%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
 
-        .filter-section {
-            margin-bottom: 20px;
-        }
+    .filter-section {
+        margin-bottom: 20px;
+    }
 
-        .filter-section label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
+    .filter-section label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
 
-        .panel-inputs {
-            margin-bottom: 20px;
-        }
+    .panel-inputs {
+        margin-bottom: 20px;
+    }
 
-        .grid-container {
-            margin-top: 30px;
-        }
+    .panel-inputs label {
+        font-weight: bold;
+    }
 
-        .btn-volver {
-            margin-top: 30px;
-        }
-    </style>
+    .grid-container {
+        margin-top: 30px;
+    }
+
+    .gridview {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 14px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .gridview th, .gridview td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .gridview th {
+        background-color: #8aaeea;
+        color: white;
+        font-weight: bold;
+    }
+
+    .gridview tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .btn-volver {
+        margin-top: 30px;
+        padding: 10px 16px;
+        background-color: #8aaeea;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-volver:hover {
+        background-color: #7295db;
+    }
+
+    .required-field {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -96,7 +144,7 @@
             </div>
 
             <div class="grid-container">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" Height="175px" Width="825px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="gridview">
                     <Columns>
                         <asp:BoundField DataField="CodigoTurno" HeaderText="Turno" />
                         <asp:BoundField DataField="DniPaciente" HeaderText="DNI Paciente" />
@@ -104,12 +152,17 @@
                         <asp:BoundField DataField="Dia" HeaderText="Día" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                         <asp:BoundField DataField="Estado" HeaderText="Estado" />
-                        <asp:BoundField DataField="Observacion" HeaderText="Observación" />
                     </Columns>
                 </asp:GridView>
-            </div>
 
-                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink> 
+
+                <asp:Label ID="lblMsj" runat="server" ForeColor="Red"></asp:Label>
+                <br />
+
+
+            </div>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx" CssClass="btn-volver">Volver</asp:HyperLink>
+ 
         </div>
     </form>
 </body>

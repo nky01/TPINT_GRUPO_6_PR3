@@ -361,7 +361,60 @@ namespace Datos
             comando.Parameters.AddWithValue("@Id_Turno", idTurno);
             return ds.obtenerTablaConComando(comando, "Turno");
 
-        } 
+        }
+
+        public DataTable GetTurnosPorMedico(string legajo)
+        {
+            string consulta = @"SELECT 
+                                    T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    H.Hora_Inicio_Horario AS Hora,
+                                    D.Descripcion_Dia AS Dia,
+                                    '' AS Fecha,
+                                    T.Estado_Turno AS Estado
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                                LEFT JOIN Horario H 
+                                    ON T.Legajo_Medico_Turno = H.Legajo_Medico_Horario 
+                                    AND T.Id_Dia_Turno = H.Id_Dia_Horario
+                                WHERE T.Legajo_Medico_Turno = @legajo
+                                ORDER BY T.Id_Turno";
+
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@legajo", legajo);
+
+            return ds.obtenerTablaConComando(comando, "Turnos");
+        }
+
+        public Medico GetMedicoPorUsuarioNombre(string nombreUsuario)
+        {
+            string consulta = @" SELECT * FROM Medico M
+                                 INNER JOIN Usuario U ON M.Id_Usuario_Medico = U.Id_Usuario
+                                 WHERE U.Nombre_Usuario = @nombre";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+
+            DataTable tabla = ds.obtenerTablaConComando(cmd, "Medico");
+
+            if (tabla.Rows.Count > 0)
+            {
+                DataRow row = tabla.Rows[0];
+                Medico medico = new Medico();
+
+                medico.setLegajo(row["Legajo_Medico"].ToString());
+                medico.setNombre(row["Nombre_Medico"].ToString());
+                medico.setApellido(row["Apellido_Medico"].ToString());
+                medico.setDNI(row["DNI_Medico"].ToString());
+                medico.setIdEspecialidad(Convert.ToInt32(row["Id_Especialidad_Medico"]));
+
+                return medico;
+            }
+
+            return null;
+        }
 
         public DataTable GetTurnosFiltro(string filtro, string valor)
         {
@@ -598,6 +651,7 @@ namespace Datos
             return ds.existe(consulta, parameters);
         }
 
+       
         public bool existeMedico(string legajo)
         {
             string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo";
