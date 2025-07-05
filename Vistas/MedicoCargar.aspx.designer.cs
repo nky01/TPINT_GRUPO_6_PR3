@@ -51,13 +51,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control txtBusqueda.
+        /// Control ddlTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTurnos;
 
         /// <summary>
         /// Control btnBuscar.
@@ -78,13 +78,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTurnos;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control lblNoExiste.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblNoExiste;
+
+        /// <summary>
+        /// Control hdfTurnoSelected.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfTurnoSelected;
+
+        /// <summary>
+        /// Control gvTurnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTurnos;
 
         /// <summary>
         /// Control HyperLink1.

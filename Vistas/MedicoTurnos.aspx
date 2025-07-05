@@ -148,6 +148,7 @@
                     <Columns>
                         <asp:BoundField DataField="CodigoTurno" HeaderText="Turno" />
                         <asp:BoundField DataField="DniPaciente" HeaderText="DNI Paciente" />
+                        <asp:BoundField DataField="Paciente" HeaderText="Nombre Paciente" />
                         <asp:BoundField DataField="Hora" HeaderText="Hora" />
                         <asp:BoundField DataField="Dia" HeaderText="Día" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" />

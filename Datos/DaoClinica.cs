@@ -268,9 +268,19 @@ namespace Datos
         {
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@Legajo", legajo);
-            comando.Parameters.AddWithValue("Entrada", entrada);
-            comando.Parameters.AddWithValue("Salida", salida);
+            comando.Parameters.AddWithValue("@Entrada", entrada);
+            comando.Parameters.AddWithValue("@Salida", salida);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarHorario");
+        }
+
+        public int actualizarTurno(int id, string estado, string observacion)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@estado", estado);
+            comando.Parameters.AddWithValue("@observacion", observacion);
+
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarTurno");
         }
 
         public DataTable GetTableProvincias()
@@ -353,10 +363,17 @@ namespace Datos
 
         public DataTable GetTurno(int idTurno)
         {
-            string consulta = @"
-                SELECT Id_Turno, Id_Especialidad_Turno, Id_Especialidad_Turno, DNI_Paciente_Turno, Id_Dia_Turno, Estado_Turno
-                FROM Turno
-                WHERE Id_Turno = @Id_Turno";
+            string consulta = @"SELECT 
+                                    T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno AS Observacion
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                WHERE T.Id_Turno = @Id_Turno";
             SqlCommand comando = new SqlCommand(consulta);
             comando.Parameters.AddWithValue("@Id_Turno", idTurno);
             return ds.obtenerTablaConComando(comando, "Turno");
@@ -368,16 +385,15 @@ namespace Datos
             string consulta = @"SELECT 
                                     T.Id_Turno AS CodigoTurno,
                                     P.DNI_Paciente AS DniPaciente,
-                                    H.Hora_Inicio_Horario AS Hora,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
                                     D.Descripcion_Dia AS Dia,
-                                    '' AS Fecha,
-                                    T.Estado_Turno AS Estado
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
                                 FROM Turno T
                                 INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
                                 INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
-                                LEFT JOIN Horario H 
-                                    ON T.Legajo_Medico_Turno = H.Legajo_Medico_Horario 
-                                    AND T.Id_Dia_Turno = H.Id_Dia_Horario
                                 WHERE T.Legajo_Medico_Turno = @legajo
                                 ORDER BY T.Id_Turno";
 
@@ -386,6 +402,18 @@ namespace Datos
             comando.Parameters.AddWithValue("@legajo", legajo);
 
             return ds.obtenerTablaConComando(comando, "Turnos");
+        }
+
+        public bool ExisteTurnoPorMedico(string legajo)
+        {
+            string consulta = @"
+                    SELECT 1 FROM Turno WHERE Legajo_Medico_Turno = @legajo";
+
+            SqlParameter[] parametros = new SqlParameter[]
+           {
+                new SqlParameter("@legajo",legajo)
+           };
+            return ds.existe(consulta, parametros);
         }
 
         public Medico GetMedicoPorUsuarioNombre(string nombreUsuario)

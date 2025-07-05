@@ -42,6 +42,11 @@ namespace Negocio
             return dao.actualizarHorario(legajo, entrada, salida);
         }
 
+        public int actualizarTurno(int id, string estado, string observacion)
+        {
+            return dao.actualizarTurno(id, estado, observacion);
+        }
+
         public int AgregarMedico(Medico medico, Usuarios usuario)
         {
             return dao.AgregarMedico(medico, usuario);
@@ -162,6 +167,11 @@ namespace Negocio
             return dao.existeTurno(id);
         }
         
+        public bool existeTurnoMedico(string legajo)
+        {
+            return dao.ExisteTurnoPorMedico(legajo);
+        }
+
         public bool existeMedico(string legajo)
         {
             return dao.existeMedico(legajo);

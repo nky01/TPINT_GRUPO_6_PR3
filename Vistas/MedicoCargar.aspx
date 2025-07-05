@@ -79,37 +79,63 @@
 
         <div class="container">
             <div class="input-group">
-                <label><asp:Label ID="Label3" runat="server" Text="Ingrese un código de turno:"></asp:Label></label>
-                <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
-                &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" />
-                <asp:RequiredFieldValidator ID="rfvTurnos" runat="server" ControlToValidate="txtBusqueda" ErrorMessage="Por favor, escriba un código" ForeColor="Red"></asp:RequiredFieldValidator>
+                <label><asp:Label ID="Label3" runat="server" Text="Seleccione un turno:"></asp:Label></label>
+                <asp:DropDownList ID="ddlTurnos" runat="server">
+                </asp:DropDownList>
+                &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="0" />
+                <asp:RequiredFieldValidator ID="rfvTurnos" runat="server" ControlToValidate="ddlTurnos" ErrorMessage="Por favor, seleccione un turno." ForeColor="Red" InitialValue="0" ValidationGroup="0"></asp:RequiredFieldValidator>
+                <asp:Label ID="lblNoExiste" runat="server" ForeColor="Red" Text="Usted no tiene turnos!" Visible="False"></asp:Label>
+                <br />
+                <asp:HiddenField ID="hdfTurnoSelected" runat="server" />
             </div>
 
             <div class="grid-container">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="table" Height="191px" Width="759px">
+                <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="table" Height="191px" Width="759px" OnRowCancelingEdit="gvTurnos_RowCancelingEdit" OnRowEditing="gvTurnos_RowEditing" OnRowUpdating="gvTurnos_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Código Turno">
                             <EditItemTemplate>
-                                <asp:Label ID="Label7" runat="server" Text="Código Turno"></asp:Label>
+                                <asp:Label ID="lblCodigo" runat="server" Text='<%# Bind("CodigoTurno") %>'></asp:Label>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text="Código Turno"></asp:Label>
+                                <asp:Label ID="lblCodigo" runat="server" Text='<%# Bind("CodigoTurno") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="DNI Paciente">
+                            <EditItemTemplate>
+                                <asp:Label ID="lblDni" runat="server" Text='<%# Bind("DniPaciente") %>'></asp:Label>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblDni" runat="server" Text='<%# Bind("DniPaciente") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Paciente">
+                            <EditItemTemplate>
+                                <asp:Label ID="lblPaciente" runat="server" Text='<%# Bind("Paciente") %>'></asp:Label>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblPaciente" runat="server" Text='<%# Bind("Paciente") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtEditEstado" runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="ddlEstado" runat="server">
+                                    <asp:ListItem>Pendiente</asp:ListItem>
+                                    <asp:ListItem>Presente</asp:ListItem>
+                                    <asp:ListItem>Ausente</asp:ListItem>
+                                    <asp:ListItem>Cancelado</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:HiddenField ID="hiddenFieldEstado" runat="server" Value='<%# Bind("Estado") %>' />
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text="Estado"></asp:Label>
+                                <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Observación">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtEditObservacion" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtObservacion" runat="server" Text='<%# Bind("Observacion") %>' TextMode="MultiLine"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label6" runat="server" Text="Observación"></asp:Label>
+                                <asp:Label ID="lblObservacion" runat="server" Text='<%# Bind("Observacion") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

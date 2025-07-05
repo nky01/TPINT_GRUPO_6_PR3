@@ -25,11 +25,11 @@ namespace Vistas
             }
 
             tipoUsuario.Text = usuario.getRol();
+            nombreUsuario.Text = usuario.getNombre();
 
             if (!IsPostBack)
             {
                 Medico medico = negocio.GetMedicoPorUsuarioNombre(usuario.getNombre());
-                nombreUsuario.Text = medico.getNombre();
 
                 if (medico != null)
                 {
