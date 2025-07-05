@@ -81,7 +81,7 @@
         </div>
 
         <div class="container-3">
-            <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" CssClass="btn" />
+            <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" CssClass="btn" OnClick="btnCerrarSesion_Click" />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Volver</asp:HyperLink>
         </div>
     </form>

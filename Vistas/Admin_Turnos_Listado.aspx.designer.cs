@@ -42,22 +42,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label nombreUsuario;
 
         /// <summary>
-        /// Label3 control.
+        /// labelHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label labelHeader;
 
         /// <summary>
-        /// Label21 control.
+        /// labelFiltros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label21;
+        protected global::System.Web.UI.WebControls.Label labelFiltros;
 
         /// <summary>
         /// ddlOpcionesFiltro control.
@@ -87,13 +87,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelID;
 
         /// <summary>
-        /// Label16 control.
+        /// labelID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.Label labelID;
 
         /// <summary>
         /// txtID control.
@@ -141,13 +141,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelPaciente;
 
         /// <summary>
-        /// Label4 control.
+        /// labelPaciente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label labelPaciente;
 
         /// <summary>
         /// txtPaciente control.
@@ -186,6 +186,42 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnDNIPac;
 
         /// <summary>
+        /// labelNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelNombre;
+
+        /// <summary>
+        /// txtNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+
+        /// <summary>
+        /// btnNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNombre;
+
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// panelMedico control.
         /// </summary>
         /// <remarks>
@@ -195,13 +231,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelMedico;
 
         /// <summary>
-        /// Label17 control.
+        /// labelMedico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label17;
+        protected global::System.Web.UI.WebControls.Label labelMedico;
 
         /// <summary>
         /// txtMedico control.
@@ -249,13 +285,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelEspecialidad;
 
         /// <summary>
-        /// Label18 control.
+        /// labelEspecialidad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label18;
+        protected global::System.Web.UI.WebControls.Label labelEspecialidad;
 
         /// <summary>
         /// ddlEspecialidad control.
@@ -294,13 +330,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelFecha;
 
         /// <summary>
-        /// Label19 control.
+        /// labelFecha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label19;
+        protected global::System.Web.UI.WebControls.Label labelFecha;
 
         /// <summary>
         /// txtFecha control.
@@ -339,13 +375,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Panel panelEstado;
 
         /// <summary>
-        /// Label20 control.
+        /// labelEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label20;
+        protected global::System.Web.UI.WebControls.Label labelEstado;
 
         /// <summary>
         /// ddlEstado control.
@@ -393,12 +429,12 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button CerrarBtn;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// hyperlinkVolver control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink hyperlinkVolver;
     }
 }

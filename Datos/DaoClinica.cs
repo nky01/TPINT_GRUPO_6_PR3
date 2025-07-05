@@ -500,6 +500,30 @@ namespace Datos
 
         }
 
+        public DataTable GetTurnosPorNombre(string nombre)
+        {
+            string consulta = @"SELECT T.Id_Turno AS ID, 
+                                T.Legajo_Medico_Turno AS Legajo, 
+                                M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                E.Descripcion_Especialidad AS Especialidad,
+                                T.DNI_Paciente_Turno AS DniPaciente,
+                                P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                D.Descripcion_Dia AS Dia,
+                                FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                T.Hora_Turno AS Hora,
+                                T.Estado_Turno AS Estado
+                                FROM Turno T
+                                INNER JOIN Medico M ON T.Legajo_Medico_Turno = M.Legajo_Medico
+                                INNER JOIN Especialidad E ON T.Id_Especialidad_Turno = E.Id_Especialidad
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                                WHERE T.Estado_Turno <> 'Cancelado'
+                                AND M.Nombre_Medico LIKE '%" + nombre + "%'";
+            SqlCommand consultaSql = new SqlCommand();
+            consultaSql.CommandText = consulta;
+            return ds.obtenerTablaConComando(consultaSql, consulta);
+        }
+
         public bool BajaLogicaPorDni(string dni)
         {
             SqlCommand cmd = new SqlCommand();

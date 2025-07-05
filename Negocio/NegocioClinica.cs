@@ -221,6 +221,12 @@ namespace Negocio
             return dao.GetTurnosFiltro(filtro, valor);
         }
 
+        public DataTable GetTurnosPorNombre(string nombre)
+        {
+            DaoClinica dao = new DaoClinica();
+            return dao.GetTurnosPorNombre(nombre);
+        }
+
         public int AgregarTurno(Turno obj)
         {
             DaoClinica dao = new DaoClinica();

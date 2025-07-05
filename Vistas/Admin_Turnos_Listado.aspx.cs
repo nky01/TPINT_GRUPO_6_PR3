@@ -143,5 +143,10 @@ namespace Vistas
             bool existeID = negocio.existeMedico(MedicoIngresado);
             args.IsValid = existeID;
         }
+
+        protected void btnNombre_Click(object sender, EventArgs e)
+        {
+            negocio.GetTurnosPorNombre(txtNombre.Text.Trim());
+        }
     }
 }
