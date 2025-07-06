@@ -276,5 +276,25 @@ namespace Negocio
         {
             return dao.ObtenerAusentesPresentesPorFechas(fechaInicio, fechaFin);
         }
+
+        public DataTable GetTurnosPorObservacion (string legajo, bool conObs)
+        {
+            return dao.GetTurnosPorObservacion(legajo, conObs);
+        }
+
+        public DataTable GetTurnosPorMedicoYEstado (string legajo, string estado)
+        {
+            return dao.GetTurnosPorMedicoYEstado(legajo, estado);
+        }
+
+        public DataTable GetTurnoPorMedicoYId (string legajo, int idTurno)
+        {
+            return dao.GetTurnoPorMedicoYId(legajo, idTurno);
+        }
+
+        public DataTable GetTurnosPorMedicoYDNI(string legajo, string dni)
+        {
+            return dao.GetTurnosPorMedicoYDNI(legajo, dni);
+        }
     }        
 }

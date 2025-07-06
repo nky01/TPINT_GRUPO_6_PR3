@@ -390,6 +390,7 @@ namespace Datos
                                     D.Descripcion_Dia AS Dia,
                                     FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
                                     T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
                                     CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
                                 FROM Turno T
                                 INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
@@ -796,6 +797,121 @@ namespace Datos
             SqlCommand cmd = new SqlCommand(consulta);
             cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
             cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+
+            return ds.obtenerTablaConComando(cmd, "Turno");
+        }
+
+        public DataTable GetTurnosPorMedicoYDNI(string legajo, string dni)
+        {
+            string consulta = @" SELECT T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                        WHERE Legajo_Medico_Turno = @Legajo AND DNI_Paciente_Turno = @DNI";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@Legajo", legajo);
+            cmd.Parameters.AddWithValue("@DNI", dni);
+
+            return ds.obtenerTablaConComando(cmd, "Turno");
+        }
+
+        public DataTable GetTurnoPorMedicoYId(string legajo, int idTurno)
+        {
+            string consulta = @"SELECT T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                        WHERE Legajo_Medico_Turno = @Legajo AND Id_Turno = @IdTurno";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@Legajo", legajo);
+            cmd.Parameters.AddWithValue("@IdTurno", idTurno);
+
+            return ds.obtenerTablaConComando(cmd, "Turno");
+        }
+
+        public DataTable GetTurnosPorMedicoYEstado(string legajo, string estado)
+        {
+            string consulta = @"SELECT T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                        WHERE Legajo_Medico_Turno = @Legajo AND Estado_Turno = @Estado";
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@Legajo", legajo);
+            cmd.Parameters.AddWithValue("@Estado", estado);
+
+            return ds.obtenerTablaConComando(cmd, "Turno");
+        }
+
+        public DataTable GetTurnosPorObservacion(string legajo, bool conObs)
+        {
+            string consulta;
+
+            if (conObs)
+            {
+                consulta = @"SELECT T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                     WHERE Legajo_Medico_Turno = @Legajo 
+                     AND Observacion_Turno IS NOT NULL 
+                     AND Observacion_Turno <> ''";
+            }
+            else
+            {
+                consulta = @"SELECT T.Id_Turno AS CodigoTurno,
+                                    P.DNI_Paciente AS DniPaciente,
+                                    T.Hora_Turno AS Hora,
+                                    P.Nombre_Paciente + ' ' + Apellido_Paciente AS Paciente,
+                                    D.Descripcion_Dia AS Dia,
+                                    FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS Fecha,
+                                    T.Estado_Turno AS Estado,
+                                    T.Observacion_Turno as Observacion,
+                                    CONVERT(varchar, T.Id_Turno) + ' - ' + P.Nombre_Paciente + ' ' + Apellido_Paciente + ' - ' + FORMAT(CONVERT(date, T.Fecha_Turno), 'dd/MM/yyyy') AS DescripcionTurno
+                                FROM Turno T
+                                INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
+                                INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
+                     WHERE Legajo_Medico_Turno = @Legajo 
+                     AND (Observacion_Turno IS NULL OR Observacion_Turno = '')";
+            }
+
+            SqlCommand cmd = new SqlCommand(consulta);
+            cmd.Parameters.AddWithValue("@Legajo", legajo);
 
             return ds.obtenerTablaConComando(cmd, "Turno");
         }

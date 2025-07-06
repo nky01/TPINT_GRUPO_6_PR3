@@ -118,13 +118,14 @@
         <div class="container">
             <div class="filter-section">
                 <asp:Label ID="Label3" runat="server" Text="Buscar turno por: "></asp:Label>
-                <asp:DropDownList ID="ddlFiltros" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlFiltros" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFiltros_SelectedIndexChanged">
                     <asp:ListItem Value="0">Seleccione un filtro</asp:ListItem>
                     <asp:ListItem Value="1">DNI Paciente</asp:ListItem>
                     <asp:ListItem Value="2">Código Turno</asp:ListItem>
                     <asp:ListItem Value="3">Estado del Turno</asp:ListItem>
                     <asp:ListItem Value="4">Observación Cargada</asp:ListItem>
                 </asp:DropDownList>
+                    <asp:Button ID="btnAplicarFiltro" runat="server" Text="Aplicar Filtro" CssClass ="btn-volver" OnClick="btnAplicarFiltro_Click" />
             </div>
 
             <div class="panel-inputs">
@@ -144,13 +145,20 @@
 
                 <asp:Panel ID="panelEstado" runat="server" Visible="false">
                     <label>Seleccione un estado:</label>
-                    <asp:DropDownList ID="ddlEstados" runat="server">
+                    <asp:DropDownList ID="ddlEstados" runat="server" OnSelectedIndexChanged="ddlEstados_SelectedIndexChanged">
                         <asp:ListItem Value="0">Seleccione un estado</asp:ListItem>
                         <asp:ListItem Value="1">Ausente</asp:ListItem>
                         <asp:ListItem Value="2">Presente</asp:ListItem>
                         <asp:ListItem Value="3">Pendiente</asp:ListItem>
                     </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:Panel ID="panelObservacion" runat="server" Visible="false">
+                    <strong>¿Tiene Observación?</strong><asp:DropDownList ID="ddlObservacion" runat="server">
+                        <asp:ListItem Value="1">Si</asp:ListItem>
+                        <asp:ListItem Value="0">No</asp:ListItem>
+                    </asp:DropDownList>
+</asp:Panel>
             </div>
 
             <div class="grid-container">
@@ -163,6 +171,7 @@
                         <asp:BoundField DataField="Dia" HeaderText="Día" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                         <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                        <asp:BoundField DataField="Observacion" HeaderText="Observacion" />
                     </Columns>
                 </asp:GridView>
 

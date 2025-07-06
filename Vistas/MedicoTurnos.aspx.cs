@@ -56,8 +56,33 @@ namespace Vistas
             Response.Redirect("MedicoVista.aspx");
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlFiltros_SelectedIndexChanged(object sender, EventArgs e)
         {
+            panelCodigoTurno.Visible = false;
+            panelDni.Visible = false;
+            panelEstado.Visible = false;
+            panelObservacion.Visible = false;
+
+            switch (ddlFiltros.SelectedValue)
+            {
+                case "1":
+                    panelDni.Visible = true;
+                    break;
+                case "2":
+                    panelCodigoTurno.Visible = true;
+                    break;
+                case "3":
+                    panelEstado.Visible = true;
+                    break;
+                case "4":
+                    panelObservacion.Visible = true;
+                    break;
+            }
+        }
+
+        protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
             switch (ddlEstados.SelectedValue)
             {
                 case "0":
@@ -82,11 +107,43 @@ namespace Vistas
                     break;
 
             }
-
-
         }
 
-        
+        protected void btnAplicarFiltro_Click(object sender, EventArgs e)
+        {
+            Usuarios usuario = Session["usuario"] as Usuarios;
+            Medico medico = negocio.GetMedicoPorUsuarioNombre(usuario.getNombre());
 
+            string legajo = medico.getLegajo();
+            string opcion = ddlFiltros.SelectedValue;
+
+            DataTable dt = null;
+
+            switch (opcion)
+            {
+                case "1": // DNI
+                    string dni = txtDni.Text.Trim();
+                    dt = negocio.GetTurnosPorMedicoYDNI(legajo, dni);
+                    break;
+                case "2": 
+                    int idTurno = int.Parse(txtCodigoTurno.Text);
+                    dt = negocio.GetTurnoPorMedicoYId(legajo, idTurno);
+                    break;
+                case "3": // Estado
+                    string estado = ddlEstados.SelectedValue;
+                    dt = negocio.GetTurnosPorMedicoYEstado(legajo, estado);
+                    break;
+                case "4": // Observación
+                    bool conObs = ddlObservacion.SelectedValue == "1";
+                    dt = negocio.GetTurnosPorObservacion(legajo, conObs);
+                    break;
+                default:
+                    dt = negocio.ObtenerTurnosPorMedico(legajo);
+                    break;
+            }
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
     }
 }

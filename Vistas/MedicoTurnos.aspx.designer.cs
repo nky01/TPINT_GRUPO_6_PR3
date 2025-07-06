@@ -60,6 +60,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlFiltros;
 
         /// <summary>
+        /// Control btnAplicarFiltro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAplicarFiltro;
+
+        /// <summary>
         /// Control panelDni.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,24 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstados;
+
+        /// <summary>
+        /// Control panelObservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelObservacion;
+
+        /// <summary>
+        /// Control ddlObservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlObservacion;
 
         /// <summary>
         /// Control GridView1.
