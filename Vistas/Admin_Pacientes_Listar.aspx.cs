@@ -55,5 +55,10 @@ namespace Vistas
             Session["usuario"] = null;
             Response.Redirect("Login.aspx");
         }
+
+        protected void gridviewPacientes_SelectedIndexChanged(EventArgs e)
+        {
+
+        }
     }
 }

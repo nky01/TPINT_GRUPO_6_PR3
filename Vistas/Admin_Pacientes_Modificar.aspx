@@ -89,27 +89,31 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
-
-        .grid-container {
-            margin-top: 30px;
+        .gridview {
             width: 100%;
-        }
-
-        .grid-container table {
-            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
             border-collapse: collapse;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .grid-container th,
-        .grid-container td {
+        
+        .gridview th, .gridview td {
+            border: 1px solid #ddd;
             padding: 8px;
-            border: 1px solid #ccc;
             text-align: left;
         }
-
-        .grid-container th {
-            background-color: #e0e0e0;
+        
+        .gridview th {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
         }
+        
+        .gridview tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+
     </style>
 </head>
 <body>
@@ -132,7 +136,7 @@
             <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtBusqueda" CssClass="validation-message" ValidationExpression="^\d{7,8}$" ValidationGroup="0" ForeColor="Red">Ingrese un DNI válido!</asp:RegularExpressionValidator>
 
             <div class="grid-container">
-                <asp:GridView ID="gvPaciente" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvPaciente_RowCancelingEdit" OnRowEditing="gvPaciente_RowEditing" OnRowUpdating="gvPaciente_RowUpdating" OnSelectedIndexChanged="gvPaciente_SelectedIndexChanged">
+                <asp:GridView ID="gvPaciente" runat="server" CssClass="gridview" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvPaciente_RowCancelingEdit" OnRowEditing="gvPaciente_RowEditing" OnRowUpdating="gvPaciente_RowUpdating" OnSelectedIndexChanged="gvPaciente_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField HeaderText="DNI">
                             <EditItemTemplate>

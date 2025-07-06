@@ -75,9 +75,17 @@ namespace Vistas
                 p.setNombre(txtNombre.Text.Trim());
                 p.setApellido(txtApellido.Text.Trim());
 
-                // La radio button devuelve valores 2-masculino y 1-femnino, se convierte a char 'M' o 'F'(y va para la bd con el formato correspondiente)
-                char sexo = rblSexo.SelectedValue == "2" ? 'M' : 'F';
-                p.setSexo(sexo);
+                char genero;
+                switch (rblSexo.SelectedValue)
+                {
+                    case "2":
+                        genero = 'M';
+                        break;
+                    default:
+                        genero='F';
+                        break;
+                }
+                p.setSexo(genero);
 
                 p.setNacionalidad(txtNacionalidad.Text.Trim());
 

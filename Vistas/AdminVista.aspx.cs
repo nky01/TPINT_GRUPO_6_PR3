@@ -35,7 +35,7 @@ namespace Vistas
 
         protected void CerrarBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Login.aspx");
         }
 
         protected void TurnosBtn_Click(object sender, EventArgs e)

@@ -44,6 +44,82 @@
         .gridview {
             margin-top: 20px;
         }
+
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container-1 {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .content {
+            background-color: #F6F6F6;
+            width: 100vw;
+            height: auto;
+            padding: 20px 70px;
+        }
+        #btnBuscar, #btnFiltro, .content button {
+            padding: 10px 16px;
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .gridview {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);            
+        }
+        .gridview th, .gridview td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .gridview th {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+        }
+        .gridview tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            width: 100%;
+            padding: 20px 70px;
+        }
+        .error {
+            color: red;
+            font-size: small;
+        }
+
+        .button {
+            padding: 10px 16px;
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+        }
+
     </style>
 </head>
 <body>
@@ -67,14 +143,14 @@
                 <asp:ListItem>Fecha</asp:ListItem>
                 <asp:ListItem>Estado</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="btnAll" runat="server" OnClick="btnAll_Click" Text="Filtrar Todos" />
+            <asp:Button ID="btnAll" runat="server" OnClick="btnAll_Click" Text="Filtrar Todos" CssClass="button" />
             <asp:Panel ID="panelID" runat="server" Visible="False">
                 <asp:Label ID="labelID" runat="server" Text="Buscar por ID"></asp:Label>
                 <asp:TextBox ID="txtID" runat="server" />
                 <asp:RequiredFieldValidator ID="rfvID" runat="server" ControlToValidate="txtID"
                     ErrorMessage="Ingrese un ID" ForeColor="Red" ValidationGroup="0" CssClass="error" />
                 <asp:CustomValidator ID="cvID" runat="server" ControlToValidate="txtID" CssClass="error" ErrorMessage="Ese ID no existe." ForeColor="Red" OnServerValidate="cvID_ServerValidate" ValidationGroup="0"></asp:CustomValidator>
-                <asp:Button ID="btnID" runat="server" OnClick="btnID_Click" Text="Buscar" ValidationGroup="0" />
+                <asp:Button ID="btnID" runat="server" OnClick="btnID_Click" Text="Buscar" ValidationGroup="0" CssClass="button" />
             </asp:Panel>
             <div class="form-controls">
                 <asp:Panel ID="panelPaciente" runat="server" Visible="False">
@@ -83,11 +159,11 @@
                     <asp:RequiredFieldValidator ID="rfvDNIPac" runat="server" ControlToValidate="txtPaciente"
                     ErrorMessage="Ingrese un DNI" ForeColor="Red" ValidationGroup="1" CssClass="error" />
                     <asp:CustomValidator ID="cvDniPac" runat="server" ControlToValidate="txtPaciente" CssClass="error" ErrorMessage="DNI No registrado" ForeColor="Red" OnServerValidate="cvDniPac_ServerValidate" ValidationGroup="1"></asp:CustomValidator>
-                    <asp:Button ID="btnDNIPac" runat="server" OnClick="btnDNIPac_Click" Text="Buscar" ValidationGroup="1" />
+                    <asp:Button ID="btnDNIPac" runat="server" OnClick="btnDNIPac_Click" Text="Buscar" ValidationGroup="1" CssClass="button" />
                     <br />
                     <asp:Label ID="labelNombre" runat="server" Text="Buscar por Nombre"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server" />
-                    <asp:Button ID="btnNombre" runat="server" OnClick="btnNombre_Click" Text="Button" />
+                    <asp:Button ID="btnNombre" runat="server" OnClick="btnNombre_Click" Text="Button" CssClass="button"/>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
                 </asp:Panel>
                 <asp:Panel ID="panelMedico" runat="server" Visible="False">
@@ -96,7 +172,7 @@
                     <asp:RequiredFieldValidator ID="rfvMed" runat="server" ControlToValidate="txtMedico"
                     ErrorMessage="Ingrese un Legajo" ForeColor="Red" ValidationGroup="2" CssClass="error" />
                     <asp:CustomValidator ID="cvMed" runat="server" CssClass="error" ErrorMessage="Ingrese un Legajo Valido" ForeColor="Red" ValidationGroup="2" ControlToValidate="txtMedico" OnServerValidate="cvMed_ServerValidate"></asp:CustomValidator>
-                    <asp:Button ID="btnMed" runat="server" OnClick="btnMed_Click" Text="Buscar" ValidationGroup="2" />
+                    <asp:Button ID="btnMed" runat="server" OnClick="btnMed_Click" Text="Buscar" ValidationGroup="2" CssClass="button" />
                 </asp:Panel>
                 <asp:Panel ID="panelEspecialidad" runat="server" Visible="False">
                     <asp:Label ID="labelEspecialidad" runat="server" Text="Buscar por Especialidad"></asp:Label>
@@ -104,13 +180,13 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad"
                     ErrorMessage="Seleccione una Especialidad" ForeColor="Red" ValidationGroup="3" CssClass="error" InitialValue="0" />
-                    <asp:Button ID="btnEspecialidad" runat="server" OnClick="btnEspecialidad_Click" Text="Buscar" ValidationGroup="3" />
+                    <asp:Button ID="btnEspecialidad" runat="server" OnClick="btnEspecialidad_Click" CssClass="button" Text="Buscar" ValidationGroup="3" />
                 </asp:Panel>
                 <asp:Panel ID="panelFecha" runat="server" style="width: 793px; margin-top: 0px" Visible="False">
                     <asp:Label ID="labelFecha" runat="server" Text="Buscar por Fecha"></asp:Label>
                     <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvFecha" runat="server" ControlToValidate="txtFecha" CssClass="error" Display="Dynamic" ErrorMessage="Seleccione una Fecha" ValidationGroup="4"></asp:RequiredFieldValidator>
-                    <asp:Button ID="btnFecha" runat="server" Text="Buscar" ValidationGroup="4" OnClick="btnFecha_Click" />
+                    <asp:Button ID="btnFecha" runat="server" Text="Buscar" ValidationGroup="4" OnClick="btnFecha_Click" CssClass="button" />
                 </asp:Panel>
                 <asp:Panel ID="panelEstado" runat="server" Visible="False">
                     <asp:Label ID="labelEstado" runat="server" Text="Buscar por Estado"></asp:Label>
@@ -123,7 +199,7 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvEstado" runat="server" ControlToValidate="ddlEstado"
                     ErrorMessage="Seleccione un Estado" ForeColor="Red" ValidationGroup="5" CssClass="error" InitialValue="0" />
-                    <asp:Button ID="btnEstado" runat="server" Text="Buscar" ValidationGroup="5" OnClick="btnEstado_Click" />
+                    <asp:Button ID="btnEstado" runat="server" Text="Buscar" ValidationGroup="5" OnClick="btnEstado_Click" CssClass="button" />
                 </asp:Panel>
             </div>
 

@@ -47,7 +47,7 @@
 
          }
 
-        #btnBuscar, #btnFiltro {
+        #btnBuscar, #btnFiltro, #CerrarBtn {
             padding: 10px 16px;
             background-color: #8aaeea;
             border: none;
@@ -107,7 +107,7 @@
             
                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Medicos.aspx">Volver</asp:HyperLink> 
             
-            &nbsp;<asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión"  CssClass="container-3-btn" OnClick="CerrarBtn_Click"/>
+            &nbsp;<asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" OnClick="CerrarBtn_Click"/>
             
             <asp:GridView 
                 ID="gvMedico" 

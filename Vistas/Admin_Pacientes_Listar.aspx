@@ -75,9 +75,29 @@
     .container-2 {
         margin-left: 20px;
     }
-        .auto-style1 {
-            margin-bottom: 19;
-        }
+    .gridview {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);            
+    }
+    
+    .gridview th, .gridview td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .gridview th {
+        background-color: #8aaeea;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .gridview tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
     </style>
 
 </head>
@@ -100,7 +120,7 @@
            &nbsp;<asp:RegularExpressionValidator ID="rexvDni" runat="server" ControlToValidate="txtBusqueda" ForeColor="Red" ValidationExpression="^\d{7,8}$" ValidationGroup="0">Ingrese un dni valido</asp:RegularExpressionValidator>
            <br />
            <br />
-           <asp:GridView ID="gridviewPacientes" runat="server" AutoGenerateColumns="True" CssClass="auto-style1" Height="231px" Width="954px">
+           <asp:GridView ID="gridviewPacientes" runat="server" AutoGenerateColumns="True" CssClass="gridview" Height="231px" Width="954px" OnSelectedIndexChanged="gridviewPacientes_SelectedIndexChanged">
                <Columns>
                 </Columns>
            </asp:GridView>

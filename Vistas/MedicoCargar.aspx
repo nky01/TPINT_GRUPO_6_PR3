@@ -66,12 +66,33 @@
             font-size: 14px;
             cursor: pointer;
         }
+        .gridview {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);            
+        }
+        
+        .gridview th, .gridview td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .gridview th {
+            background-color: #8aaeea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .gridview tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <!-- Encabezado -->
         <div class="header">
             <asp:Label ID="tipoUsuario" runat="server" Text="tipoUsuario"></asp:Label>
             <asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
@@ -90,7 +111,7 @@
             </div>
 
             <div class="grid-container">
-                <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="table" Height="191px" Width="759px" OnRowCancelingEdit="gvTurnos_RowCancelingEdit" OnRowEditing="gvTurnos_RowEditing" OnRowUpdating="gvTurnos_RowUpdating">
+                <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="gridview" Height="191px" Width="759px" OnRowCancelingEdit="gvTurnos_RowCancelingEdit" OnRowEditing="gvTurnos_RowEditing" OnRowUpdating="gvTurnos_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Código Turno">
                             <EditItemTemplate>

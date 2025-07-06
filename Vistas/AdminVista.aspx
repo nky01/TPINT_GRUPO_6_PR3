@@ -53,7 +53,7 @@
         }
 
         .container-2 {
-            height: 80vh;
+            height: 86vh;
             display: flex;
             justify-content: center;
             align-items: center;

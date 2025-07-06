@@ -95,6 +95,16 @@
         color: red;
         font-size: 12px;
     }
+
+    #btnBuscarPanel1, #btnBuscarPanel2{
+        padding: 10px 16px;
+        background-color: #8aaeea;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+    }
 </style>
 
 </head>

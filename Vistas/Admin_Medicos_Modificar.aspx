@@ -88,6 +88,16 @@
             background-color: #f2f2f2;
         }
 
+        #buttonBuscar, #CerrarBtn {
+            padding: 10px 16px;
+            background-color: #8aaeea;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -192,7 +202,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <asp:GridView ID="gvHorario" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvHorario_RowCancelingEdit" OnRowEditing="gvHorario_RowEditing" OnRowUpdating="gvHorario_RowUpdating">
+            <asp:GridView ID="gvHorario" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvHorario_RowCancelingEdit" OnRowEditing="gvHorario_RowEditing" OnRowUpdating="gvHorario_RowUpdating" CssClass="gridview">
                 <Columns>
                     <asp:TemplateField HeaderText="Numero de Legajo">
                         <EditItemTemplate>

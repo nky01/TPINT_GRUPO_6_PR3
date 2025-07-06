@@ -92,7 +92,7 @@
             <asp:TextBox ID="txtUsuario" runat="server" CssClass="input-txt" placeholder="Usuario"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="Ingrese su usuario!" ForeColor="Red" Display="Dynamic" />
 
-            <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" CssClass="input-txt" placeholder="CONTRASEÑA"></asp:TextBox>
+            <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password" CssClass="input-txt" placeholder="Contraseña"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="Ingrese su contraseña!" ForeColor="Red" Display="Dynamic" />
 
             <asp:Button ID="btnIngresar" runat="server" Text="Iniciar sesión" CssClass="login-btn" OnClick="btnIngresar_Click" />
