@@ -596,9 +596,9 @@ namespace Datos
         {
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("User_Name", user.getNombre()),
-                new SqlParameter("User_Pass", user.getContrasenia()),
-                new SqlParameter("User_Rol", user.getRol()),
+                new SqlParameter("@User_Name", user.getNombre()),
+                new SqlParameter("@User_Pass", user.getContrasenia()),
+                new SqlParameter("@User_Rol", user.getRol()),
                 new SqlParameter("@Legajo",  medico.getLegajo()),
                 new SqlParameter("@IdLocalidad", medico.getIdLocalidad()),
                 new SqlParameter("@IdProvincia", medico.getIdProvincia()),
