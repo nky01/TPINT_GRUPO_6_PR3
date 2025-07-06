@@ -38,28 +38,13 @@
         .modif-container{
            background-color: #F6F6F6;
            width: 100vw;
-           height: 85vh;
-           min-height: 30vh;
+           height: auto;
            display: flex;
            justify-content: center;
-           padding: 10px 20px;
-           gap: 10px;
+           padding: 8px 20px;
+           gap: 5px;
            flex-direction: column;
          }
-
-        #Button1 {            
-            padding: 12px;
-            background-color: #8aaeea;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-            width: 100px;
-        }
-        #Button1:hover {
-            background-color: #274ede;
-        }
 
         #txtBuscar{
             width: 500px;
@@ -89,13 +74,14 @@
         }
 
         #buttonBuscar, #CerrarBtn {
-            padding: 10px 16px;
+            padding: 10px 20px;
             background-color: #8aaeea;
             border: none;
             border-radius: 5px;
             color: white;
             font-size: 14px;
             cursor: pointer;
+            width: 100px;
         }
 
     </style>
