@@ -99,8 +99,6 @@
 
             <asp:Label ID="lblErrorLogin" runat="server" ForeColor="Red" CssClass="error" Visible="False"></asp:Label>
 
-            <a class="link" href="#">¿Ha olvidado su contraseña?</a>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/RegistrarCuenta.aspx" CssClass="link">Crear nuevo usuario</asp:HyperLink>
         </div>
     </form>
 </body>
