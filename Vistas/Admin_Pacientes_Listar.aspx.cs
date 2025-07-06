@@ -60,5 +60,12 @@ namespace Vistas
         {
 
         }
+
+        protected void buttonBuscarNombre_Click(object sender, EventArgs e)
+        {
+            NegocioClinica negocio = new NegocioClinica();
+            gridviewPacientes.DataSource = negocio.GetPacientesPorNombre(textboxNombre.Text.Trim());
+            gridviewPacientes.DataBind();
+        }
     }
 }

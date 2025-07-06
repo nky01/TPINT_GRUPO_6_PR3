@@ -163,8 +163,8 @@
                     <br />
                     <asp:Label ID="labelNombre" runat="server" Text="Buscar por Nombre"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server" />
-                    <asp:Button ID="btnNombre" runat="server" OnClick="btnNombre_Click" Text="Button" CssClass="button"/>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
+                    <asp:Button ID="btnNombre" runat="server" OnClick="btnNombre_Click" Text="Buscar" CssClass="button"/>
+                    <asp:RegularExpressionValidator ID="REVNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
                 </asp:Panel>
                 <asp:Panel ID="panelMedico" runat="server" Visible="False">
                     <asp:Label ID="labelMedico" runat="server" Text="Buscar por Medico"></asp:Label>

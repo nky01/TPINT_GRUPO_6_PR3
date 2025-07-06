@@ -146,7 +146,8 @@ namespace Vistas
 
         protected void btnNombre_Click(object sender, EventArgs e)
         {
-            negocio.GetTurnosPorNombre(txtNombre.Text.Trim());
+           gvTurnos.DataSource = negocio.GetTurnosPorNombre(txtNombre.Text.Trim());
+           gvTurnos.DataBind();
         }
     }
 }

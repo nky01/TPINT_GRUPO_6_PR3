@@ -47,7 +47,7 @@
 
          }
 
-        #btnBuscar, #btnFiltro, #CerrarBtn {
+        #btnBuscar, #btnFiltro, #CerrarBtn, #btnBuscarNombre {
             padding: 10px 16px;
             background-color: #8aaeea;
             border: none;
@@ -101,6 +101,12 @@
             &nbsp;&nbsp;&nbsp; <asp:Button ID="btnFiltro" runat="server" Text="Filtrar todo" OnClick="btnFiltrar_Click" />
 
             &nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="labelBusquedaNombre" runat="server" Text="Ingrese el nombre del medico a buscar: "></asp:Label>
+                        <asp:TextBox ID="textboxNombre" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnBuscarNombre" runat="server" Text="Buscar" OnClick="btnBuscarNombre_Click" />
+                    <asp:RegularExpressionValidator ID="REVNombre" runat="server" ControlToValidate="textboxNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
+                        <br />
                         <asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" ForeColor="Red"></asp:RequiredFieldValidator>
             &nbsp;<asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
                         <br />

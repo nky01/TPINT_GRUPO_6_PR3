@@ -150,5 +150,12 @@ namespace Vistas
             Session["usuario"] = null;
             Response.Redirect("Login.aspx");
         }
+
+        protected void btnBuscarNombre_Click(object sender, EventArgs e)
+        {
+            NegocioClinica negocio = new NegocioClinica();
+            gvMedico.DataSource = negocio.GetMedicosPorNombre(textboxNombre.Text.Trim());
+            gvMedico.DataBind();
+        }
     }
 }

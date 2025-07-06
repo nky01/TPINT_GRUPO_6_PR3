@@ -108,12 +108,18 @@
             <asp:Label ID="nombreUsuario" runat="server" Text="lblNombreUsuario"></asp:Label>
             </div>
      <div class="container-2">
-         <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="15pt" Text="Pacientes"></asp:Label>
-           <asp:Label ID="Label4" runat="server" Text="Buscar por DNI:"></asp:Label>
+         <asp:Label ID="labelPacientes" runat="server" Font-Bold="True" Font-Size="15pt" Text="Pacientes"></asp:Label>
+           <asp:Label ID="labelBuscarDNI" runat="server" Text="Buscar por DNI:"></asp:Label>
            &nbsp;
            <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
            &nbsp;
            <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="0" Width="100px" />
+           <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <asp:Label ID="labelBuscarNombre" runat="server" Text="Buscar por Nombre: "></asp:Label>
+         <asp:TextBox ID="textboxNombre" runat="server"></asp:TextBox>
+         <asp:Button ID="buttonBuscarNombre" runat="server" OnClick="buttonBuscarNombre_Click" Text="Buscar" />
+                    <asp:RegularExpressionValidator ID="REVNombre" runat="server" ControlToValidate="textboxNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
            <br />
            <br />
            <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ValidationGroup="0">Ingrese un dni</asp:RequiredFieldValidator>
@@ -128,7 +134,7 @@
       
      <div class ="container-3">
                <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" OnClick="CerrarBtn_Click" />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Pacientes.aspx">Volver</asp:HyperLink>
+            <asp:HyperLink ID="hyperlinkVolver" runat="server" NavigateUrl="~/Admin_Pacientes.aspx">Volver</asp:HyperLink>
      </div>
   
     </form>

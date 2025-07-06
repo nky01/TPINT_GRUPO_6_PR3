@@ -525,6 +525,63 @@ namespace Datos
             return ds.obtenerTablaConComando(consultaSql, consulta);
         }
 
+        public DataTable GetMedicosPorNombre(string nombre)
+        {
+            string consulta = @"
+               SELECT 
+                   M.Legajo_Medico,
+                   M.Nombre_Medico,
+                   M.Apellido_Medico,
+                   M.Sexo_Medico,
+                   M.DNI_Medico,
+                   M.Nacionalidad_Medico,
+                   M.FechaNac_Medico,
+                   M.Direccion_Medico,
+                   M.CorreoElectronico_Medico,
+                   M.Telefono_Medico,
+                   E.Descripcion_Especialidad AS Especialidad,
+                   M.Id_Especialidad_Medico AS idEspecialidad,
+                   M.Id_Localidad_Medico AS idLocalidad,
+                   M.Id_Provincia_Medico AS idProvincia,
+                   L.Descripcion_Localidad AS Localidad,
+                   P.Descripcion_Provincia AS Provincia
+               FROM 
+                   Medico M
+                   INNER JOIN Especialidad E ON M.Id_Especialidad_Medico = E.Id_Especialidad
+                   INNER JOIN Localidad L ON M.Id_Localidad_Medico = L.Id_Localidad
+                   INNER JOIN Provincia P ON M.Id_Provincia_Medico = P.Id_Provincia
+               WHERE 
+                   M.Nombre_Medico LIKE '%" + nombre + "%'";
+            SqlCommand consultaSql = new SqlCommand();
+            consultaSql.CommandText = consulta;
+            return ds.obtenerTablaConComando(consultaSql, consulta);
+        }
+
+        public DataTable GetPacientesPorNombre(string nombre)
+        {
+            string consulta = @"
+                        SELECT p.DNI_Paciente AS DNI,
+                               p.Nombre_Paciente AS Nombre,
+                               p.Apellido_Paciente AS Apellido,
+                               p.Sexo_Paciente AS Sexo,
+                               p.FechaNac_Paciente AS FechaNacimiento,
+                               p.Nacionalidad_Paciente AS Nacionalidad,
+                               p.Direccion_Paciente AS Direccion,
+                               l.Descripcion_Localidad AS Localidad,
+                               pr.Descripcion_Provincia AS Provincia,
+                               p.CorreoElectronico_Paciente AS Correo,
+                               p.Telefono_Paciente AS Telefono,
+                               p.Id_Localidad_Paciente AS idLocalidad,
+                               p.Id_Provincia_Paciente AS idProvincia
+                        FROM Paciente p
+                        INNER JOIN Localidad l ON p.Id_Localidad_Paciente = l.Id_Localidad
+                        INNER JOIN Provincia pr ON l.Id_Provincia_Localidad = pr.Id_Provincia
+                        WHERE p.Nombre_Paciente LIKE '%" + nombre + "%'";
+            SqlCommand consultaSql = new SqlCommand();
+            consultaSql.CommandText = consulta;
+            return ds.obtenerTablaConComando(consultaSql, consulta);
+        }
+
         public bool BajaLogicaPorDni(string dni)
         {
             SqlCommand cmd = new SqlCommand();
