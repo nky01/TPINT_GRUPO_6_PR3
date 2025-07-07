@@ -380,7 +380,7 @@ namespace Datos
                                     INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
 
                 ";
-            return ds.ObtenerTabla("Turnos", consultaTurnos);
+            return ds.ObtenerTabla("Turno", consultaTurnos);
         }
 
         public DataTable GetTurno(int idTurno)
@@ -424,7 +424,7 @@ namespace Datos
             SqlCommand comando = new SqlCommand(consulta);
             comando.Parameters.AddWithValue("@legajo", legajo);
 
-            return ds.obtenerTablaConComando(comando, "Turnos");
+            return ds.obtenerTablaConComando(comando, "Turno");
         }
 
         public bool ExisteTurnoPorMedico(string legajo)
