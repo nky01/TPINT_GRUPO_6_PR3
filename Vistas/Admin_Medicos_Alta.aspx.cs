@@ -145,6 +145,15 @@ namespace Vistas
                             int.TryParse(txtDomingoHasta.Text, out hasta);
                             break;
                     }
+
+                    if((hasta - desde) < 4)
+                    {
+                        lblExito.Visible = true;
+                        lblExito.ForeColor = System.Drawing.Color.Red;
+                        lblExito.Text = $"en el dia: {item.Text}, debe tener almenos una diferencia de 4 horas";
+                        return;
+                    }
+
                     horario.setDia(Convert.ToChar(item.Value));
                     horario.setHorario(desde, hasta);
                     horarios.Add(horario);
@@ -191,6 +200,8 @@ namespace Vistas
 
         private void LimpiarCampos()
         {
+            textboxUsuario.Text = "";
+            textboxPassword.Text = "";
             textboxApellido.Text = "";
             textboxDireccion.Text = "";
             textboxDNI.Text = "";

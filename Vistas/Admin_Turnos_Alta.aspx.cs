@@ -97,6 +97,11 @@ namespace Vistas
                 {
                     lblMensaje.ForeColor = System.Drawing.Color.Green;
                     lblMensaje.Text = "El turno se agrego correctamente";
+                    ddlEspecialidad.SelectedIndex = 0;
+                    ddlMedicos.SelectedIndex = 0;
+                    txtPaciente.Text = "";
+                    txtFecha.Text = "";
+                    ddlHora.Items.Clear();
                 }
                 else
                 {

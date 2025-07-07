@@ -224,9 +224,37 @@ namespace Vistas
             int.TryParse(((TextBox)gvHorario.Rows[e.RowIndex].FindControl("txtEditEntrada")).Text, out entrada);
             int salida;
             int.TryParse(((TextBox)gvHorario.Rows[e.RowIndex].FindControl("txtEditSalida")).Text, out salida);
+            string diaTexto = ((Label)gvHorario.Rows[e.RowIndex].FindControl("lblDia")).Text.ToUpper().Trim();
+            char dia;
+            switch (diaTexto)
+            {
+                case "LUNES": dia = 'L'; break;
+                case "MARTES": dia = 'M'; break;
+                case "MIÉRCOLES": dia = 'X'; break;
+                case "JUEVES": dia = 'J'; break;
+                case "VIERNES": dia = 'V'; break;
+                case "SÁBADO": dia = 'S'; break;
+                case "Domingo": dia = 'D'; break;
+                default:
+                    lblMensajeError.Text = "Dia no encontrado";
+                    lblMensajeError.Visible = true;
+                    return;
+            }
+
+            if (entrada >= salida || (salida - entrada) < 4)
+            {
+                lblMensajeError.Text = "debe haber al menos 4 horas entre la entrada y salida";
+                lblMensajeError.ForeColor = System.Drawing.Color.Red;
+                lblMensajeError.Visible = true;
+                gvHorario.EditIndex = e.RowIndex;
+                CargarHorario();
+                return;
+            }
+            lblMensajeError.Visible = false;
+            lblMensajeError.Text = "";
 
             NegocioClinica neg = new NegocioClinica();
-            int filasAfectadas = neg.actualizarHorario(legajo, entrada, salida);
+            int filasAfectadas = neg.actualizarHorario(legajo, dia, entrada, salida);
             if(filasAfectadas > 0)
             {
                 gvHorario.EditIndex = -1;
@@ -245,6 +273,8 @@ namespace Vistas
         {
             gvHorario.EditIndex = -1;
             CargarHorario();
+            lblMensajeError.Visible = false; 
+            lblMensajeError.Text = "";
         }
 
         protected void CerrarBtn_Click(object sender, EventArgs e)

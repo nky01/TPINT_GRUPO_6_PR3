@@ -37,9 +37,9 @@ namespace Negocio
 
         }
 
-        public int actualizarHorario(string legajo, int entrada, int salida)
+        public int actualizarHorario(string legajo,char dia, int entrada, int salida)
         {
-            return dao.actualizarHorario(legajo, entrada, salida);
+            return dao.actualizarHorario(legajo,dia, entrada, salida);
         }
 
         public int actualizarTurno(int id, string estado, string observacion)

@@ -285,12 +285,13 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarMedico");
         }
 
-        public int actualizarHorario(string legajo, int entrada, int salida)
+        public int actualizarHorario(string legajo, char dia, int entrada, int salida)
         {
             SqlCommand comando = new SqlCommand();
             comando.Parameters.AddWithValue("@Legajo", legajo);
             comando.Parameters.AddWithValue("@Entrada", entrada);
             comando.Parameters.AddWithValue("@Salida", salida);
+            comando.Parameters.AddWithValue("@Dia", dia);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_ActualizarHorario");
         }
 
@@ -820,7 +821,7 @@ namespace Datos
        
         public bool existeMedico(string legajo)
         {
-            string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo AND Activo_Medico = 1";
+            string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo AND Activo = 1";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@legajo", legajo)
