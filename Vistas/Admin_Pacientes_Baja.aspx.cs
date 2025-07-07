@@ -26,12 +26,21 @@ namespace Vistas
         protected void btnBaja_Click(object sender, EventArgs e)
         {
             NegocioClinica neg = new NegocioClinica();
-            bool resultado = neg.BajaPacienteDNI(txtDni.Text);
+            if (!neg.existePaciente(txtDni.Text.Trim()))
+            {
+                lblExito.Visible = true;
+                lblExito.Text = "No existe un paciente con ese DNI o ya fue dado de baja!";
+                lblExito.ForeColor = System.Drawing.Color.Green;
+                return;
+            }
+            bool resultado = neg.BajaPacienteDNI(txtDni.Text.Trim());
             lblExito.Visible = false;
             if(resultado)
             {
                 txtDni.Text = string.Empty;
                 lblExito.Visible = true;
+                lblExito.Text = "Se a dado de baja exitosamente!";
+                lblExito.ForeColor = System.Drawing.Color.Green;
             }
         }
 

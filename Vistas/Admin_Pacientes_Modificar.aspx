@@ -135,6 +135,10 @@
             <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda" CssClass="validation-message" ValidationGroup="0" ForeColor="Red">Ingrese un DNI!</asp:RequiredFieldValidator><br />
             <asp:RegularExpressionValidator ID="revDni" runat="server" ControlToValidate="txtBusqueda" CssClass="validation-message" ValidationExpression="^\d{7,8}$" ValidationGroup="0" ForeColor="Red">Ingrese un DNI válido!</asp:RegularExpressionValidator>
 
+            <br />
+            <asp:Label ID="lblNotFounded" runat="server" CssClass="validation-message" ForeColor="Red" Text="Ese DNI no existe en la base de datos!" Visible="False"></asp:Label>
+            <br />
+
             <div class="grid-container">
                 <asp:GridView ID="gvPaciente" runat="server" CssClass="gridview" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowCancelingEdit="gvPaciente_RowCancelingEdit" OnRowEditing="gvPaciente_RowEditing" OnRowUpdating="gvPaciente_RowUpdating" OnSelectedIndexChanged="gvPaciente_SelectedIndexChanged">
                     <Columns>

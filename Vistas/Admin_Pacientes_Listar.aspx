@@ -114,12 +114,14 @@
            <asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox>
            &nbsp;
            <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" ValidationGroup="0" Width="100px" />
+           <asp:Label ID="lblPacienteNotFound" runat="server" ForeColor="#CC0000" Text="No hay paciente con ese DNI o esta dado de baja." Visible="False"></asp:Label>
            <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <asp:Label ID="labelBuscarNombre" runat="server" Text="Buscar por Nombre: "></asp:Label>
          <asp:TextBox ID="textboxNombre" runat="server"></asp:TextBox>
          <asp:Button ID="buttonBuscarNombre" runat="server" OnClick="buttonBuscarNombre_Click" Text="Buscar" />
                     <asp:RegularExpressionValidator ID="REVNombre" runat="server" ControlToValidate="textboxNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
+           <asp:Label ID="lblNombreError" runat="server" ForeColor="#CC0000" Text="No hay pacientes que coicidan con ese nombre." Visible="False"></asp:Label>
            <br />
            <br />
            <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtBusqueda" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ValidationGroup="0">Ingrese un dni</asp:RequiredFieldValidator>

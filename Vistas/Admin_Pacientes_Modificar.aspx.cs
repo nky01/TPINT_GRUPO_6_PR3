@@ -33,8 +33,15 @@ namespace Vistas
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             negocio = new NegocioClinica();
-            gvPaciente.DataSource = negocio.getTablaPaciente(txtBusqueda.Text);
+            if(!negocio.existePaciente(txtBusqueda.Text.Trim()))
+            {
+                lblNotFounded.Visible = true;
+                return;
+            }
+            lblNotFounded.Visible = false;
+            gvPaciente.DataSource = negocio.getTablaPaciente(txtBusqueda.Text.Trim());
             gvPaciente.DataBind();
+            txtBusqueda.Text = string.Empty;
         }
 
         protected void gvPaciente_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

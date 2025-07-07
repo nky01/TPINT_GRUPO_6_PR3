@@ -33,16 +33,32 @@ namespace Vistas
             gridviewPacientes.DataBind();
         }
 
+        private void LimpiarCampos()
+        {
+            txtBusqueda.Text = string.Empty;
+            textboxNombre.Text = string.Empty;
+        }
+
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             NegocioClinica negocioClinica = new NegocioClinica();
-            if(txtBusqueda.Text == string.Empty)
+            lblNombreError.Visible = false;
+
+            if (txtBusqueda.Text == string.Empty)
             {
                 CargarPacientes();
+                lblPacienteNotFound.Visible = false;
                 return;
             }
-            gridviewPacientes.DataSource = negocioClinica.GetPaciente(txtBusqueda.Text);
+            if(!negocioClinica.existePaciente(txtBusqueda.Text.Trim()))
+            {
+                lblPacienteNotFound.Visible = true;
+                return;
+            }
+            gridviewPacientes.DataSource = negocioClinica.GetPaciente(txtBusqueda.Text.Trim());
             gridviewPacientes.DataBind();
+            LimpiarCampos();
+            lblPacienteNotFound.Visible = false;
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -66,6 +82,23 @@ namespace Vistas
             NegocioClinica negocio = new NegocioClinica();
             gridviewPacientes.DataSource = negocio.GetPacientesPorNombre(textboxNombre.Text.Trim());
             gridviewPacientes.DataBind();
+            lblNombreError.Visible = false;
+
+
+            if (!(gridviewPacientes.Rows.Count >= 1))
+            {
+                lblNombreError.Visible = true;
+            }
+            else
+            {
+                LimpiarCampos();
+            }
+            
+        }
+
+        protected void gridviewPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

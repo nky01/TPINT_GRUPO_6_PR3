@@ -743,7 +743,7 @@ namespace Datos
 
         public bool existePaciente(string dni)
         {
-            string consulta = "SELECT 1 FROM Paciente WHERE DNI_Paciente = @DNI";
+            string consulta = "SELECT 1 FROM Paciente WHERE DNI_Paciente = @DNI AND Estado_Paciente = 1";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@DNI", dni)
