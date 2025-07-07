@@ -144,6 +144,7 @@ namespace Vistas
         {
             ObtenerTurnosFiltro(txtID.Text.Trim());
             txtID.Text = "";
+
         }
 
         protected void btnDNIPac_Click(object sender, EventArgs e)

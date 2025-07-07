@@ -136,13 +136,13 @@
             <asp:Label ID="labelFiltros" runat="server" Text="Filtrar por:"></asp:Label>
             <asp:DropDownList ID="ddlOpcionesFiltro" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlOpcionesFiltro_SelectedIndexChanged">
                 <asp:ListItem Value="Vacio">-- Seleccione un filtro --</asp:ListItem>
-                <asp:ListItem>ID</asp:ListItem>
+                <asp:ListItem Value="ID">ID</asp:ListItem>
                 <asp:ListItem Value="Paciente">DNI Paciente</asp:ListItem>
-                <asp:ListItem>Nombre</asp:ListItem>
+                <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
                 <asp:ListItem Value="Medico">Legajo Medico</asp:ListItem>
-                <asp:ListItem>Especialidad</asp:ListItem>
-                <asp:ListItem>Fecha</asp:ListItem>
-                <asp:ListItem>Estado</asp:ListItem>
+                <asp:ListItem Value="Especialidad">Especialidad</asp:ListItem>
+                <asp:ListItem Value="Fecha">Fecha</asp:ListItem>
+                <asp:ListItem Value="Estado">Estado</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="btnAll" runat="server" OnClick="btnAll_Click" Text="Filtrar Todos" CssClass="button" />
             <asp:Panel ID="panelID" runat="server" Visible="False">
