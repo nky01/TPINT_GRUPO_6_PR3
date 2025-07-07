@@ -160,7 +160,7 @@ namespace Vistas
         {
             NegocioClinica negocio = new NegocioClinica();
 
-            if (!negocio.existeMedicoNombre(textboxNombre.Text.Trim()))
+            /*if (!negocio.existeMedicoNombre(textboxNombre.Text.Trim()))
             {
                 lblMensajeError.Text = "no existe un medico con ese nombre";
                 lblMensajeError.Visible = true;
@@ -170,7 +170,7 @@ namespace Vistas
                 GridView1.DataBind();
                 textboxNombre.Text = "";
                 return;
-            }
+            }*/
 
             gvMedico.DataSource = negocio.GetMedicosPorNombre(textboxNombre.Text.Trim());
             gvMedico.DataBind();

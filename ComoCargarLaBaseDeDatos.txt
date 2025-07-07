@@ -1,0 +1,27 @@
+Como cargar la base de datos (junto a sus SP)
+
+Lo ideal es hacerlo con SQL Server Express 20
+Tenes que usar el archivo MiraeClinica.bak el cual deje en la carpeta
+
+Para restaurarlo hay que abrir SSMS y conectarse al server.
+Luego ejecutar lo siguente query en SSMS.
+
+Tener en cuenta que hay que poner la ubicacion exacta de donde se encuentra
+el MiraeClinica.bak.
+
+RESTORE FILELISTONLY 
+FROM DISK = 'D:\- RUTA -\MiraeClinica.bak';  (verificar tambien el disco donde se almacena, en este caso el D:)
+
+Para terminar de restaurar tenes que hacer el siguente query.
+
+RESTORE DATABASE MiraeClinica
+FROM DISK = 'D:\ - RUTA - \MiraeClinica.bak'
+WITH 
+    MOVE 'MiraeClinica' TO 'C:\SQLData\MiraeClinica.mdf',
+    MOVE 'MiraeClinica_log' TO 'C:\SQLData\MiraeClinica_log.ldf',
+    REPLACE;
+
+Obvimente las rutas dependen de las que tengas.
+
+Y listo, en teoria con eso deberias tener todas las tablas, todos los datos y todos los SP.
+

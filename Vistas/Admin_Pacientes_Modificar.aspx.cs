@@ -41,7 +41,6 @@ namespace Vistas
             lblNotFounded.Visible = false;
             gvPaciente.DataSource = negocio.getTablaPaciente(txtBusqueda.Text.Trim());
             gvPaciente.DataBind();
-            txtBusqueda.Text = string.Empty;
         }
 
         protected void gvPaciente_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -56,6 +55,7 @@ namespace Vistas
         protected void gvPaciente_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvPaciente.EditIndex = e.NewEditIndex;
+            
 
             negocio = new NegocioClinica();
             gvPaciente.DataSource = negocio.getTablaPaciente(txtBusqueda.Text);

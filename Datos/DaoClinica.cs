@@ -132,8 +132,8 @@ namespace Datos
                             FROM Horario H
                             INNER JOIN Dia D ON H.Id_Dia_Horario = D.Id_Dia
                             INNER JOIN Medico M ON H.Legajo_Medico_Horario = M.Legajo_Medico
-                            WHERE M.Nombre_Medico = @Nombre
-                        ";
+                            WHERE M.Nombre_Medico LIKE '%" + nombre + "%'";
+                        
 
             SqlCommand comando = new SqlCommand(consulta);
             comando.Parameters.AddWithValue("@Nombre", nombre);
