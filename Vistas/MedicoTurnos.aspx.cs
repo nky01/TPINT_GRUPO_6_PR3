@@ -62,6 +62,8 @@ namespace Vistas
             panelDni.Visible = false;
             panelEstado.Visible = false;
             panelObservacion.Visible = false;
+            lblMensaje.Visible = false;
+
 
             switch (ddlFiltros.SelectedValue)
             {
@@ -82,6 +84,10 @@ namespace Vistas
 
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
+            panelCodigoTurno.Visible = false;
+            panelDni.Visible = false;
+            panelEstado.Visible = false;
+            panelObservacion.Visible = false;
 
             switch (ddlEstados.SelectedValue)
             {
@@ -89,23 +95,34 @@ namespace Vistas
                     panelCodigoTurno.Visible = false;
                     panelDni.Visible = false;
                     panelEstado.Visible = false;
+                    panelObservacion.Visible = false;
                     break;
                 case "1":
-                    panelDni.Visible = true;
                     panelCodigoTurno.Visible = false;
+                    panelDni.Visible = true;
                     panelEstado.Visible = false;
+                    panelObservacion.Visible = false;
                     break;
                 case "2":
                     panelCodigoTurno.Visible = true;
                     panelDni.Visible = false;
                     panelEstado.Visible = false;
+                    panelObservacion.Visible = false;
                     break;
                 case "3":
-                    panelEstado.Visible = true;
                     panelCodigoTurno.Visible = false;
                     panelDni.Visible = false;
+                    panelEstado.Visible = true;
+                    panelObservacion.Visible = false;
                     break;
-
+                case "4":
+                    panelCodigoTurno.Visible = false;
+                    panelDni.Visible = false;
+                    panelEstado.Visible = false;
+                    panelObservacion.Visible = true;
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -118,7 +135,7 @@ namespace Vistas
             string opcion = ddlFiltros.SelectedValue;
 
             DataTable dt = null;
-
+            lblMensaje.Visible = false;
             switch (opcion)
             {
                 case "1": // DNI
@@ -132,6 +149,13 @@ namespace Vistas
                 case "3": // Estado
                     string estado = ddlEstados.SelectedValue;
                     dt = negocio.GetTurnosPorMedicoYEstado(legajo, estado);
+                    panelEstado.Visible = true;
+                    if(dt.Rows.Count == 0)
+                    {
+                        dt = null;
+                        lblMensaje.Text = "no hay turnos con este estado";
+                        lblMensaje.Visible = true;
+                    }
                     break;
                 case "4": // Observación
                     bool conObs = ddlObservacion.SelectedValue == "1";
@@ -142,8 +166,11 @@ namespace Vistas
                     break;
             }
 
+            
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
+
+        
     }
 }

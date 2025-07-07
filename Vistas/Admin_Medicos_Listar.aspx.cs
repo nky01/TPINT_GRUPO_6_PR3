@@ -69,6 +69,8 @@ namespace Vistas
                 gvMedico.DataSource = dtMedicos;
                 gvMedico.DataBind();
                 lblMensajeError.Text = "";
+                txtBuscar.Text = "";
+                textboxNombre.Text = "";
 
                 if (dtHorarios.Rows.Count > 0)
                 {
@@ -89,6 +91,8 @@ namespace Vistas
                 GridView1.DataSource = null;
                 GridView1.DataBind();
                 lblMensajeError.Text = "No se encontró ningun medico con ese legajo";
+                txtBuscar.Text = "";
+                textboxNombre.Text = "";
             }
         }
 
@@ -105,6 +109,7 @@ namespace Vistas
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             txtBuscar.Text = string.Empty;
+            textboxNombre.Text = string.Empty;
 
             CargarMedicos();
 
@@ -154,8 +159,27 @@ namespace Vistas
         protected void btnBuscarNombre_Click(object sender, EventArgs e)
         {
             NegocioClinica negocio = new NegocioClinica();
+
+            if (!negocio.existeMedicoNombre(textboxNombre.Text.Trim()))
+            {
+                lblMensajeError.Text = "no existe un medico con ese nombre";
+                lblMensajeError.Visible = true;
+                gvMedico.DataSource = null;
+                gvMedico.DataBind();
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+                textboxNombre.Text = "";
+                return;
+            }
+
             gvMedico.DataSource = negocio.GetMedicosPorNombre(textboxNombre.Text.Trim());
             gvMedico.DataBind();
+            DataTable dtHorarios = negocio.getHorarioPorMedicoNombre(textboxNombre.Text.Trim());
+            GridView1.DataSource = dtHorarios;
+            GridView1.DataBind();
+
+            textboxNombre.Text = "";
+            lblMensajeError.Visible = false;
         }
     }
 }

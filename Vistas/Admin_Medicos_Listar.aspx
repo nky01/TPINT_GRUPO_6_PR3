@@ -94,21 +94,22 @@
            <div class ="lista-container">
                         <asp:Label ID="Label19" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Médicos"></asp:Label>
                <asp:Label ID="Label20" runat="server" Text="Ingrese el legajo del medico:"></asp:Label>
-            <asp:TextBox ID="txtBuscar" runat="server" Width="203px"></asp:TextBox>
+            <asp:TextBox ID="txtBuscar" runat="server" Width="203px" ValidationGroup="1"></asp:TextBox>
             
-            &nbsp;&nbsp; <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="Button1_Click" />
+            &nbsp;&nbsp; <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="Button1_Click" ValidationGroup="1" />
 
-            &nbsp;&nbsp;&nbsp; <asp:Button ID="btnFiltro" runat="server" Text="Filtrar todo" OnClick="btnFiltrar_Click" />
+            &nbsp;&nbsp;&nbsp; <asp:Button ID="btnFiltro" runat="server" Text="Filtrar todo" OnClick="btnFiltrar_Click" ValidationGroup="2" />
 
             &nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="labelBusquedaNombre" runat="server" Text="Ingrese el nombre del medico a buscar: "></asp:Label>
-                        <asp:TextBox ID="textboxNombre" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnBuscarNombre" runat="server" Text="Buscar" OnClick="btnBuscarNombre_Click" />
+                        <asp:TextBox ID="textboxNombre" runat="server" ValidationGroup="0"></asp:TextBox>
+                        <asp:Button ID="btnBuscarNombre" runat="server" Text="Buscar" OnClick="btnBuscarNombre_Click" ValidationGroup="0" />
                     <asp:RegularExpressionValidator ID="REVNombre" runat="server" ControlToValidate="textboxNombre" ErrorMessage="Solo ingrese letras, sin acentos." Font-Size="Small" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="6"></asp:RegularExpressionValidator>
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" ForeColor="Red"></asp:RequiredFieldValidator>
-            &nbsp;<asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" ForeColor="Red" ValidationGroup="1"></asp:RequiredFieldValidator>
+            &nbsp;<asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="textboxNombre" ForeColor="Red" ValidationGroup="0">* Ingrese un nombre</asp:RequiredFieldValidator>
+                        <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
                         <br />
             
                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_Medicos.aspx">Volver</asp:HyperLink> 

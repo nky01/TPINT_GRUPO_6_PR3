@@ -112,7 +112,7 @@
                 <asp:Label runat="server" Text="DNI del Paciente:" />
                 <asp:TextBox ID="txtPaciente" runat="server" />
                 <asp:RequiredFieldValidator CssClass="aspNet-validators" ID="rfvPaciente" runat="server" ControlToValidate="txtPaciente" ErrorMessage="Escriba el DNI del paciente" ForeColor="Red" />
-                <asp:CustomValidator ID="cvPaciente" runat="server" ControlToValidate="txtPaciente" ForeColor="Red" OnServerValidate="cvPaciente_ServerValidate">Ingrese un paciente que exista</asp:CustomValidator>
+                <asp:CustomValidator ID="cvPaciente" runat="server" ControlToValidate="txtPaciente" ForeColor="Red" OnServerValidate="cvPaciente_ServerValidate">Ingrese un paciente que exista o que no este dado de baja</asp:CustomValidator>
             </div>
 
             <div class="columna">
@@ -130,7 +130,7 @@
         </div>
 
         <div class="container-3">
-            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" CssClass="container-3-btn" />
+            <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" CssClass="container-3-btn" OnClick="CerrarBtn_Click1" ValidationGroup="0" />
             
             <asp:Button ID="AltaTurnoBtn" runat="server" Text="Generar Turno" 
             OnClientClick="return confirm('¿Estás seguro que quieres generar este turno?');" 

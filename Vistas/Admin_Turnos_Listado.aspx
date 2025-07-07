@@ -138,6 +138,7 @@
                 <asp:ListItem Value="Vacio">-- Seleccione un filtro --</asp:ListItem>
                 <asp:ListItem>ID</asp:ListItem>
                 <asp:ListItem Value="Paciente">DNI Paciente</asp:ListItem>
+                <asp:ListItem>Nombre</asp:ListItem>
                 <asp:ListItem Value="Medico">Legajo Medico</asp:ListItem>
                 <asp:ListItem>Especialidad</asp:ListItem>
                 <asp:ListItem>Fecha</asp:ListItem>
@@ -149,18 +150,21 @@
                 <asp:TextBox ID="txtID" runat="server" />
                 <asp:RequiredFieldValidator ID="rfvID" runat="server" ControlToValidate="txtID"
                     ErrorMessage="Ingrese un ID" ForeColor="Red" ValidationGroup="0" CssClass="error" />
+                <asp:RegularExpressionValidator ID="revId" runat="server" ControlToValidate="txtID" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="0">Ingrese numeros</asp:RegularExpressionValidator>
                 <asp:CustomValidator ID="cvID" runat="server" ControlToValidate="txtID" CssClass="error" ErrorMessage="Ese ID no existe." ForeColor="Red" OnServerValidate="cvID_ServerValidate" ValidationGroup="0"></asp:CustomValidator>
                 <asp:Button ID="btnID" runat="server" OnClick="btnID_Click" Text="Buscar" ValidationGroup="0" CssClass="button" />
             </asp:Panel>
             <div class="form-controls">
                 <asp:Panel ID="panelPaciente" runat="server" Visible="False">
-                    <asp:Label ID="labelPaciente" runat="server" Text="Buscar por Paciente"></asp:Label>
+                    <asp:Label ID="labelPaciente" runat="server" Text="Buscar por DNI"></asp:Label>
                     <asp:TextBox ID="txtPaciente" runat="server" />
                     <asp:RequiredFieldValidator ID="rfvDNIPac" runat="server" ControlToValidate="txtPaciente"
                     ErrorMessage="Ingrese un DNI" ForeColor="Red" ValidationGroup="1" CssClass="error" />
-                    <asp:CustomValidator ID="cvDniPac" runat="server" ControlToValidate="txtPaciente" CssClass="error" ErrorMessage="DNI No registrado" ForeColor="Red" OnServerValidate="cvDniPac_ServerValidate" ValidationGroup="1"></asp:CustomValidator>
+                    <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="txtPaciente" ForeColor="Red" ValidationExpression="^\d{7,8}$" ValidationGroup="1">dni invalido</asp:RegularExpressionValidator>
                     <asp:Button ID="btnDNIPac" runat="server" OnClick="btnDNIPac_Click" Text="Buscar" ValidationGroup="1" CssClass="button" />
                     <br />
+                </asp:Panel>
+                <asp:Panel ID="panelNombre" runat="server" Visible ="false">
                     <asp:Label ID="labelNombre" runat="server" Text="Buscar por Nombre"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server" />
                     <asp:Button ID="btnNombre" runat="server" OnClick="btnNombre_Click" Text="Buscar" CssClass="button"/>
@@ -203,6 +207,8 @@
                 </asp:Panel>
             </div>
 
+            <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+
            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" CssClass="gridview">
                 <Columns>
                     <asp:BoundField DataField="ID" HeaderText="ID" />
@@ -220,7 +226,7 @@
         </div>
 
             <div class="footer">
-                <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" />
+                <asp:Button ID="CerrarBtn" runat="server" Text="Cerrar Sesión" OnClick="CerrarBtn_Click" />
                 &nbsp;&nbsp;
                 <asp:HyperLink ID="hyperlinkVolver" runat="server" NavigateUrl="~/Admin_Turnos.aspx">Volver</asp:HyperLink>
             </div>

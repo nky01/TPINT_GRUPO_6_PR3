@@ -125,36 +125,37 @@
                     <asp:ListItem Value="3">Estado del Turno</asp:ListItem>
                     <asp:ListItem Value="4">Observación Cargada</asp:ListItem>
                 </asp:DropDownList>
-                    <asp:Button ID="btnAplicarFiltro" runat="server" Text="Aplicar Filtro" CssClass ="btn-volver" OnClick="btnAplicarFiltro_Click" />
+                    <asp:Button ID="btnAplicarFiltro" runat="server" Text="Aplicar Filtro" CssClass ="btn-volver" OnClick="btnAplicarFiltro_Click" ValidationGroup="0" />
             </div>
 
             <div class="panel-inputs">
                 <asp:Panel ID="panelDni" runat="server" Visible="false">
                     <label>Ingrese DNI del paciente:</label>
                     <asp:TextBox ID="txtDni" runat="server" MaxLength="8"/>
-                    <asp:Button ID="btnBuscarPanel1" runat="server" Text="Buscar" />
-                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un DNI para buscar." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ErrorMessage="Ingrese un DNI para buscar." ForeColor="Red" ValidationGroup="0"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revDNI" runat="server" ControlToValidate="txtDni" ForeColor="Red" ValidationExpression="^\d{7,8}$" ValidationGroup="0">dni Invalido</asp:RegularExpressionValidator>
                 </asp:Panel>
 
                 <asp:Panel ID="panelCodigoTurno" runat="server" Visible="false">
                     <label>Ingrese el Código de Turno:</label>
                     <asp:TextBox ID="txtCodigoTurno" runat="server" />
-                    <asp:Button ID="btnBuscarPanel2" runat="server" Text="Buscar" />
-                    <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtCodigoTurno" ErrorMessage="Ingrese un código para buscar." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvCodigo" runat="server" ControlToValidate="txtCodigoTurno" ErrorMessage="Ingrese un código para buscar." ForeColor="Red" ValidationGroup="0"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revTurno" runat="server" ControlToValidate="txtCodigoTurno" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="0">Ingrese solo numeros</asp:RegularExpressionValidator>
                 </asp:Panel>
 
                 <asp:Panel ID="panelEstado" runat="server" Visible="false">
                     <label>Seleccione un estado:</label>
-                    <asp:DropDownList ID="ddlEstados" runat="server" OnSelectedIndexChanged="ddlEstados_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlEstados" runat="server" OnSelectedIndexChanged="ddlEstados_SelectedIndexChanged" ValidationGroup="0">
                         <asp:ListItem Value="0">Seleccione un estado</asp:ListItem>
-                        <asp:ListItem Value="1">Ausente</asp:ListItem>
-                        <asp:ListItem Value="2">Presente</asp:ListItem>
-                        <asp:ListItem Value="3">Pendiente</asp:ListItem>
+                        <asp:ListItem Value="Ausente">Ausente</asp:ListItem>
+                        <asp:ListItem Value="Presente">Presente</asp:ListItem>
+                        <asp:ListItem Value="Pendiente">Pendiente</asp:ListItem>
+                        <asp:ListItem Value="Cancelado">Cancelado</asp:ListItem>
                     </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel ID="panelObservacion" runat="server" Visible="false">
-                    <strong>¿Tiene Observación?</strong><asp:DropDownList ID="ddlObservacion" runat="server">
+                    <strong>¿Tiene Observación?</strong><asp:DropDownList ID="ddlObservacion" runat="server" ValidationGroup="0">
                         <asp:ListItem Value="1">Si</asp:ListItem>
                         <asp:ListItem Value="0">No</asp:ListItem>
                     </asp:DropDownList>
@@ -162,6 +163,7 @@
             </div>
 
             <div class="grid-container">
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Visible="False"></asp:Label>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="gridview">
                     <Columns>
                         <asp:BoundField DataField="CodigoTurno" HeaderText="Turno" />

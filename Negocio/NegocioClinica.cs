@@ -151,6 +151,11 @@ namespace Negocio
             return dao.GetHorariosPorLegajo(legajo);         
         }
 
+        public DataTable getHorarioPorMedicoNombre(string nombre)
+        {
+            return dao.getHorariosPorNombre(nombre);
+        }
+
         public DataTable GetPaciente(string DNIbuscado)
         {
             DataTable table = dao.getTablaPaciente(DNIbuscado);
@@ -162,19 +167,39 @@ namespace Negocio
             return dao.existePaciente(dni);
         }
 
+        public bool existePacientePorDni(string dni)
+        {
+            return dao.existePacientePorDni(dni);
+        }
+
         public bool existeIdTurno(string id)
         {
             return dao.existeTurno(id);
         }
-        
+        public bool turnoDadoDebaja(string id)
+        {
+            return dao.turnoDadoDebaja(id);
+        }
+
+
         public bool existeTurnoMedico(string legajo)
         {
             return dao.ExisteTurnoPorMedico(legajo);
         }
 
+        public bool existeTurnoPaciente(string nombre)
+        {
+            return dao.ExisteTurnoPorPaciente(nombre);
+        }
+
         public bool existeMedico(string legajo)
         {
             return dao.existeMedico(legajo);
+        }
+
+        public bool existeMedicoNombre(string nombre)
+        {
+            return dao.existeMedicoNombre(nombre);
         }
 
         public bool CheckLogin(Usuarios user, string rol)

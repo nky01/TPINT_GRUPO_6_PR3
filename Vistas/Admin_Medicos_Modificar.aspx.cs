@@ -84,9 +84,14 @@ namespace Vistas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            hiddenLegajo.Value = txtBuscar.Text.Trim();
-            CargarMedico();
-            CargarHorario();
+            string legajo = txtBuscar.Text;
+            if (!string.IsNullOrEmpty(legajo))
+            {
+                hiddenLegajo.Value = legajo;
+                CargarMedico();
+                CargarHorario();
+            }
+            txtBuscar.Text = "";
         }
 
         protected void gvMedico_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -97,19 +102,30 @@ namespace Vistas
         protected void CargarMedico()
         {
             NegocioClinica negocioClinica = new NegocioClinica();
-            if (txtBuscar.Text == string.Empty)
+            string legajo = hiddenLegajo.Value;
+            if (string.IsNullOrEmpty(legajo)|| !negocioClinica.existeMedico(legajo))
             {
+                gvMedico.DataSource = null;
+                gvMedico.DataBind();
+                lblMensajeError.Text = "No existe ese legajo o está dado de baja.";
+                lblMensajeError.ForeColor = System.Drawing.Color.Red;
+                lblMensajeError.Visible = true;
                 return;
             }
-            gvMedico.DataSource = negocioClinica.GetMedicosPorLegajo(hiddenLegajo.Value);
+            lblMensajeError.Visible = false;
+            lblMensajeError.Text = "";
+            gvMedico.DataSource = negocioClinica.GetMedicosPorLegajo(legajo);
             gvMedico.DataBind();
         }
 
         protected void CargarHorario()
         {
             NegocioClinica negocioClinica = new NegocioClinica();
-            if (txtBuscar.Text == string.Empty)
+            string legajo = hiddenLegajo.Value;
+            if (string.IsNullOrEmpty(legajo) || !negocioClinica.existeMedico(hiddenLegajo.Value))
             {
+                gvHorario.DataSource = null;
+                gvHorario.DataBind();
                 return;
             }
             gvHorario.DataSource = negocioClinica.GetHorarioLegajoMod(hiddenLegajo.Value);
@@ -120,7 +136,7 @@ namespace Vistas
         {
             string legajo = ((Label)gvMedico.Rows[e.RowIndex].FindControl("labelEditMedico")).Text;
             int especialidad = Int32.Parse(((DropDownList)gvMedico.Rows[e.RowIndex].FindControl("ddlEditEspecialidad")).SelectedValue); 
-            string dni = ((TextBox)gvMedico.Rows[e.RowIndex].FindControl("txtEditDNI")).Text;
+            string dni = ((Label)gvMedico.Rows[e.RowIndex].FindControl("lblDniEdit")).Text;
             string nombre = ((TextBox)gvMedico.Rows[e.RowIndex].FindControl("txtEditNombre")).Text;
             string apellido = ((TextBox)gvMedico.Rows[e.RowIndex].FindControl("txtEditApellido")).Text;
             char sexo = Char.Parse(((TextBox)gvMedico.Rows[e.RowIndex].FindControl("txtEditSexo")).Text);

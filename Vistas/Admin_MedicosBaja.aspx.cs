@@ -26,9 +26,16 @@ namespace Vistas
         protected void btnBaja_Click(object sender, EventArgs e)
         {
             NegocioClinica negocio = new NegocioClinica();
+
+            if (!negocio.existeMedico(textboxLegajo.Text.Trim()))
+            {
+                lblExito.Text = "Ese legajo no existe o ya ha sido dado de baja";
+                lblExito.ForeColor = System.Drawing.Color.Red;
+                lblExito.Visible = true;
+                return;
+            }
             bool resultado = negocio.BajaMedicoPorLegajo(textboxLegajo.Text);
             lblExito.Visible = false;
-
             if (resultado)
             {
                 textboxLegajo.Text = string.Empty;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Vistas
 {
@@ -59,28 +60,71 @@ namespace Vistas
             panelEspecialidad.Visible = false;
             panelFecha.Visible = false;
             panelEstado.Visible = false;
+            panelNombre.Visible = false;
+            lblMensaje.Visible = false;
 
-            switch(ddlOpcionesFiltro.SelectedValue)
+
+
+            switch (ddlOpcionesFiltro.SelectedValue)
             {
                 case "Vacio":
                     break;
                 case "ID":
                     panelID.Visible = true;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = false;
                     break;
                 case "Paciente":
-                    panelPaciente.Visible =true;
+                    panelID.Visible = false;
+                    panelPaciente.Visible = true;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = false;
                     break;
                 case "Medico":
-                    panelMedico.Visible =true;
+                    panelID.Visible = false;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = true;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = false;
                     break;
                 case "Especialidad":
-                    panelEspecialidad.Visible=true;
+                    panelID.Visible = false;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = true;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = false;
                     break;
                 case "Fecha":
-                    panelFecha.Visible=true;
+                    panelID.Visible = false;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = true;
+                    panelEstado.Visible = false;
                     break;
                 case "Estado":
-                    panelEstado.Visible=true;
+                    panelID.Visible = false;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = true;
+                    break;
+                case "Nombre":
+                    panelID.Visible = false;
+                    panelPaciente.Visible = false;
+                    panelMedico.Visible = false;
+                    panelEspecialidad.Visible = false;
+                    panelFecha.Visible = false;
+                    panelEstado.Visible = false;
+                    panelNombre.Visible = true;
                     break;
                 default:
                     break;
@@ -94,33 +138,80 @@ namespace Vistas
             gvTurnos.DataBind();
         }
 
+
+
         protected void btnID_Click(object sender, EventArgs e)
         {
             ObtenerTurnosFiltro(txtID.Text.Trim());
+            txtID.Text = "";
         }
 
         protected void btnDNIPac_Click(object sender, EventArgs e)
         {
+            if (!negocio.existePacientePorDni(txtPaciente.Text.Trim()))
+            {
+                lblMensaje.Text = "No existe el paciente";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
+                return;
+            }
             ObtenerTurnosFiltro(txtPaciente.Text.Trim());
+            txtPaciente.Text = "";
+            lblMensaje.Visible = false;
         }
 
         protected void btnMed_Click(object sender, EventArgs e)
         {
             ObtenerTurnosFiltro(txtMedico.Text.Trim());
+            txtMedico.Text = "";
         }
 
         protected void btnEspecialidad_Click(object sender, EventArgs e)
         {
-            ObtenerTurnosFiltro(ddlEspecialidad.SelectedValue);
+            string idEspecialidad = ddlEspecialidad.SelectedValue;
+
+
+            DataTable table = negocio.GetTurnosFiltro("Especialidad", idEspecialidad);
+            
+            if(table.Rows.Count == 0)
+            {
+                gvTurnos.DataSource = null;
+                gvTurnos.DataBind();
+                lblMensaje.Text = "no existen turnos con esa Especialidad";
+                lblMensaje.Visible = true;
+            }
+            else
+            {
+                gvTurnos.DataSource = table;
+                gvTurnos.DataBind();
+                lblMensaje.Visible = false;
+            }
+            ddlEspecialidad.SelectedIndex = 0;
         }
 
         protected void btnFecha_Click(object sender, EventArgs e)
         {
-            ObtenerTurnosFiltro(txtFecha.Text.Trim());
+            DataTable tabla = negocio.GetTurnosFiltro("Fecha", txtFecha.Text.Trim());
+            if(tabla.Rows.Count == 0)
+            {
+                gvTurnos.DataSource = null;
+                gvTurnos.DataBind();
+                lblMensaje.Text = "no existen turnos en esa fecha";
+                lblMensaje.Visible = true;
+            }
+            else
+            {
+                gvTurnos.DataSource = tabla;
+                gvTurnos.DataBind();
+                lblMensaje.Visible = false;
+            }
+
+            txtFecha.Text = "";
         }
         protected void btnEstado_Click(object sender, EventArgs e)
         {
             ObtenerTurnosFiltro(ddlEstado.SelectedValue);
+            ddlEstado.SelectedIndex = 0;
         }
 
         protected void cvID_ServerValidate(object source, ServerValidateEventArgs args)
@@ -146,8 +237,22 @@ namespace Vistas
 
         protected void btnNombre_Click(object sender, EventArgs e)
         {
+            if (!negocio.existeTurnoPaciente(txtNombre.Text.Trim()))
+            {
+                gvTurnos.DataSource = null;
+                gvTurnos.DataBind();
+                lblMensaje.Text = "no existe este paciente";
+                lblMensaje.Visible = true;
+                return;
+            }
            gvTurnos.DataSource = negocio.GetTurnosPorNombre(txtNombre.Text.Trim());
            gvTurnos.DataBind();
+        }
+
+        protected void CerrarBtn_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

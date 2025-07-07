@@ -37,6 +37,7 @@ namespace Vistas
         {
             txtBusqueda.Text = string.Empty;
             textboxNombre.Text = string.Empty;
+            lblPacienteNotFound.Visible = false;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

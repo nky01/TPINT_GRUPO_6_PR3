@@ -84,6 +84,13 @@ namespace Vistas
                     return;
                 }
 
+                if (!neg.existePaciente(turno.getDNI_Paciente()))
+                {
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    lblMensaje.Text = "El paciente esta dado de baja o no existe";
+                    return;
+                }
+
                 int resultado = neg.AgregarTurno(turno);
 
                 if (resultado > 0)
@@ -195,6 +202,12 @@ namespace Vistas
             bool existePaciente = neg.existePaciente(dniIngresado);
 
             args.IsValid = existePaciente;
+        }
+
+        protected void CerrarBtn_Click1(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

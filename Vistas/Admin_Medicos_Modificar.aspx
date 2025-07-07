@@ -97,8 +97,8 @@
             <asp:Label ID="Label19" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar Médico"></asp:Label>
             <asp:Label ID="Label20" runat="server" Text="Ingrese el legajo del medico a modificar:"></asp:Label>
             <asp:TextBox ID="txtBuscar" runat="server" Width="203px"></asp:TextBox>
-            &nbsp;<asp:Button ID="buttonBuscar" runat="server" Text="Buscar" OnClick="Button1_Click" />
-            &nbsp;<asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" CssClass="error-message" ForeColor="Red"></asp:RequiredFieldValidator>
+            &nbsp;<asp:Button ID="buttonBuscar" runat="server" Text="Buscar" OnClick="Button1_Click" ValidationGroup="0" />
+            &nbsp;<asp:RequiredFieldValidator ID="rfvBuscar" runat="server" ControlToValidate="txtBuscar" ErrorMessage="* Ingrese un legajo" CssClass="error-message" ForeColor="Red" ValidationGroup="0"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="revLegajo" runat="server" ControlToValidate="txtBuscar" ErrorMessage="Formato inválido. Use M0001, M0002, etc." CssClass="error-message" ValidationExpression="^M\d{4}$" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:Label ID="lblMensajeError" runat="server" CssClass="error-message"></asp:Label>
             <asp:HiddenField ID="hiddenLegajo" runat="server" />
@@ -122,7 +122,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="DNI">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtEditDNI" runat="server" Text='<%# Bind("DNI_Medico") %>'></asp:TextBox>
+                            <asp:Label ID="lblDniEdit" runat="server" Text='<%# Eval("DNI_Medico") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate><asp:Label ID="labelItemDNI" runat="server" Text='<%# Bind("DNI_Medico") %>'></asp:Label></ItemTemplate>
                     </asp:TemplateField>

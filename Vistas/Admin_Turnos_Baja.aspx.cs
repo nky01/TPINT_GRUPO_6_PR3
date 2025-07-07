@@ -25,7 +25,15 @@ namespace Vistas
 
         protected void cancelarTurnoBtn_Click(object sender, EventArgs e)
         {
+
+            if (!negocio.existeIdTurno(txtID.Text) || negocio.turnoDadoDebaja(txtID.Text))
+            {
+                lblmensaje.ForeColor = System.Drawing.Color.Red;
+                lblmensaje.Text = "El turno no existe o esta dado de baja";
+                return;
+            }
            int filasAfectadas = negocio.BajaTurno(Convert.ToInt32(txtID.Text));
+
             if (filasAfectadas > 0)
             {
                 lblmensaje.ForeColor = System.Drawing.Color.Green;
@@ -36,6 +44,12 @@ namespace Vistas
                 lblmensaje.ForeColor = System.Drawing.Color.Red;
                 lblmensaje.Text = "Error al dar de baja el turno";
             }
+        }
+
+        protected void CerrarBtn_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

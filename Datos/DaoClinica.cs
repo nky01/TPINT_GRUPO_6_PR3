@@ -120,6 +120,27 @@ namespace Datos
             return ds.obtenerTablaConComando(comando, "Horario");
         }
 
+        public DataTable getHorariosPorNombre(string nombre)
+        {
+            string consulta = @"
+                                SELECT 
+                                M.Legajo_Medico AS Legajo,
+                                M.Nombre_Medico + ' ' + M.Apellido_Medico AS Medico,
+                                D.Descripcion_Dia AS Dia, 
+                                CONCAT(H.Hora_Inicio_Horario, ':00') AS HoraInicio, 
+                                CONCAT(H.Hora_Salida_Horario, ':00') AS HoraSalida
+                            FROM Horario H
+                            INNER JOIN Dia D ON H.Id_Dia_Horario = D.Id_Dia
+                            INNER JOIN Medico M ON H.Legajo_Medico_Horario = M.Legajo_Medico
+                            WHERE M.Nombre_Medico = @Nombre
+                        ";
+
+            SqlCommand comando = new SqlCommand(consulta);
+            comando.Parameters.AddWithValue("@Nombre", nombre);
+
+            return ds.obtenerTablaConComando(comando, "Horario");
+        }
+
         public DataTable GetTodosLosHorarios()
         {
             string consulta = @"SELECT 
@@ -417,6 +438,22 @@ namespace Datos
             return ds.existe(consulta, parametros);
         }
 
+        public bool ExisteTurnoPorPaciente(string nombre)
+        {
+            string consulta = @"
+                    SELECT 1 FROM Turno t
+                    INNER JOIN Paciente p
+                    ON T.DNI_Paciente_Turno = p.DNI_Paciente
+                    WHERE P.Nombre_Paciente = @Nombre";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Nombre", nombre)
+            };
+
+            return ds.existe(consulta, parameters);
+        }
+
         public Medico GetMedicoPorUsuarioNombre(string nombreUsuario)
         {
             string consulta = @" SELECT * FROM Medico M
@@ -461,9 +498,8 @@ namespace Datos
                                     INNER JOIN Medico M ON T.Legajo_Medico_Turno = M.Legajo_Medico
                                     INNER JOIN Especialidad E ON T.Id_Especialidad_Turno = E.Id_Especialidad
                                     INNER JOIN Paciente P ON T.DNI_Paciente_Turno = P.DNI_Paciente
-                                    INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia
-                                    WHERE T.Estado_Turno <> 'Cancelado' AND
-                                    ";
+                                    INNER JOIN Dia D ON T.Id_Dia_Turno = D.Id_Dia 
+                                    WHERE ";
             SqlCommand comando = new SqlCommand();
 
             switch(filtro)
@@ -751,9 +787,29 @@ namespace Datos
             return ds.existe(consulta, parameters);
         }
 
+        public bool existePacientePorDni(string dni)
+        {
+            string consulta = "SELECT 1 FROM Paciente WHERE DNI_Paciente = @DNI";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@DNI", dni)
+            };
+            return ds.existe(consulta, parameters);
+        }
+
         public bool existeTurno(string id)
         {
-            string consulta = "SELECT 1 FROM Turno WHERE Id_Turno = @ID";
+            string consulta = "SELECT 1 FROM Turno WHERE Id_Turno = @ID ";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@ID", id)
+            };
+            return ds.existe(consulta, parameters);
+        }
+
+        public bool turnoDadoDebaja(string id)
+        {
+            string consulta = "SELECT 1 FROM Turno WHERE Id_Turno = @ID AND Estado_Turno = 'Cancelado'";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@ID", id)
@@ -764,10 +820,20 @@ namespace Datos
        
         public bool existeMedico(string legajo)
         {
-            string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo";
+            string consulta = "SELECT 1 FROM Medico WHERE Legajo_Medico = @legajo AND Activo_Medico = 1";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@legajo", legajo)
+            };
+            return ds.existe(consulta, parameters);
+        }
+
+        public bool existeMedicoNombre(string nombre)
+        {
+            string consulta = "SELECT 1 FROM Medico WHERE Nombre_Medico = @Nombre";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Nombre", nombre)
             };
             return ds.existe(consulta, parameters);
         }

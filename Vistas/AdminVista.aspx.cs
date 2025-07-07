@@ -42,5 +42,10 @@ namespace Vistas
         {
             Response.Redirect("Admin_Turnos.aspx");
         }
+
+        protected void InformesBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Informes.aspx");
+        }
     }
 }
