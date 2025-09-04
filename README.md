@@ -83,17 +83,17 @@ El sistema permite administrar:
 PINT_GRUPO_6_PR3/
 │
 ├── Entidades/
-│ ├── Clinica.cs # Entidad principal, incluye Turnos y Pacientes
-│ └── Otras entidades .cs # Paciente, Médico, Especialidad, etc.
+│ ├── Clinica.cs
+│ └── Entidades.csproj
 │
 ├── Datos/
-│ ├── AccesoDatos.cs # Conexión y ejecución de queries
-│ ├── DaoClinica.cs # Consultas y operaciones sobre la base
-│ └── Otros .cs # ABML, turnos, reportes
+│ ├── AccesoDatos.cs
+│ ├── DaoClinica.cs
+│ └── Datos.csproj
 │
 ├── Negocio/
-│ ├── NegocioClinica.cs # Lógica de negocio (validaciones, asignación de turnos)
-│ └── Otros gestores .cs # ABML, Login, informes
+│ ├── NegocioClinica.cs
+│ └── Negocio.csproj
 │
 ├── Vistas/
 │ ├── Login/
@@ -107,13 +107,10 @@ PINT_GRUPO_6_PR3/
 │ │ ├── MedicoVista.aspx
 │ │ ├── MedicoTurnos.aspx
 │ │ └── MedicoCargar.aspx
-│ └── Recursos visuales # CSS, imágenes
+│ └── Estilo CSS
 │
 ├── MiraeLogo.png
 ├── Web.config
-├── Entidades.csproj
-├── Datos.csproj
-├── Negocio.csproj
 └── README.md
 ```
 ---
@@ -122,7 +119,7 @@ PINT_GRUPO_6_PR3/
 
 1. Clonar el repositorio o descargar el ZIP del proyecto.
 2. Abrir la solución en Visual Studio.
-3. Configurar la cadena de conexión a SQL Server en `Web.config`.
+3. Configurar la cadena de conexión a SQL Server.
 4. Ejecutar el script de la base de datos para crear y poblar las tablas.
 5. Ejecutar el proyecto (F5) y loguearse como administrador o médico.
 
