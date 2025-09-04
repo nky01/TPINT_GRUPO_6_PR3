@@ -4,7 +4,7 @@
 [![ASP.NET](https://img.shields.io/badge/ASP.NET-512BD4?style=for-the-badge&logo=asp.net&logoColor=white)](https://dotnet.microsoft.com/apps/aspnet) 
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server)
 
-Proyecto desarrollado como **Trabajo Integrador Final de Programación III** – UTN FRGP (1º Cuatrimestre 2025).  
+Proyecto desarrollado como **Trabajo Integrador Final de Programación III** – UTN FRGP (3º Cuatrimestre 2025).  
 Sistema web de gestión clínica para administrar pacientes, médicos y turnos, implementando buenas prácticas de desarrollo y arquitectura en capas.
 
 ---
